@@ -1,0 +1,79 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\repositories\\treinamento-ellevo-next\\curso-aspnet-core-webapi-udemy\\TarefasApi\\TarefasApi\\TarefasApi\\TarefasApi.csproj": {}
+  },
+  "projects": {
+    "C:\\repositories\\treinamento-ellevo-next\\curso-aspnet-core-webapi-udemy\\TarefasApi\\TarefasApi\\TarefasApi\\TarefasApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\repositories\\treinamento-ellevo-next\\curso-aspnet-core-webapi-udemy\\TarefasApi\\TarefasApi\\TarefasApi\\TarefasApi.csproj",
+        "projectName": "TarefasApi",
+        "projectPath": "C:\\repositories\\treinamento-ellevo-next\\curso-aspnet-core-webapi-udemy\\TarefasApi\\TarefasApi\\TarefasApi\\TarefasApi.csproj",
+        "packagesPath": "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\",
+        "outputPath": "C:\\repositories\\treinamento-ellevo-next\\curso-aspnet-core-webapi-udemy\\TarefasApi\\TarefasApi\\TarefasApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.123, )"
+            },
+            "Dapper.Contrib": {
+              "target": "Package",
+              "version": "[2.0.78, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
