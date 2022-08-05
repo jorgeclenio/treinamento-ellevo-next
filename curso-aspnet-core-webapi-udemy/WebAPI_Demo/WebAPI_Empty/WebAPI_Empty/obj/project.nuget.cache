@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "dgSpecHash": "HVY1u8t3QM5feHWuzinxFV3rfaMpyeBc59iQUljxBXRgWZydYuinsnINylyU4EWFWChOvJjrBCujmYk0jKK6zQ==",
+  "success": true,
+  "projectFilePath": "C:\\repositories\\treinamento-ellevo-next\\curso-aspnet-core-webapi-udemy\\WebAPI_Demo\\WebAPI_Empty\\WebAPI_Empty\\WebAPI_Empty.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.0.0-preview5-19227-01\\microsoft.aspnetcore.jsonpatch.3.0.0-preview5-19227-01.nupkg.sha512",
+    "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.0.0-preview5-19227-01\\microsoft.aspnetcore.mvc.newtonsoftjson.3.0.0-preview5-19227-01.nupkg.sha512",
+    "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.csharp\\4.6.0-preview5.19224.8\\microsoft.csharp.4.6.0-preview5.19224.8.nupkg.sha512",
+    "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\newtonsoft.json\\12.0.1\\newtonsoft.json.12.0.1.nupkg.sha512",
+    "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}
