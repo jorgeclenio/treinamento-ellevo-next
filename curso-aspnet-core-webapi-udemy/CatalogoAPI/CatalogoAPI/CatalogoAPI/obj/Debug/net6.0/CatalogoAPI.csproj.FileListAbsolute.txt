@@ -33,3 +33,10 @@ C:\repositories\treinamento-ellevo-next\curso-aspnet-core-webapi-udemy\CatalogoA
 C:\repositories\treinamento-ellevo-next\curso-aspnet-core-webapi-udemy\CatalogoAPI\CatalogoAPI\CatalogoAPI\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
 C:\repositories\treinamento-ellevo-next\curso-aspnet-core-webapi-udemy\CatalogoAPI\CatalogoAPI\CatalogoAPI\bin\Debug\net6.0\MySqlConnector.dll
 C:\repositories\treinamento-ellevo-next\curso-aspnet-core-webapi-udemy\CatalogoAPI\CatalogoAPI\CatalogoAPI\bin\Debug\net6.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\repositories\treinamento-ellevo-next\curso-aspnet-core-webapi-udemy\CatalogoAPI\CatalogoAPI\CatalogoAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\repositories\treinamento-ellevo-next\curso-aspnet-core-webapi-udemy\CatalogoAPI\CatalogoAPI\CatalogoAPI\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\repositories\treinamento-ellevo-next\curso-aspnet-core-webapi-udemy\CatalogoAPI\CatalogoAPI\CatalogoAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\repositories\treinamento-ellevo-next\curso-aspnet-core-webapi-udemy\CatalogoAPI\CatalogoAPI\CatalogoAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\repositories\treinamento-ellevo-next\curso-aspnet-core-webapi-udemy\CatalogoAPI\CatalogoAPI\CatalogoAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\repositories\treinamento-ellevo-next\curso-aspnet-core-webapi-udemy\CatalogoAPI\CatalogoAPI\CatalogoAPI\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\repositories\treinamento-ellevo-next\curso-aspnet-core-webapi-udemy\CatalogoAPI\CatalogoAPI\CatalogoAPI\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
