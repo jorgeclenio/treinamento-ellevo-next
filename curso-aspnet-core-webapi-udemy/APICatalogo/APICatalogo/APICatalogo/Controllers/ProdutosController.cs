@@ -1,4 +1,5 @@
 ﻿using APICatalogo.Context;
+using APICatalogo.Filters;
 using APICatalogo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
@@ -17,7 +18,9 @@ namespace APICatalogo.Controllers
             _context = context;
         }
 
+        // api/produtos
         [HttpGet]
+        [ServiceFilter(typeof(ApiLoggingFilter))]
         public ActionResult<IEnumerable<Produto>> Get()
         {
             var produtos = _context.Produtos.ToList();
@@ -32,6 +35,11 @@ namespace APICatalogo.Controllers
         [HttpGet("{id}", Name = "ObterProduto")]
         public async Task<ActionResult<Produto>> Get([FromQuery]int id)
         {
+            /*throw new Exception("Exception ao retornar produto pelo ID.");*/
+            /*string[] teste = null;
+            if (teste.Length > 0)
+            { }*/
+
             var produto = await _context.Produtos.AsNoTracking()
                 .FirstOrDefaultAsync(p => p.ProdutoId == id);
             
