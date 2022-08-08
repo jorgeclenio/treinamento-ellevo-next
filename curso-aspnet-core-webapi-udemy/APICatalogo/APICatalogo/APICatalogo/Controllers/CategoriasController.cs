@@ -12,11 +12,13 @@ namespace APICatalogo.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IConfiguration _configuration;
+        private readonly ILogger _logger;
 
-        public CategoriasController(AppDbContext context, IConfiguration config)
+        public CategoriasController(AppDbContext context, IConfiguration config, ILogger<CategoriasController> logger)
         {
             _context = context;
             _configuration = config;
+            _logger = logger;
         }
 
         [HttpGet("autor")]
@@ -37,7 +39,9 @@ namespace APICatalogo.Controllers
         [HttpGet("produtos")]
         public ActionResult<IEnumerable<Categoria>> GetCategoriasProdutos()
         {
-            return _context.Categorias.Include(p=> p.Produtos).ToList();
+            _logger.LogInformation("====================> GET api/categorias/produtos <====================");
+
+            return _context.Categorias.Include(p => p.Produtos).ToList();
         }
 
         [HttpGet]
