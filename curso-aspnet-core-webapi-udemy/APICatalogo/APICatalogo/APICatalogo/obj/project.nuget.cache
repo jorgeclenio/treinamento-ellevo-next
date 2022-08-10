@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DL4FFQZ8IuFI6IkMh89GgGxQrXXEPsKV3hLTTZiYvrWvkHYupOvPPgqQqCP9HbAWgsX/4Pih/O4nV7+n9WkS2w==",
+  "dgSpecHash": "1gAxyLhKGPJ4CjEgFz8wquSD1r+o31Rk7tzp+TLfwqwOWT0HLyK7lVBGF2dMfNyGe2soHsnKquvQZp6lPgQh+g==",
   "success": true,
   "projectFilePath": "C:\\repositories\\treinamento-ellevo-next\\curso-aspnet-core-webapi-udemy\\APICatalogo\\APICatalogo\\APICatalogo\\APICatalogo.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,7 @@
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",
+    "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.8\\microsoft.aspnetcore.authentication.jwtbearer.6.0.8.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.8\\microsoft.aspnetcore.cryptography.internal.6.0.8.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.8\\microsoft.aspnetcore.cryptography.keyderivation.6.0.8.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.8\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.8.nupkg.sha512",
@@ -61,8 +62,8 @@
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.22.0\\microsoft.identitymodel.abstractions.6.22.0.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.22.0\\microsoft.identitymodel.jsonwebtokens.6.22.0.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.identitymodel.logging\\6.22.0\\microsoft.identitymodel.logging.6.22.0.nupkg.sha512",
-    "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.8.0\\microsoft.identitymodel.protocols.6.8.0.nupkg.sha512",
-    "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.8.0\\microsoft.identitymodel.protocols.openidconnect.6.8.0.nupkg.sha512",
+    "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.identitymodel.protocols\\6.10.0\\microsoft.identitymodel.protocols.6.10.0.nupkg.sha512",
+    "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.10.0\\microsoft.identitymodel.protocols.openidconnect.6.10.0.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.22.0\\microsoft.identitymodel.tokens.6.22.0.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.net.stringtools\\1.0.0\\microsoft.net.stringtools.1.0.0.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
