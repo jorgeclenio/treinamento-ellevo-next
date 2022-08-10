@@ -13,8 +13,6 @@ C:\repositories\treinamento-ellevo-next\task-control\TaskControl.Backend\TaskCon
 C:\repositories\treinamento-ellevo-next\task-control\TaskControl.Backend\TaskControl.Backend\obj\Debug\netcoreapp3.1\TaskControl.Backend.csproj.CoreCompileInputs.cache
 C:\repositories\treinamento-ellevo-next\task-control\TaskControl.Backend\TaskControl.Backend\obj\Debug\netcoreapp3.1\TaskControl.Backend.MvcApplicationPartsAssemblyInfo.cache
 C:\repositories\treinamento-ellevo-next\task-control\TaskControl.Backend\TaskControl.Backend\obj\Debug\netcoreapp3.1\staticwebassets\TaskControl.Backend.StaticWebAssets.Manifest.cache
-C:\repositories\treinamento-ellevo-next\task-control\TaskControl.Backend\TaskControl.Backend\obj\Debug\netcoreapp3.1\staticwebassets\TaskControl.Backend.StaticWebAssets.xml
-C:\repositories\treinamento-ellevo-next\task-control\TaskControl.Backend\TaskControl.Backend\obj\Debug\netcoreapp3.1\scopedcss\bundle\TaskControl.Backend.styles.css
 C:\repositories\treinamento-ellevo-next\task-control\TaskControl.Backend\TaskControl.Backend\obj\Debug\netcoreapp3.1\TaskControl.Backend.RazorTargetAssemblyInfo.cache
 C:\repositories\treinamento-ellevo-next\task-control\TaskControl.Backend\TaskControl.Backend\obj\Debug\netcoreapp3.1\TaskControl.Backend.dll
 C:\repositories\treinamento-ellevo-next\task-control\TaskControl.Backend\TaskControl.Backend\obj\Debug\netcoreapp3.1\TaskControl.Backend.pdb
@@ -44,3 +42,8 @@ C:\repositories\treinamento-ellevo-next\task-control\TaskControl.Backend\TaskCon
 C:\repositories\treinamento-ellevo-next\task-control\TaskControl.Backend\TaskControl.Backend\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Security.AccessControl.dll
 C:\repositories\treinamento-ellevo-next\task-control\TaskControl.Backend\TaskControl.Backend\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 C:\repositories\treinamento-ellevo-next\task-control\TaskControl.Backend\TaskControl.Backend\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
+C:\repositories\treinamento-ellevo-next\task-control\TaskControl.Backend\TaskControl.Backend\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\repositories\treinamento-ellevo-next\task-control\TaskControl.Backend\TaskControl.Backend\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\repositories\treinamento-ellevo-next\task-control\TaskControl.Backend\TaskControl.Backend\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\repositories\treinamento-ellevo-next\task-control\TaskControl.Backend\TaskControl.Backend\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\repositories\treinamento-ellevo-next\task-control\TaskControl.Backend\TaskControl.Backend\obj\Debug\netcoreapp3.1\TaskControl.Backend.MvcApplicationPartsAssemblyInfo.cs
