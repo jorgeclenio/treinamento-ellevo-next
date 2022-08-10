@@ -26,6 +26,7 @@ public class Produto : IValidatableObject
     public string? Descricao { get; set; }
 
     [Required]
+    [DataType(DataType.Currency)]
     [Column(TypeName = "decimal(10,2)")]
     /*[Required]
     [Range(1, 10000, ErrorMessage = "O preço deve estar entre {1} e {2}")]*/
