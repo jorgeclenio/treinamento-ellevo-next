@@ -16,7 +16,7 @@ namespace APICatalogo.Repository
             //    .Take(produtosParameters.PageSize)
             //    .ToList();
 
-            return PagedList<Produto>.ToPagedList(Get().OrderBy(on => on.CategoriaId),
+            return PagedList<Produto>.ToPagedList(Get().OrderBy(on => on.ProdutoId),
                 produtosParameters.PageNumber, produtosParameters.PageSize); 
         }
 
