@@ -1,8 +1,10 @@
 ﻿using APICatalogo.DTOs;
 using APICatalogo.Models;
+using APICatalogo.Pagination;
 using APICatalogo.Repository;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace APICatalogo.Controllers
 {
@@ -30,20 +32,33 @@ namespace APICatalogo.Controllers
 
         // api/produtos
         [HttpGet]
-        public ActionResult<IEnumerable<ProdutoDTO>> Get()
+        public ActionResult<IEnumerable<ProdutoDTO>>
+            Get([FromQuery] ProdutosParameters produtoParameters)
         {
-            var produtos = _uof.ProdutoRepository.Get().ToList();
-            var produtosDto = _mapper.Map<List<ProdutoDTO>>(produtos);
+            var produtos = _uof.ProdutoRepository.GetProdutos(produtoParameters);
 
+            var metadata = new
+            {
+                produtos.TotalCount,
+                produtos.PageSize,
+                produtos.CurrentPage,
+                produtos.TotalPages,
+                produtos.HasNext,
+                produtos.HasPrevious,
+            };
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(metadata));
+
+            var produtosDto = _mapper.Map<List<ProdutoDTO>>(produtos);
             return produtosDto;
         }
 
         // api/produtos/1
         [HttpGet("{id}", Name = "ObterProduto")]
-        public ActionResult<ProdutoDTO> Get([FromQuery]int id)
+        public ActionResult<ProdutoDTO> Get([FromQuery] int id)
         {
             var produto = _uof.ProdutoRepository.GetById(p => p.ProdutoId == id);
-            
+
             if (produto is null)
             {
                 return NotFound("Produto não encontrado...");
@@ -55,7 +70,7 @@ namespace APICatalogo.Controllers
 
         // api/produtos
         [HttpPost]
-        public ActionResult Post([FromBody]ProdutoDTO produtoDto)
+        public ActionResult Post([FromBody] ProdutoDTO produtoDto)
         {
             var produto = _mapper.Map<Produto>(produtoDto);
 
