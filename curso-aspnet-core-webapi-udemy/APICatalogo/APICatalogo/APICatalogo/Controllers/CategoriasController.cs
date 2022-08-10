@@ -1,9 +1,9 @@
-﻿using APICatalogo.Context;
+﻿using APICatalogo.DTOs;
 using APICatalogo.Models;
 using APICatalogo.Repository;
 using APICatalogo.Services;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace APICatalogo.Controllers
 {
@@ -13,20 +13,21 @@ namespace APICatalogo.Controllers
     {
         private readonly IUnitOfWork _context;
         private readonly IConfiguration _configuration;
-        private readonly ILogger _logger;
+        private readonly IMapper _mapper;
 
-        public CategoriasController(IUnitOfWork context, IConfiguration config, ILogger<CategoriasController> logger)
+        public CategoriasController(IUnitOfWork context, IConfiguration config, IMapper mapper)
         {
             _context = context;
             _configuration = config;
-            _logger = logger;
+            _mapper = mapper;
         }
 
         [HttpGet("produtos")]
-        public ActionResult<IEnumerable<Categoria>> GetCategoriasProdutos()
+        public ActionResult<IEnumerable<CategoriaDTO>> GetCategoriasProdutos()
         {
-            _logger.LogInformation("====================> GET api/categorias/produtos <====================");
-            return _context.CategoriaRepository.GetCategoriasProdutos().ToList();
+            var categorias = _context.CategoriaRepository.GetCategoriasProdutos().ToList();
+            var categoriasDto = _mapper.Map<List<CategoriaDTO>>(categorias);
+            return categoriasDto;
         }
 
         [HttpGet("autor")]
@@ -34,7 +35,6 @@ namespace APICatalogo.Controllers
         {
             var autor = _configuration["autor"];
             var conexao = _configuration["ConnectionStrings:DefaultConnetion"];
-
             return $"Autor: {autor} \nConexão: {conexao}";
         }
 
@@ -45,69 +45,65 @@ namespace APICatalogo.Controllers
         }
 
         [HttpGet]
-        public ActionResult<IEnumerable<Categoria>> Get()
+        public ActionResult<IEnumerable<CategoriaDTO>> Get()
         {
-            return _context.CategoriaRepository.Get().ToList();
+            var categorias = _context.CategoriaRepository.Get().ToList();
+            var categoriasDto = _mapper.Map<List<CategoriaDTO>>(categorias);
+            return categoriasDto;
         }
 
-        [HttpGet("{id:int}", Name = "ObterCategoria")]
-        public ActionResult<Categoria> Get(int id)
+        [HttpGet("{id}", Name = "ObterCategoria")]
+        public ActionResult<CategoriaDTO> Get(int id)
         {
-            try
-            {
-                var categoria = _context.CategoriaRepository.GetById(p => p.CategoriaId == id);
+            var categoria = _context.CategoriaRepository.GetById(p => p.CategoriaId == id);
 
-                if (categoria == null)
-                {
-                    return NotFound($"Categoria com ID = {id} não encontrada.");
-                }
-                return categoria;
-            }
-            catch (Exception)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError,
-                    "Ocorreu um problema ao tratar a sua solicitação.");
-            }
+            if (categoria == null)
+                return NotFound();
+
+            var categoriaDto = _mapper.Map<CategoriaDTO>(categoria);
+            return categoriaDto;
         }
 
         [HttpPost]
-        public ActionResult Post([FromBody] Categoria categoria)
+        public ActionResult Post([FromBody] CategoriaDTO categoriaDto)
         {
+            var categoria = _mapper.Map<Categoria>(categoriaDto);
+
             _context.CategoriaRepository.Add(categoria);
             _context.Commit();
 
+            var categoriaDTO = _mapper.Map<CategoriaDTO>(categoria);
+
             return new CreatedAtRouteResult("ObterCategoria",
-                new { id = categoria.CategoriaId }, categoria);
+                new { id = categoria.CategoriaId }, categoriaDTO);
         }
 
         [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody]  Categoria categoria)
+        public ActionResult Put(int id, [FromBody] CategoriaDTO categoriaDto)
         {
-            if (id != categoria.CategoriaId)
-            {
+            if (id != categoriaDto.CategoriaId)
                 return BadRequest();
-            }
+
+            var categoria = _mapper.Map<Categoria>(categoriaDto);
 
             _context.CategoriaRepository.Update(categoria);
             _context.Commit();
-
-            return Ok(categoria);
+            return Ok();
         }
 
         [HttpDelete("{id}")]
-        public ActionResult Delete(int id)
+        public ActionResult<CategoriaDTO> Delete(int id)
         {
-            var categoria = _context.CategoriaRepository.GetById(c => c.CategoriaId == id);
+            var categoria = _context.CategoriaRepository.GetById(p => p.CategoriaId == id);
 
             if (categoria == null)
-            {
-                return NotFound("Categoria não encontrada.");
-            }
+                return NotFound();
 
             _context.CategoriaRepository.Delete(categoria);
             _context.Commit();
 
-            return Ok(categoria);
+            var categoriaDto = _mapper.Map<CategoriaDTO>(categoria);
+            return categoriaDto;
         }
     }
 }

@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "0XUK3n4RuRqi5FluFta6zsflTKi/s55l3WreSeDhEDIMh/I3jJvRYOInncwwTmJL1N5Pys4bvwsR4tbG+1I4AA==",
+  "dgSpecHash": "YC1Lu6Xy8l/H9tiVWSAXddJpjLsX1IFmLAYyNUpZguJElK2F+jsxrZiTtyUVdI/orYeMmm5rti5LQBvwhhVqjA==",
   "success": true,
   "projectFilePath": "C:\\repositories\\treinamento-ellevo-next\\curso-aspnet-core-webapi-udemy\\APICatalogo\\APICatalogo\\APICatalogo\\APICatalogo.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
@@ -28,7 +30,7 @@
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.codeanalysis.visualbasic.workspaces\\4.0.0\\microsoft.codeanalysis.visualbasic.workspaces.4.0.0.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.codeanalysis.workspaces.common\\4.0.0\\microsoft.codeanalysis.workspaces.common.4.0.0.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.codeanalysis.workspaces.msbuild\\4.0.0\\microsoft.codeanalysis.workspaces.msbuild.4.0.0.nupkg.sha512",
-    "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.diasymreader\\1.3.0\\microsoft.diasymreader.1.3.0.nupkg.sha512",
