@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "14WTeb2ZcYeJFoubLhAjMQiYyvhLVjEy0L3kYrxhG5zTByd/4j0NBMjW/oiPohY7YcfGx71Ex/M4Cri7u8SinQ==",
+  "success": true,
+  "projectFilePath": "C:\\repositories\\treinamento-ellevo-next\\task-control\\taskControl-backend\\TaskControl.Backend\\TaskControl.Backend\\TaskControl.Backend.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}
