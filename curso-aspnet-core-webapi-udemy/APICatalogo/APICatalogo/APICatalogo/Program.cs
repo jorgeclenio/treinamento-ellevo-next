@@ -32,23 +32,23 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 // JWT
 // adiciona o manipulador de autenticacao e define o 
-// esquema de autenticacao usado: bearer
+// esquema de autenticacao usado : Bearer
 // valida o emissor, a audiencia e a chave
-// usando a chave secreta valida a assinatura.
+// usando a chave secreta valida a assinatura
 builder.Services.AddAuthentication(
     JwtBearerDefaults.AuthenticationScheme).
     AddJwtBearer(options =>
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateLifetime = true,
-            ValidAudience = builder.Configuration["TokenConfiguration:Audience"],
-            ValidIssuer = builder.Configuration["TokenConfiguration:Issuer"],
-            ValidateIssuerSigningKey = true,
-            IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:key"]))
-        });
+     options.TokenValidationParameters = new TokenValidationParameters
+     {
+         ValidateIssuer = true,
+         ValidateAudience = true,
+         ValidateLifetime = true,
+         ValidAudience = builder.Configuration["TokenConfiguration:Audience"],
+         ValidIssuer = builder.Configuration["TokenConfiguration:Issuer"],
+         ValidateIssuerSigningKey = true,
+         IssuerSigningKey = new SymmetricSecurityKey(
+             Encoding.UTF8.GetBytes(builder.Configuration["Jwt:key"]))
+     });
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
@@ -78,14 +78,20 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.ConfigureExceptionHandler();
+//adiciona o middleware de tratamento de erros
+//app.ConfigureExceptionHandler();
 
+//adiciona o middleware para redirecionar para https
 app.UseHttpsRedirection();
 
+//adiciona o middleware de roteamento 
 app.UseRouting();
-app.UseAuthorization();
+
+//adiciona o middleware de autenticacao
+app.UseAuthentication();
+
+//adiciona o middleware que habilita a autorizacao
 app.UseAuthorization();
 
 app.MapControllers();
-
 app.Run();

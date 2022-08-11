@@ -6,7 +6,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace APICatalogo.Controllers
+namespace ApiCatalogo.Controllers
 {
     [Route("api/[Controller]")]
     [ApiController]
@@ -17,8 +17,7 @@ namespace APICatalogo.Controllers
         private readonly IConfiguration _configuration;
 
         public AutorizaController(UserManager<IdentityUser> userManager,
-                                  SignInManager<IdentityUser> signInManager,
-                                  IConfiguration configuration)
+            SignInManager<IdentityUser> signInManager, IConfiguration configuration)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -28,7 +27,8 @@ namespace APICatalogo.Controllers
         [HttpGet]
         public ActionResult<string> Get()
         {
-            return "AutorizaControlle ::Acessado em : " + DateTime.Now.ToLongDateString();
+            return "AutorizaController ::  Acessado em  : "
+               + DateTime.Now.ToLongDateString();
         }
 
         [HttpPost("register")]
@@ -60,13 +60,13 @@ namespace APICatalogo.Controllers
         [HttpPost("login")]
         public async Task<ActionResult> Login([FromBody] UsuarioDTO userInfo)
         {
-            // verifica se o modelo é válido
+            //verifica se o modelo é válido
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState.Values.SelectMany(e => e.Errors));
             }
 
-            // verifica as credenciais do usuário e retorna um valor
+            //verifica as credenciais do usuário e retorna um valor
             var result = await _signInManager.PasswordSignInAsync(userInfo.Email,
                 userInfo.Password, isPersistent: false, lockoutOnFailure: false);
 
@@ -76,46 +76,47 @@ namespace APICatalogo.Controllers
             }
             else
             {
-                ModelState.AddModelError(string.Empty, "Login inválido.");
+                ModelState.AddModelError(string.Empty, "Login Inválido....");
                 return BadRequest(ModelState);
             }
         }
 
-        public UsuarioToken GeraToken(UsuarioDTO userInfo)
+        private UsuarioToken GeraToken(UsuarioDTO userInfo)
         {
-            // define declaracoes do usuario
+            // define declarações do usuário
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.UniqueName, userInfo.Email),
-                new Claim("meuPet", "pipoca"),
-                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            };
+                 new Claim(JwtRegisteredClaimNames.UniqueName, userInfo.Email),
+                 new Claim("meuPet", "pipoca"),
+                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+             };
 
             // gera uma chave com base em um algoritmo simetrico
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:key"]));
-
+            var key = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(_configuration["Jwt:key"]));
             // gera a assinatura digital do token usando o algoritmo Hmac e a chave privada
             var credenciais = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
-            // tempo de expiracao do token
+            // tempo de expiracão do token.
             var expiracao = _configuration["TokenConfiguration:ExpireHours"];
             var expiration = DateTime.UtcNow.AddHours(double.Parse(expiracao));
 
             // classe que representa um token JWT e gera o token
             JwtSecurityToken token = new JwtSecurityToken(
-                issuer: _configuration["TokenConfiguration:Issuer"],
-                audience: _configuration["TokenConfiguration:Audience"],
-                claims: claims,
-                expires:  expiration,
-                signingCredentials: credenciais);
+              issuer: _configuration["TokenConfiguration:Issuer"],
+              audience: _configuration["TokenConfiguration:Audience"],
+              claims: claims,
+              expires: expiration,
+              signingCredentials: credenciais);
 
+            // retorna os dados com o token e informacoes
             return new UsuarioToken()
             {
                 Authenticated = true,
                 Token = new JwtSecurityTokenHandler().WriteToken(token),
                 Expiration = expiration,
                 Message = "Token JWT OK"
-            };
+            }; //
         }
     }
 }
