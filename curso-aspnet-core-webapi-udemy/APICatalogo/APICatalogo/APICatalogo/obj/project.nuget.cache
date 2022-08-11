@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "1gAxyLhKGPJ4CjEgFz8wquSD1r+o31Rk7tzp+TLfwqwOWT0HLyK7lVBGF2dMfNyGe2soHsnKquvQZp6lPgQh+g==",
+  "dgSpecHash": "D8bw4c9BiCHq70KdzEUciuYNBQt99nNi6h8m9e+IrNKMDpvfM8I4pj2xeZkh+vVkLPvpiOpfd6CKZRevvI1lFw==",
   "success": true,
   "projectFilePath": "C:\\repositories\\treinamento-ellevo-next\\curso-aspnet-core-webapi-udemy\\APICatalogo\\APICatalogo\\APICatalogo\\APICatalogo.csproj",
   "expectedPackageFiles": [
@@ -14,6 +14,7 @@
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.8\\microsoft.aspnetcore.cryptography.internal.6.0.8.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.8\\microsoft.aspnetcore.cryptography.keyderivation.6.0.8.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\6.0.8\\microsoft.aspnetcore.identity.entityframeworkcore.6.0.8.nupkg.sha512",
+    "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.0.0\\microsoft.aspnetcore.mvc.versioning.5.0.0.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.0\\microsoft.aspnetcore.razor.language.6.0.0.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
     "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\microsoft.build\\17.0.0\\microsoft.build.17.0.0.nupkg.sha512",
