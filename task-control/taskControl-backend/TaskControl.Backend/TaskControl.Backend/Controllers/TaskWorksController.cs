@@ -9,7 +9,7 @@ namespace TaskControl.Backend.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            return Ok("Task Works!");
+            return Ok("Task Works on backend!");
         }
     }
 }
