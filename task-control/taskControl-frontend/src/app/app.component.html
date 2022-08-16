@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<!-- BEGIN HEADER -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container">
     <a class="navbar-brand"> Task Control </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -8,19 +9,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#"> Home </a>
+          <a class="nav-link active" aria-current="page" href="#"> Usuários </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#"> Link </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Disabled</a>
+          <a class="nav-link" href="#"> Tarefas </a>
         </li>
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Jorge Clênio
+            Usuário
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="#"> Logout </a></li>
@@ -30,3 +28,25 @@
     </div>
   </div>
 </nav>
+<!-- END HEADER -->
+
+<div class="container mg-top-20px">
+  <nav>
+    <button type="button" class="btn btn-primary">
+      <a class="text-reset text-decoration-none" routerLink="/login" routerLinkActive="active"> Login </a>
+    </button>
+  </nav>
+  <router-outlet></router-outlet>
+</div>
+
+<!-- BEGIN FOOTER -->
+<!-- <nav class="fixed-bottom">
+  <div class="container">
+    <footer class="text-center text-lg-center">
+      <div class="col-sm-12 text-center text-footer p-4" style="font-size: 12px;">
+        <span> &copy; - 2022 </span>
+      </div>
+    </footer>
+  </div>
+</nav> -->
+<!-- END FOOTER -->
