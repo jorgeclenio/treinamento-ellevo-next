@@ -6,8 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tasks.component.scss']
 })
 export class TasksComponent implements OnInit {
-
-  public title: string = "Tasks";
+  public title: string = "Registered tasks";
 
   constructor() { }
 

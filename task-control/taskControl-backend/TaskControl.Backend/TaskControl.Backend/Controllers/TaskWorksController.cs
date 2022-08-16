@@ -3,15 +3,13 @@
 namespace TaskControl.Backend.Controllers
 {
     [ApiController]
-    [Route("TaskWorks")]
+    [Route("TaskControl")]
     public class TaskWorksController : Controller
     {
         [HttpGet]
         public IActionResult Index()
         {
-            var taskWorks = "Task Works!";
-            
-            return Ok(taskWorks);
+            return Ok("Task Works!");
         }
     }
 }
