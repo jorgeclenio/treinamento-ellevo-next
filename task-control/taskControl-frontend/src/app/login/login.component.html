@@ -1,2 +1,22 @@
-<app-title [title]="title"></app-title>
-<h4> login works! </h4>
+<!-- <app-title [title]="title"></app-title> -->
+<!-- <h4> login works! </h4> -->
+
+<div class="form-box position-absolute top-50 start-50 translate-middle">
+  <div class="text-center">
+    <h1> Task Control </h1>
+    <br>
+  </div>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+  </div>
+  <div class="input-group mb-3">
+    <input type="password" class="form-control" placeholder="Password" aria-label="Password">
+  </div>
+  <div class="d-grid gap-2">
+    <button type="button" class="btn btn-primary">
+
+      <a class="dropdown-item" routerLink="/home"> LOG IN  </a>
+    </button>
+
+  </div>
+</div>
