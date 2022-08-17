@@ -4,12 +4,12 @@ import { Routes, RouterModule } from "@angular/router";
 import { LoginComponent } from "./login/login.component";
 import { UsersComponent } from "./users/users.component";
 import { TasksComponent } from "./tasks/tasks.component";
-import { HomeComponent } from "./home/home.component";
+import { DashboardComponent } from "./dashboard/dashboard.component";
 import { ProfileComponent } from "./profile/profile.component";
 
 const routes: Routes = [
-  { path: "", redirectTo: "/home", pathMatch: "full" },
-  { path: "home", component: HomeComponent },
+  { path: "", redirectTo: "/dashboard", pathMatch: "full" },
+  { path: "dashboard", component: DashboardComponent },
   { path: "login", component: LoginComponent },
   { path: "profile", component: ProfileComponent },
   { path: "tasks", component: TasksComponent },

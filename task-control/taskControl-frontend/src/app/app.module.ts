@@ -5,7 +5,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HttpClientModule } from "@angular/common/http"
 
-import { HomeComponent } from "./home/home.component";
+import { DashboardComponent } from "./dashboard/dashboard.component";
 import { LoginComponent } from "./login/login.component";
 import { NavComponent } from "./nav/nav.component";
 import { ProfileComponent } from "./profile/profile.component";
@@ -17,7 +17,7 @@ import { TitleComponent } from './title/title.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
+    DashboardComponent,
     LoginComponent,
     NavComponent,
     ProfileComponent,
