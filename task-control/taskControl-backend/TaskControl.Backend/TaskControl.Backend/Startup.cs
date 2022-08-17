@@ -3,7 +3,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using TaskControl.Backend.Models;
+using TaskControl.Backend.Services;
+using AutoMapper;
+using System;
 
 namespace TaskControl.Backend
 {
@@ -19,6 +24,19 @@ namespace TaskControl.Backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // transição da interface para a classe;
+            services.AddTransient<ITaskService, TaskService>();
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            // database;
+            services.Configure<TaskControlDbDatabaseSettings>(
+                Configuration.GetSection(nameof(TaskControlDbDatabaseSettings)));
+
+            services.AddSingleton<ITaskControlDbDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<TaskControlDbDatabaseSettings>>().Value);
+
+            // controllers;
             services.AddControllers();
 
             // swagger;
@@ -30,10 +48,10 @@ namespace TaskControl.Backend
             // cors calling frontend;
             services.AddCors(options =>
             {
-                options.AddDefaultPolicy( policy => 
-                {
-                    policy.WithOrigins("http://localhost:4200");
-                });
+                options.AddDefaultPolicy(policy =>
+               {
+                   policy.WithOrigins("http://localhost:4200");
+               });
             });
         }
 
