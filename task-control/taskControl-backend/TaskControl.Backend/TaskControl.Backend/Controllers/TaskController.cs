@@ -7,23 +7,20 @@ using TaskControl.Backend.Services;
 namespace TaskControl.Backend.Controllers
 {
     [ApiController]
-    [Route("TaskControl")]
+    [Route("Task")]
     public class TaskController : Controller
     {
-        // injeção de dependencias do TaskService;
-        private readonly ITaskService _taskService;
+        private readonly ITaskAppService _taskService;
 
-        // construtor da classe;
-        public TaskController(ITaskService taskService)
+        public TaskController(ITaskAppService taskService)
         {
             _taskService = taskService;
         }
-        // fim injeção;
 
         [HttpPost]
-        public async Task<IActionResult> CreateTask([FromBody] AddTaskModels taskModels)
+        public async Task<IActionResult> CreateTask([FromBody] AddTaskModel taskModels)
         {
-            return Ok(await _taskService.Create(taskModels));
+            return Ok(await _taskService.CreateTask(taskModels));
         }
 
         [HttpGet]
@@ -44,6 +41,5 @@ namespace TaskControl.Backend.Controllers
             _taskService.DeleteTask(new ObjectId(taskId));
             return NoContent();
         }
-
     }
 }

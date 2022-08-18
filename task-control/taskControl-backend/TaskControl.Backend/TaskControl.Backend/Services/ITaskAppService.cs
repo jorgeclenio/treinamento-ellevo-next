@@ -7,11 +7,11 @@ using TaskControl.Backend.Models;
 
 namespace TaskControl.Backend.Services
 {
-    public interface ITaskService
+    public interface ITaskAppService
     {
-        Task<TaskEntity> Create(AddTaskModels addTaskModel);
-        List<TaskModels> GetAllTasks();
-        TaskModels GetTaskById(ObjectId taskId);
+        Task<TaskEntity> CreateTask(AddTaskModel addTaskModel);
+        List<TaskModel> GetAllTasks();
+        TaskModel GetTaskById(ObjectId taskId);
         DeleteResult DeleteTask(ObjectId taskId);
     }
 }

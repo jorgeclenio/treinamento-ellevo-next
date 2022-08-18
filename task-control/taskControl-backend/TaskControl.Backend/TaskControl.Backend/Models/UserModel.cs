@@ -3,7 +3,7 @@ using MongoDB.Bson.Serialization.Attributes;
 
 namespace TaskControl.Backend.Models
 {
-    public class UserModels
+    public class UserModel
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]

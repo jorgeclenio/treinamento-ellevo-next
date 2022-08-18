@@ -9,7 +9,8 @@ namespace TaskControl.Backend.Mappings
     {
         public TaskMapping()
         {
-            CreateMap<AddTaskModels, TaskEntity>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => ObjectId.GenerateNewId()))
+            CreateMap<AddTaskModel, TaskEntity>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => ObjectId.GenerateNewId()))
                 .ForMember(dest => dest.GeneratorId, opt => opt.MapFrom(src => new ObjectId(src.GeneratorId)))
                 .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Title))
                 .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
@@ -17,7 +18,8 @@ namespace TaskControl.Backend.Mappings
                 .ForMember(dest => dest.ResponsibleId, opt => opt.MapFrom(src => new ObjectId(src.ResponsibleId)))
                 .ForMember(dest => dest.ActivityId, opt => opt.MapFrom(src => new ObjectId(src.ActivityId)));
 
-            CreateMap<TaskEntity, TaskModels>().ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
+            CreateMap<TaskEntity, TaskModel>()
+                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.GeneratorId, opt => opt.MapFrom(src => src.GeneratorId))
                 .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Title))
                 .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))

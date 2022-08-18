@@ -8,12 +8,12 @@ using TaskControl.Backend.Models;
 
 namespace TaskControl.Backend.Services
 {
-    public class TaskService : ITaskService
+    public class TaskAppService : ITaskAppService
     {
         private readonly IMongoCollection<TaskEntity> _taskCollection;
         private readonly IMapper _mapper;
 
-        public TaskService(ITaskControlDbDatabaseSettings settings, IMapper mapper)
+        public TaskAppService(ITaskControlDbDatabaseSettings settings, IMapper mapper)
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
@@ -22,31 +22,31 @@ namespace TaskControl.Backend.Services
             _mapper = mapper;
         }
 
-        public async Task<TaskEntity> Create(AddTaskModels addTaskModel)
+        public async Task<TaskEntity> CreateTask(AddTaskModel addTaskModel)
         {
-            var taskEntity = _mapper.Map<AddTaskModels, TaskEntity>(addTaskModel);
+            var taskEntity = _mapper.Map<AddTaskModel, TaskEntity>(addTaskModel);
 
             _taskCollection.InsertOne(taskEntity);
             return taskEntity;
         }
 
-        public List<TaskModels> GetAllTasks()
+        public List<TaskModel> GetAllTasks()
         {
             var taskEntities = _taskCollection.Find(task => true).ToList();
-            List<TaskModels> taskModelsList = new List<TaskModels>();
+            List<TaskModel> taskModelsList = new List<TaskModel>();
 
             foreach (var taskEntity in taskEntities)
             {
-                taskModelsList.Add(_mapper.Map<TaskEntity, TaskModels>(taskEntity));
+                taskModelsList.Add(_mapper.Map<TaskEntity, TaskModel>(taskEntity));
             }
             return taskModelsList;
         }
 
-        public TaskModels GetTaskById(ObjectId taskId)
+        public TaskModel GetTaskById(ObjectId taskId)
         {
             var taskEntity = _taskCollection.Find(task => task.Id == taskId).FirstOrDefault();
 
-            return _mapper.Map<TaskEntity, TaskModels>(taskEntity);
+            return _mapper.Map<TaskEntity, TaskModel>(taskEntity);
         }
 
         public DeleteResult DeleteTask(ObjectId taskId)

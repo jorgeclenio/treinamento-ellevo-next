@@ -2,7 +2,7 @@
 
 namespace TaskControl.Backend.Models
 {
-    public class AddTaskModels
+    public class AddTaskModel
     {
         public string GeneratorId { get; set; }
         public string Title { get; set; }

@@ -4,7 +4,7 @@ using TaskControl.Backend.Enums;
 
 namespace TaskControl.Backend.Models
 {
-    public class TaskModels
+    public class TaskModel
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
