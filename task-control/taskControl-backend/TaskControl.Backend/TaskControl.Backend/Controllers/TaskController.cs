@@ -8,13 +8,13 @@ namespace TaskControl.Backend.Controllers
 {
     [ApiController]
     [Route("TaskControl")]
-    public class TaskWorksController : Controller
+    public class TaskController : Controller
     {
         // injeção de dependencias do TaskService;
         private readonly ITaskService _taskService;
 
         // construtor da classe;
-        public TaskWorksController(ITaskService taskService)
+        public TaskController(ITaskService taskService)
         {
             _taskService = taskService;
         }

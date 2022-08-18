@@ -9,7 +9,6 @@ namespace TaskControl.Backend.Models
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public ObjectId Id { get; set; }
-
         public ObjectId GeneratorId { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
