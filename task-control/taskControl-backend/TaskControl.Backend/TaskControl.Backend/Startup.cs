@@ -26,6 +26,7 @@ namespace TaskControl.Backend
         {
             // transição da interface para a classe;
             services.AddTransient<ITaskAppService, TaskAppService>();
+            services.AddTransient<IUserAppService, UserAppService>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
