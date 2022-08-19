@@ -1,12 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 
 @Component({
-  selector: "app-users",
-  templateUrl: "./users.component.html",
-  styleUrls: ["./users.component.scss"],
+  selector: "app-user",
+  templateUrl: "./user.component.html",
+  styleUrls: ["./user.component.scss"],
 })
-export class UsersComponent implements OnInit {
-  public title: string = "Registered users";
+export class UserComponent implements OnInit {
+  public title: string = "Registered Users";
 
   public users = [
     {

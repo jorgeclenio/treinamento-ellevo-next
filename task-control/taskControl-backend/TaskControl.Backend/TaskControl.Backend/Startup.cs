@@ -5,10 +5,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using System;
 using TaskControl.Backend.Models;
 using TaskControl.Backend.Services;
-using AutoMapper;
-using System;
 
 namespace TaskControl.Backend
 {

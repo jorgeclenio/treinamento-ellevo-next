@@ -9,10 +9,11 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { LoginComponent } from "./login/login.component";
 import { NavComponent } from "./nav/nav.component";
 import { ProfileComponent } from "./profile/profile.component";
-import { TasksComponent } from "./tasks/tasks.component";
-import { UsersComponent } from "./users/users.component";
+import { TaskComponent } from "./task/task.component";
+import { UserComponent } from "./user/user.component";
 import { FooterComponent } from './footer/footer.component';
 import { TitleComponent } from './title/title.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -21,10 +22,11 @@ import { TitleComponent } from './title/title.component';
     LoginComponent,
     NavComponent,
     ProfileComponent,
-    TasksComponent,
-    UsersComponent,
+    TaskComponent,
+    UserComponent,
     FooterComponent,
     TitleComponent,
+    AboutComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
