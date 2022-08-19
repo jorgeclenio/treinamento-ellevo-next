@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { UserCreateComponent } from './components/user-create/user-create.component';
+import { Component, OnInit, ViewChild } from "@angular/core";
 
 @Component({
   selector: "app-user",
@@ -6,44 +7,18 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./user.component.scss"],
 })
 export class UserComponent implements OnInit {
-  public title: string = "Registered Users";
 
-  public users = [
-    {
-      id: "1",
-      name: "Fulano da Silva",
-      username: "fulano.silva",
-      cpf: "123.456.789-00",
-      phonenumber: "(12) 93456-7890",
-      email: "fulano.silva@email.com",
-    },
-    {
-      id: "2",
-      name: "Sicrano de Souza",
-      username: "sicrano.souza",
-      cpf: "123.456.789-01",
-      phonenumber: "(12) 93456-7891",
-      email: "sicrano.souza@email.com",
-    },
-    {
-      id: "3",
-      name: "Beltrano da Costa",
-      username: "beltrano.costa",
-      cpf: "123.456.789-02",
-      phonenumber: "(12) 93456-7892",
-      email: "beltrano.costa@email.com",
-    },
-    {
-      id: "4",
-      name: "Astolfo Pereira",
-      username: "astolfo.pereira",
-      cpf: "123.456.789-03",
-      phonenumber: "(12) 93456-7893",
-      email: "astolfo.pereira@email.com",
-    },
-  ];
+  @ViewChild(UserCreateComponent, { static: false })
+  private createUserModal: UserCreateComponent;
+  public nome = 'sasa'
+
+  public title: string = "Registered Users";
 
   constructor() {}
 
   ngOnInit() {}
+
+  public openModal(): void {
+    this.createUserModal.openModal();
+  }
 }
