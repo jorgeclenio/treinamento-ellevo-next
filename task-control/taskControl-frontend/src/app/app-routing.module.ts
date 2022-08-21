@@ -1,12 +1,10 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
-import { LoginComponent } from "./views/login/login.component";
-import { UserComponent } from "./user/user.component";
-import { TaskComponent } from "./task/task.component";
-import { DashboardComponent } from "./views/dashboard/dashboard.component";
-import { ProfileComponent } from "./views/profile/profile.component";
-import { AboutComponent } from "./views/about/about.component";
+import { LoginComponent } from "./modules/views/login/login.component";
+import { DashboardComponent } from "./modules/views/dashboard/dashboard.component";
+import { ProfileComponent } from "./modules/views/profile/profile.component";
+import { AboutComponent } from "./modules/views/about/about.component";
 
 const routes: Routes = [
   { path: "", redirectTo: "/dashboard", pathMatch: "full" },
@@ -14,8 +12,8 @@ const routes: Routes = [
   { path: "dashboard", component: DashboardComponent },
   { path: "login", component: LoginComponent },
   { path: "profile", component: ProfileComponent },
-  { path: "task", component: TaskComponent },
-  { path: "user", component: UserComponent },
+  // { path: "task", component: TaskComponent },
+  // { path: "user", component: UserComponent },
 ];
 
 @NgModule({

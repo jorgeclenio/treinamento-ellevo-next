@@ -1,0 +1,21 @@
+<ng-template #modalContent>
+  <div class="modal-content">
+    <div class="modal-header">
+      <!-- <app-title [title]="title"></app-title> -->
+    </div>
+    <!-- <hr class="dropdown-divider"> -->
+    <div class="modal-body">
+      <div *ngIf="editableContent; else nonEditableContent">
+
+      </div>
+      <ng-template #nonEditableContent>
+
+      </ng-template>
+    </div>
+    <!-- <hr class="dropdown-divider"> -->
+    <div class="modal-footer">
+      <button type="button" class="btn btn-sm btn-danger" (click)="closeModal()"> Close </button>
+      <button *ngIf="editableContent" type="button" class="btn btn-sm btn-primary ml-10px"> {{ primaryButtonLabel }} </button>
+    </div>
+  </div>
+</ng-template>
