@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
-import { ApiService } from "src/app/services/api.service";
+import { ApiService } from "src/app/modules/shared/services/api.service";
 import { AppUtilityService } from "./modules/shared";
 
 @Component({

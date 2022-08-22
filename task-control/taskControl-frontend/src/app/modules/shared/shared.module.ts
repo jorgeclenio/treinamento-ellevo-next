@@ -1,12 +1,9 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { ToastsComponent } from './components/toasts/toasts.component';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  declarations: [ToastsComponent],
+  imports: [CommonModule],
 })
-export class SharedModule { }
+export class SharedModule {}

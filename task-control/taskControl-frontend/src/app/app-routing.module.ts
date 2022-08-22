@@ -7,8 +7,6 @@ import {
   DashboardComponent,
 } from "./global-components";
 
-import { LoginGuard } from "./modules/shared/guards";
-
 const routes: Routes = [
   {
     path: "",
@@ -21,7 +19,6 @@ const routes: Routes = [
   },
   {
     path: "home",
-    // canActivate: [LoginGuard],
     component: HomeComponent,
     children: [
       {

@@ -17,7 +17,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import { TitleComponent } from "./modules/shared/components/title/title.component";
 
-import { AuthService, HomeComponent } from './global-components';
+import { HomeComponent } from './global-components';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,7 @@ import { AuthService, HomeComponent } from './global-components';
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [AuthService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

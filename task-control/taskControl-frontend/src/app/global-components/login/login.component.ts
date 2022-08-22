@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 
 import { AppUtilityService } from "../../modules/shared";
-import { AuthService } from './login.service';
 
 import { Login } from "../login/login.model";
 
@@ -19,7 +18,6 @@ export class LoginComponent implements OnInit {
   private userdata: Login = new Login();
 
   constructor(
-    private authService: AuthService,
     public fb: FormBuilder,
     public router: Router,
     public global_utilities: AppUtilityService
