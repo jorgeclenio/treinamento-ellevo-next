@@ -1,23 +1,24 @@
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
 import { HttpClientModule } from "@angular/common/http";
+import { BrowserModule } from "@angular/platform-browser";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
-import { DashboardComponent } from "./global-components/dashboard/dashboard.component";
-import { LoginComponent } from "./global-components/login/login.component";
-import { NavComponent } from "./global-components/nav/nav.component";
-import { ProfileComponent } from "./global-components/profile/profile.component";
-import { FooterComponent } from "./global-components/footer/footer.component";
-import { AboutComponent } from "./global-components/about/about.component";
+import { AppComponent } from "./app.component";
+import { AppRoutingModule } from "./app-routing.module";
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-import { TitleComponent } from "./modules/shared/components/title/title.component";
+import {
+  AboutComponent,
+  DashboardComponent,
+  FooterComponent,
+  LoginComponent,
+  NavComponent,
+  ProfileComponent,
+} from "./global-components";
 
-import { HomeComponent } from './global-components';
+import { HomeComponent } from "./global-components";
+import { TitleComponent, SharedModule } from "./modules/shared";
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { HomeComponent } from './global-components';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
