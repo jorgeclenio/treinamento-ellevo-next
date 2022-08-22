@@ -1,0 +1,19 @@
+<div class="form-box position-relative top-50 start-50 translate-middle">
+  <h1 class="text-center"> Task Control </h1>
+  <hr>
+  <form [formGroup]="form" novalidate (submit)="onSubmit()">
+    <div class="mb-3">
+      <!-- <label for="exampleInputEmail1" class="form-label"> Username </label> -->
+      <input type="email" class="form-control" formControlName="Username" placeholder="Username">
+    </div>
+    <div class="mb-3">
+      <!-- <label for="exampleInputEmail1" class="form-label"> Username </label> -->
+      <input type="password" class="form-control" formControlName="Password" placeholder="Password">
+    </div>
+    <hr>
+    <div class="d-grid gap-2">
+      <button type="submit" [disabled]="!form.valid" class="btn btn-primary"> Log In </button>
+    </div>
+  </form>
+</div>
+<app-footer></app-footer>

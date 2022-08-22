@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
+
 import { ApiService } from "src/app/services/api.service";
+import { AppUtilityService } from "./modules/shared";
 
 @Component({
   selector: "app-root",
@@ -7,10 +9,12 @@ import { ApiService } from "src/app/services/api.service";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent implements OnInit {
-  // title = 'taskControl-frontend';
   public message: string;
 
-  constructor(private helloWorldService: ApiService) {}
+  constructor(
+    public global_utilities: AppUtilityService,
+    private helloWorldService: ApiService
+  ) {}
 
   ngOnInit(): void {
     this.helloWorldService.getMessage().subscribe({

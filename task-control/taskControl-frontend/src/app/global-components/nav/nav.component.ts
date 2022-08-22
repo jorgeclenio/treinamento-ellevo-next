@@ -1,4 +1,6 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { AppUtilityService } from "../../modules/shared";
 
 @Component({
   selector: 'app-nav',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    public global_utilities: AppUtilityService
+    ) {}
 
   ngOnInit() {
+  }
+
+  public logout() {
+    localStorage.clear();
+    this.router.navigate(['/login'])
+  }
+
+  public profile() {
+    this.router.navigate(['/profile'])
+  }
+
+  public about() {
+    this.router.navigate(['/about'])
   }
 
 }
