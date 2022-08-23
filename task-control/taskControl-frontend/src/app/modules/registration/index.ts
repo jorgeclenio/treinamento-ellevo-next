@@ -1,2 +1,2 @@
-export * from "./registration.module";
 export * from "./registration-routing.module";
+export * from "./registration.module";

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AppUtilityService } from "../../modules/shared";
+import { AppUtilityService } from "../modules/shared";
 
 @Component({
   selector: 'app-home',

@@ -1,25 +1,21 @@
 import { MatDialogModule } from "@angular/material";
-import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
 import { HttpClientModule } from "@angular/common/http";
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { TitleComponent } from "./title.component";
+import { CommonModule } from "@angular/common";
 
 @NgModule({
-  declarations: [
-    TitleComponent,
-  ],
+  declarations: [TitleComponent],
   imports: [
-    BrowserModule,
+    CommonModule,
     HttpClientModule,
     MatDialogModule,
     BrowserAnimationsModule,
   ],
-  exports:[
-    TitleComponent,
-  ],
+  exports: [TitleComponent],
   providers: [],
 })
 export class TitleModule {}

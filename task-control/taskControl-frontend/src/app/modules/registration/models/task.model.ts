@@ -5,5 +5,5 @@ export class Task {
   public Description: string;
   public Status: string;
   public Responsible: string;
-  public ActivityId: string;
+  public Activity: string;
 }

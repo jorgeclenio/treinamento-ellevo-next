@@ -1,5 +1,4 @@
 export * from "./dialog-form";
-export * from "./modal";
-export * from "./snackbar";
+export * from "./footer";
+export * from "./header";
 export * from "./title";
-export * from "./toast";

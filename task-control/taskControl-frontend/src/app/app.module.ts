@@ -1,3 +1,4 @@
+import { DialogFormModule } from 'src/app/modules/shared/components/dialog-form/dialog-form.module';
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserModule } from "@angular/platform-browser";
@@ -9,28 +10,29 @@ import { AppRoutingModule } from "./app-routing.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import {
+  TitleComponent,
+  SharedModule,
+  DialogFormComponent,
+  DashboardComponent,
+  LoginComponent,
+  ProfileComponent,
   AboutComponent,
   AuthService,
-  DashboardComponent,
-  FooterComponent,
-  LoginComponent,
-  NavComponent,
-  ProfileComponent,
-} from "./global-components";
-
-import { HomeComponent } from "./global-components";
-import { TitleComponent, SharedModule } from "./modules/shared";
+} from "./modules/shared";
 
 import { AuthGuard } from "./modules/shared/guards/auth.guard";
 
 import { MatDialogModule } from "@angular/material/dialog";
+import { HeaderComponent } from './modules/shared/components/header';
+import { FooterComponent } from './modules/shared/components/footer';
+import { HomeComponent } from './home';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     LoginComponent,
-    NavComponent,
+    HeaderComponent,
     ProfileComponent,
     FooterComponent,
     AboutComponent,
@@ -41,6 +43,7 @@ import { MatDialogModule } from "@angular/material/dialog";
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
+    DialogFormModule,
     FormsModule,
 
     MatDialogModule,
@@ -49,6 +52,7 @@ import { MatDialogModule } from "@angular/material/dialog";
     ReactiveFormsModule,
     SharedModule,
   ],
+  entryComponents: [DialogFormComponent],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent],
 })

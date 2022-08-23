@@ -1,14 +1,15 @@
-import { AuthGuard } from './modules/shared/guards/auth.guard';
+import { AuthGuard } from "./modules/shared/guards/auth.guard";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
 import {
   LoginComponent,
-  HomeComponent,
   DashboardComponent,
   AboutComponent,
   ProfileComponent,
-} from "./global-components";
+} from "./modules";
+
+import { HomeComponent } from "./home";
 
 const routes: Routes = [
   {

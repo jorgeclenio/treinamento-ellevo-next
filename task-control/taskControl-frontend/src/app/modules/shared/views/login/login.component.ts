@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 
-import { AppUtilityService } from "../../modules/shared";
+import { AppUtilityService } from "../..";
 
 import { User } from "./user";
 
@@ -27,10 +27,10 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // if (localStorage["token"] != null) {
-    //   this.router.navigate(["/home"]);
-    // }
-    // this.generateForm();
+    if (localStorage["token"] != null) {
+      this.router.navigate(["/home"]);
+    }
+    this.generateForm();
   }
 
   public generateForm() {
@@ -40,13 +40,14 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  // public onSubmit() {
-  //   if (this.form.invalid) {
-  //     return console.log("Invalid form");
-  //   }
-  //   localStorage.setItem("token", "jorgeclenio");
-  //   this.router.navigate(["/home"]);
-  // }
+  public onSubmit() {
+    console.log(this.form)
+    if (!this.form.valid) {
+      return console.log("Invalid form");
+    }
+    localStorage.setItem("token", "clenio");
+    this.router.navigate(["/home"]);
+  }
 
   public makeLogin() {
     this.authService.makeLogin(this.user);

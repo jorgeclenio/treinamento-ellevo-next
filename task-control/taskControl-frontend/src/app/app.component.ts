@@ -1,9 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 
 import { ApiService } from "src/app/modules/shared/services/api.service";
-import { AppUtilityService } from "./modules/shared";
-
-import { AuthService } from "./global-components";
+import { AppUtilityService, AuthService } from "./modules/shared/";
 
 @Component({
   selector: "app-root",

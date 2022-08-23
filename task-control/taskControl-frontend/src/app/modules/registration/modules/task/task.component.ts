@@ -8,6 +8,10 @@ import { AppUtilityService } from "../../../shared/";
   styleUrls: ["./task.component.scss"],
 })
 export class TaskComponent implements OnInit {
+
   constructor(public global_utilities: AppUtilityService) {}
-  ngOnInit(): void {}
+
+  ngOnInit(): void {
+  }
+
 }
