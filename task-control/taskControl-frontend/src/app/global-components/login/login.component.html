@@ -1,19 +1,42 @@
-<div class="form-box position-relative top-50 start-50 translate-middle">
+<!-- BEGIN LOGIN FORM -->
+<!-- WITH REACTIVE FORM -->
+<!-- <div class="position-relative top-50 start-50 translate-middle form-box">
   <h1 class="text-center"> Task Control </h1>
   <hr>
   <form [formGroup]="form" novalidate (submit)="onSubmit()">
-    <div class="mb-3">
-      <!-- <label for="exampleInputEmail1" class="form-label"> Username </label> -->
-      <input type="email" class="form-control" formControlName="Username" placeholder="Username">
+    <div class="mb-4">
+      <label class="form-label"> Username </label>
+      <input type="text" class="form-control" formControlName="Username" placeholder="Username">
     </div>
     <div class="mb-3">
-      <!-- <label for="exampleInputEmail1" class="form-label"> Username </label> -->
+      <label class="form-label"> Password </label>
       <input type="password" class="form-control" formControlName="Password" placeholder="Password">
     </div>
     <hr>
     <div class="d-grid gap-2">
-      <button type="submit" [disabled]="!form.valid" class="btn btn-primary"> Log In </button>
+      <button type="submit" [disabled]="!form.valid" class="btn btn-primary"> LOG IN </button>
     </div>
   </form>
+</div> -->
+<!-- WITH REACTIVE FORM -->
+<!-- WITHOUT REACTIVE FORM -->
+<div class="position-relative top-50 start-50 translate-middle form-box">
+  <h1 class="text-center"> Task Control </h1>
+  <hr>
+  <div class="mb-4">
+    <input type="text" [(ngModel)]="user.name" class="form-control" placeholder="Username">
+  </div>
+  <div class="mb-3">
+    <input type="password" [(ngModel)]="user.pass" class="form-control" placeholder="Password">
+  </div>
+  <hr>
+  <div class="d-grid gap-2">
+    <button type="submit" class="btn btn-primary" (click)="makeLogin()"> LOG IN </button>
+  </div>
 </div>
+<!-- WITHOUT REACTIVE FORM -->
+<!-- END LOGIN FORM -->
+
+<!-- BEGIN FOOTER -->
 <app-footer></app-footer>
+<!-- END FOOTER -->

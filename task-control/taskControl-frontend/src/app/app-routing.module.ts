@@ -1,3 +1,4 @@
+import { AuthGuard } from './modules/shared/guards/auth.guard';
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
@@ -5,6 +6,8 @@ import {
   LoginComponent,
   HomeComponent,
   DashboardComponent,
+  AboutComponent,
+  ProfileComponent,
 } from "./global-components";
 
 const routes: Routes = [
@@ -19,6 +22,7 @@ const routes: Routes = [
   },
   {
     path: "home",
+    canActivate: [AuthGuard],
     component: HomeComponent,
     children: [
       {
@@ -27,8 +31,16 @@ const routes: Routes = [
         pathMatch: "full",
       },
       {
+        path: "about",
+        component: AboutComponent,
+      },
+      {
         path: "dashboard",
         component: DashboardComponent,
+      },
+      {
+        path: "profile",
+        component: ProfileComponent,
       },
       {
         path: "registration",

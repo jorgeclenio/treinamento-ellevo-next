@@ -7,6 +7,8 @@ import { AppUtilityService } from "../../../../../shared";
 })
 export class UserListComponent implements OnInit {
 
+  public title: string = "User List";
+
   constructor(public global_utilities: AppUtilityService) {}
 
   ngOnInit() {

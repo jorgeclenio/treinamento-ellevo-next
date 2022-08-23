@@ -3,6 +3,8 @@ import { Component, OnInit } from "@angular/core";
 import { ApiService } from "src/app/modules/shared/services/api.service";
 import { AppUtilityService } from "./modules/shared";
 
+import { AuthService } from "./global-components";
+
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
@@ -12,6 +14,7 @@ export class AppComponent implements OnInit {
   public message: string;
 
   constructor(
+    private authSevice: AuthService,
     public global_utilities: AppUtilityService,
     private helloWorldService: ApiService
   ) {}

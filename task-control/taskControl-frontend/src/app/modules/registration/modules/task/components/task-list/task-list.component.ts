@@ -7,6 +7,7 @@ import { AppUtilityService } from "../../../../../shared";
   styleUrls: ['./task-list.component.scss']
 })
 export class TaskListComponent implements OnInit {
+  public title: string = "Task List";
 
   constructor(public global_utilities: AppUtilityService) {}
 

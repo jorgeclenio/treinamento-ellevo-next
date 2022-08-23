@@ -23,11 +23,11 @@ export class NavComponent implements OnInit {
   }
 
   public profile() {
-    this.router.navigate(['/profile'])
+    this.router.navigate(['/home/profile'])
   }
 
   public about() {
-    this.router.navigate(['/about'])
+    this.router.navigate(['/home/about'])
   }
 
 }
