@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { AppUtilityService } from "../../../../../shared";
 
 @Component({
@@ -9,9 +10,10 @@ import { AppUtilityService } from "../../../../../shared";
 export class TaskListComponent implements OnInit {
   public title: string = "Task List";
 
-  constructor(public global_utilities: AppUtilityService) {}
+  constructor(
+    public global_utilities: AppUtilityService
+  ) {}
 
   ngOnInit() {
   }
-
 }

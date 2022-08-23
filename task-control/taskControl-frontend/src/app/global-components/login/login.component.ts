@@ -33,12 +33,12 @@ export class LoginComponent implements OnInit {
     // this.generateForm();
   }
 
-  // public generateForm() {
-  //   this.form = this.fb.group({
-  //     Username: ["", [Validators.required]],
-  //     Password: ["", [Validators.required]],
-  //   });
-  // }
+  public generateForm() {
+    this.form = this.fb.group({
+      Username: ["", [Validators.required]],
+      Password: ["", [Validators.required]],
+    });
+  }
 
   // public onSubmit() {
   //   if (this.form.invalid) {

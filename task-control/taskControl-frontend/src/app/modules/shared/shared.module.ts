@@ -1,10 +1,12 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { ToastsComponent } from "./components/toasts/toasts.component";
+import { ToastComponent } from "./components/toast/toast.component";
+import { SnackbarComponent } from "./components/snackbar/snackbar.component";
+import { DialogFormComponent } from "./components/dialog-form/dialog-form.component";
 
 @NgModule({
-  declarations: [ToastsComponent],
+  declarations: [ToastComponent, SnackbarComponent, DialogFormComponent],
   imports: [CommonModule],
-  exports: [ToastsComponent],
+  exports: [ToastComponent],
 })
 export class SharedModule {}

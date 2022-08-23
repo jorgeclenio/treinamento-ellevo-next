@@ -1,4 +1,3 @@
-import { AuthGuard } from "./modules/shared/guards/auth.guard";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserModule } from "@angular/platform-browser";
@@ -22,6 +21,10 @@ import {
 import { HomeComponent } from "./global-components";
 import { TitleComponent, SharedModule } from "./modules/shared";
 
+import { AuthGuard } from "./modules/shared/guards/auth.guard";
+
+import { MatDialogModule } from "@angular/material/dialog";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +42,9 @@ import { TitleComponent, SharedModule } from "./modules/shared";
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
+
+    MatDialogModule,
+
     HttpClientModule,
     ReactiveFormsModule,
     SharedModule,
