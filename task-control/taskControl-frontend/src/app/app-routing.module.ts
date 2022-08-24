@@ -1,20 +1,21 @@
-import { AuthGuard } from "./modules/shared/guards/auth.guard";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
 import {
-  LoginComponent,
-  DashboardComponent,
   AboutComponent,
+  DashboardComponent,
+  LoginComponent,
   ProfileComponent,
-} from "./modules";
+} from "./modules/shared/views/";
 
-import { HomeComponent } from "./home";
+import { HomeComponent } from "./home/";
+
+import { AuthGuard } from "./modules/shared/guards/auth.guard";
 
 const routes: Routes = [
   {
     path: "",
-    redirectTo: "/login",
+    redirectTo: "login",
     pathMatch: "full",
   },
   {
@@ -45,12 +46,11 @@ const routes: Routes = [
       },
       {
         path: "registration",
-        loadChildren: () =>
-          import("./modules/registration").then((m) => m.RegistrationModule),
+        loadChildren: () => import("./modules/registration").then((m) => m.RegistrationModule),
       },
       {
         path: "**",
-        redirectTo: "home",
+        redirectTo: "/home/dashboard",
       },
     ],
   },

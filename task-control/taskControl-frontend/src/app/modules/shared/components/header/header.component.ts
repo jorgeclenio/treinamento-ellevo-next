@@ -1,33 +1,49 @@
-import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
-import { AppUtilityService } from "../..";
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { MatDialog } from "@angular/material";
+
+import { AppUtilityService } from "../../services";
+
+import { AboutComponent, ProfileComponent } from "./../../views";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: "app-header",
+  templateUrl: "./header.component.html",
+  styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent implements OnInit {
-
   constructor(
+    private dialog: MatDialog,
     private router: Router,
     public global_utilities: AppUtilityService
-    ) {}
+  ) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  public navigateToAbout() {
+    this.router.navigate(["/home/about"]);
+
+  }
+
+  public navigateToDashboard(){
+    this.router.navigate(["/home/dashboard"]);
   }
 
   public logout() {
     localStorage.clear();
-    this.router.navigate(['/login'])
+    this.router.navigate(["/login"]);
   }
 
-  public profile() {
-    this.router.navigate(['/home/profile'])
+  public navigateToProfile() {
+    this.router.navigate(["/home/profile"]);
   }
 
-  public about() {
-    this.router.navigate(['/home/about'])
+  public navigateToUser() {
+    this.router.navigate(["/home/registration/user"]);
+  }
+
+  public navigateToTask() {
+    this.router.navigate(["/home/registration/task"]);
   }
 
 }

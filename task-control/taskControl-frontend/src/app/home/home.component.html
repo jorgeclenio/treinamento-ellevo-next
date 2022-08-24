@@ -1,1 +1,9 @@
-<router-outlet (activate)="global_utilities.onRouteActivation()"></router-outlet>
+<div class="secure-container">
+  <app-header></app-header>
+  <div class="secure-container__content justify-content-center">
+    <div>
+      <router-outlet (activate)="global_utilities.onRouteActivation()"></router-outlet>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

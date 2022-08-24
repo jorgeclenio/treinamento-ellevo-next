@@ -1,4 +1,7 @@
-import { DialogFormModule } from 'src/app/modules/shared/components/dialog-form/dialog-form.module';
+import { UserModule } from "./modules/registration/modules/user/user.module";
+import { UserCreateComponent } from "./modules/registration/modules/user/components/user-create/user-create.component";
+import { TaskModule } from "./modules/registration/modules/task/task.module";
+import { MatInputModule, MatNativeDateModule } from "@angular/material";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserModule } from "@angular/platform-browser";
@@ -10,9 +13,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 import {
-  TitleComponent,
   SharedModule,
-  DialogFormComponent,
   DashboardComponent,
   LoginComponent,
   ProfileComponent,
@@ -23,36 +24,33 @@ import {
 import { AuthGuard } from "./modules/shared/guards/auth.guard";
 
 import { MatDialogModule } from "@angular/material/dialog";
-import { HeaderComponent } from './modules/shared/components/header';
-import { FooterComponent } from './modules/shared/components/footer';
-import { HomeComponent } from './home';
+import { HomeComponent } from "./home";
+import { TaskCreateComponent } from "src/app/modules/registration/modules/task";
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     LoginComponent,
-    HeaderComponent,
     ProfileComponent,
-    FooterComponent,
     AboutComponent,
-    TitleComponent,
     HomeComponent,
   ],
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
-    DialogFormModule,
     FormsModule,
-
-    MatDialogModule,
-
     HttpClientModule,
+    MatDialogModule,
+    MatInputModule,
+    MatNativeDateModule,
     ReactiveFormsModule,
     SharedModule,
+    TaskModule,
+    UserModule,
   ],
-  entryComponents: [DialogFormComponent],
+  entryComponents: [TaskCreateComponent, UserCreateComponent],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent],
 })

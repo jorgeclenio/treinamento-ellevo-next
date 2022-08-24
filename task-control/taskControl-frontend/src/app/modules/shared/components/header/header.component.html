@@ -1,7 +1,7 @@
 <!-- BEGIN NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container">
-    <a class="navbar-brand" routerLink="/" routerLinkActive="active"> Task Control </a>
+    <a class="navbar-brand" style="cursor: pointer;" (click)="navigateToDashboard()"> Task Control </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -11,17 +11,17 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Registration </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="/home/registration/task"> Task </a></li>
-            <li><a class="dropdown-item" routerLink="/home/registration/user"> User </a></li>
+            <li><a class="dropdown-item" (click)="navigateToTask()"> Task </a></li>
+            <li><a class="dropdown-item" (click)="navigateToUser()"> User </a></li>
           </ul>
         </li>
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Admin </a>
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Hi, Admin </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" routerLink="/home/about"> About </a></li>
-            <li><a class="dropdown-item" routerLink="/home/profile"> Profile </a></li>
+            <li><a class="dropdown-item" (click)="navigateToAbout()"> About </a></li>
+            <li><a class="dropdown-item" (click)="navigateToProfile()"> Profile </a></li>
             <li>
               <hr class="dropdown-divider">
             </li>

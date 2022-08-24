@@ -1,8 +1,9 @@
-import { FormGroup, Validators } from "@angular/forms";
-import { FormBuilder } from "@angular/forms";
 import { Component, OnInit } from "@angular/core";
 
-import { Task } from './../../../../models/task.model';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { MatDialogRef } from "@angular/material/dialog";
+
+import { Task } from "./../../../../models";
 
 @Component({
   selector: "app-task-create",
@@ -12,7 +13,10 @@ import { Task } from './../../../../models/task.model';
 export class TaskCreateComponent implements OnInit {
   public form: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    public dialogRef: MatDialogRef<TaskCreateComponent>,
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit() {
     this.generateForm();
@@ -30,9 +34,18 @@ export class TaskCreateComponent implements OnInit {
   }
 
   public createTask() {
+    console.log("create");
     if(!this.form.valid){
       return;
     }
     const task: Task = this.form.value;
+    console.log(task);
+  }
+
+  public close() {
+    this.dialogRef.close();
+    console.log("dialog closed");
   }
 }
+
+// DialogFormComponent

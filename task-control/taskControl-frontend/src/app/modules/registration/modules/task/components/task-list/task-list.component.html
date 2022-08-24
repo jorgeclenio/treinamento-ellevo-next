@@ -1,19 +1,81 @@
 <div class="container">
-  <hr>
-  <h3> task works! </h3>
-  <hr>
-
-  <button type="button" class="btn btn-primary" (click)="createTask()"> Create task </button>
-
-</div>
-<app-footer></app-footer>
-<!-- <app-header></app-header>
-
-<div class="container">
   <app-title [title]="title"></app-title>
   <hr>
-  <h4> task list works! </h4>
+  <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z4">
+    COLUMN ID
+    <ng-container matColumnDef="Id">
+      <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+      <mat-cell *matCellDef="let task"> {{ task.Id }} </mat-cell>
+    </ng-container>
+    COLUMN GENERATOR
+    <ng-container matColumnDef="Generator">
+      <mat-header-cell *matHeaderCellDef> Generator </mat-header-cell>
+      <mat-cell *matCellDef="let task"> {{ task.Generator }} </mat-cell>
+    </ng-container>
+    COLUMN TITLE
+    <ng-container matColumnDef="Title">
+      <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+      <mat-cell *matCellDef="let task"> {{ task.Title }} </mat-cell>
+    </ng-container>
+    COLUMN DESCRIPTION
+    <ng-container matColumnDef="Description">
+      <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+      <mat-cell *matCellDef="let task"> {{ task.Description }} </mat-cell>
+    </ng-container>
+    COLUMN STATUS
+    <ng-container matColumnDef="Status">
+      <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+      <mat-cell *matCellDef="let task"> {{ task.Status }} </mat-cell>
+    </ng-container>
+    COLUMN RESPONSIBLE
+    <ng-container matColumnDef="Responsible">
+      <mat-header-cell *matHeaderCellDef> Responsible </mat-header-cell>
+      <mat-cell *matCellDef="let task"> {{ task.Responsible }} </mat-cell>
+    </ng-container>
+    COLUMN ACTIVITY
+    <ng-container matColumnDef="Activity">
+      <mat-header-cell *matHeaderCellDef> Activity </mat-header-cell>
+      <mat-cell *matCellDef="let task"> {{ task.Activity }} </mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </table> -->
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col"> Id </th>
+        <th scope="col"> Generator </th>
+        <th scope="col"> Title </th>
+        <th scope="col"> Description </th>
+        <th scope="col"> Status </th>
+        <th scope="col"> Responsible </th>
+        <th scope="col"> Activity </th>
+        <th scope="col"> Actions </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td> {{ task.Id }} </td>
+        <td> {{ task.Generator }} </td>
+        <td> {{ task.Title }} </td>
+        <td> {{ task.Description }} </td>
+        <td> {{ task.Status }} </td>
+        <td> {{ task.Responsible }} </td>
+        <td> {{ task.Activity }} </td>
+        <td>
+          <button type="button" class="btn btn-outline-primary">
+            <i class="bi bi-journal-text"></i>
+          </button>
+          <button type="button" class="btn btn-outline-warning ml-10px">
+            <i class="bi bi-pencil"></i>
+          </button>
+          <button type="button" class="btn btn-outline-danger ml-10px">
+            <i class="bi bi-x"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
   <hr>
+  <button type="button" class="btn btn-primary mr-10px" (click)="newTask()"> Create task </button>
 </div>
-
--->

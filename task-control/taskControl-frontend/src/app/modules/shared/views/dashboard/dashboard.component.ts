@@ -7,7 +7,7 @@ import { AppUtilityService } from "../..";
   styleUrls: ["./dashboard.component.scss"],
 })
 export class DashboardComponent implements OnInit {
-  public title: string = "Dashboard";
+  public title: string = "Dashboard"; // Quick shortcuts
 
   constructor(public global_utilities: AppUtilityService) {}
 

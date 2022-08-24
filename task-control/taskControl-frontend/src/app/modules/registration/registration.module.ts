@@ -1,3 +1,4 @@
+import { DialogFormComponent } from './../shared/components/dialog-form/dialog-form.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
 
@@ -12,12 +13,11 @@ import { SharedModule } from './../shared/shared.module';
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
-
+    RegistrationRoutingModule,
     SharedModule,
-    RegistrationRoutingModule
   ],
   declarations: [],
-  exports: [],
+  exports: [RouterModule],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

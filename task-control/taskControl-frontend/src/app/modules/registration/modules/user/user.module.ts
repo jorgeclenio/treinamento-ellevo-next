@@ -1,8 +1,10 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
-import { ReactiveFormsModule } from "@angular/forms";
+
+import { MatInputModule } from "@angular/material";
 
 import { SharedModule } from "./../../../shared";
 
@@ -19,9 +21,10 @@ import {
 @NgModule({
   imports: [
     CommonModule,
+    FormsModule,
+    MatInputModule,
     RouterModule,
     ReactiveFormsModule,
-
     SharedModule,
     UserRoutingModule,
   ],
@@ -32,7 +35,8 @@ import {
     UserUpdateComponent,
     UserComponent,
   ],
-  exports: [],
+  exports: [UserCreateComponent],
+  entryComponents: [],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
