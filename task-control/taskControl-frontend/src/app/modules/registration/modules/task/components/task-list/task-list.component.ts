@@ -1,9 +1,11 @@
+import { TaskDetailsComponent } from './../task-details/task-details.component';
 import { Task } from "./../../../../models/task.model";
 import { TaskCreateComponent } from "./../task-create/task-create.component";
 import { MatDialog } from "@angular/material";
 import { Component, OnInit } from "@angular/core";
 
 import { AppUtilityService } from "../../../../../shared";
+import { TaskUpdateComponent } from 'src/app/modules/registration/modules/task/components/task-update';
 
 export interface TaskInterface {
   Id: number;
@@ -90,6 +92,22 @@ export class TaskListComponent implements OnInit {
 
   public newTask() {
     this.dialog.open(TaskCreateComponent, {
+      minWidth: "650px",
+      disableClose: true,
+    });
+  }
+
+  public navigateToDetails() {
+    console.log("call details");
+    this.dialog.open(TaskDetailsComponent, {
+      minWidth: "650px",
+      disableClose: true,
+    });
+  }
+
+  public navigateToUpdate() {
+    console.log("call update");
+    this.dialog.open(TaskUpdateComponent, {
       minWidth: "650px",
       disableClose: true,
     });
