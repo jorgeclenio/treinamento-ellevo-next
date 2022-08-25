@@ -1,10 +1,28 @@
 <div class="container">
   <app-title [title]="title"></app-title>
-
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item active" aria-current="page"> Dashboard </li>
     </ol>
   </nav>
-
+  <div class="row">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"> Registered tasks </h5>
+        <p class="card-text"> List of all registered tasks; </p>
+        <button type="button" class="btn btn-primary" (click)="navigateToTask()">
+          Go to
+        </button>
+      </div>
+    </div>
+    <div class="card ml-15px" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"> Registered users </h5>
+        <p class="card-text"> List of all registered users; </p>
+        <button type="button" class="btn btn-primary" (click)="navigateToUser()">
+          Go to
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

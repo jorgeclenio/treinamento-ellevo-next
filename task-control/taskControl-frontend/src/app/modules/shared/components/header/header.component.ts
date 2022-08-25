@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { MatDialog } from "@angular/material";
 
 import { AppUtilityService } from "../../services";
 
@@ -11,7 +10,6 @@ import { AppUtilityService } from "../../services";
 })
 export class HeaderComponent implements OnInit {
   constructor(
-    private dialog: MatDialog,
     private router: Router,
     public global_utilities: AppUtilityService
   ) {}
@@ -20,10 +18,9 @@ export class HeaderComponent implements OnInit {
 
   public navigateToAbout() {
     this.router.navigate(["/home/about"]);
-
   }
 
-  public navigateToDashboard(){
+  public navigateToDashboard() {
     this.router.navigate(["/home/dashboard"]);
   }
 
@@ -36,12 +33,11 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(["/home/profile"]);
   }
 
-  public navigateToUser() {
-    this.router.navigate(["/home/registration/user"]);
-  }
-
   public navigateToTask() {
     this.router.navigate(["/home/registration/task"]);
   }
 
+  public navigateToUser() {
+    this.router.navigate(["/home/registration/user"]);
+  }
 }

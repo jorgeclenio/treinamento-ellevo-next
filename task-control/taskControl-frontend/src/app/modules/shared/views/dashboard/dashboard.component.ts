@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { AppUtilityService } from "../..";
 
 @Component({
@@ -9,7 +10,18 @@ import { AppUtilityService } from "../..";
 export class DashboardComponent implements OnInit {
   public title: string = "Dashboard"; // Quick shortcuts
 
-  constructor(public global_utilities: AppUtilityService) {}
+  constructor(
+    private router: Router,
+    public global_utilities: AppUtilityService
+  ) {}
 
   ngOnInit() {}
+
+  public navigateToTask() {
+    this.router.navigate(["/home/registration/task"]);
+  }
+
+  public navigateToUser() {
+    this.router.navigate(["/home/registration/user"]);
+  }
 }
