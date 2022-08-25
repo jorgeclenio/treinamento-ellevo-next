@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
 import { AppUtilityService } from "../..";
 
 @Component({
@@ -9,7 +10,14 @@ import { AppUtilityService } from "../..";
 export class AboutComponent implements OnInit {
   public title: string = "About";
 
-  constructor(public global_utilities: AppUtilityService) {}
+  constructor(
+    private router: Router,
+    public global_utilities: AppUtilityService
+  ) {}
 
   ngOnInit() {}
+
+  public navigateToDashboard() {
+    this.router.navigate(["/home/dashboard"]);
+  }
 }

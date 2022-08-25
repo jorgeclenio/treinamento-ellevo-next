@@ -1,4 +1,12 @@
 <div class="container">
   <app-title [title]="title"></app-title>
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item p_pointer"><a (click)="navigateToDashboard()"> Dashboard </a></li>
+      <li class="breadcrumb-item active" aria-current="page"> About </li>
+    </ol>
+  </nav>
+
   <h4> about works! </h4>
 </div>

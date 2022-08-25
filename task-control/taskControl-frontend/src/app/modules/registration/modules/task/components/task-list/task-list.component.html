@@ -1,5 +1,13 @@
 <div class="container">
   <app-title [title]="title"></app-title>
+
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item p_pointer"><a (click)="navigateToDashboard()"> Dashboard </a></li>
+      <li class="breadcrumb-item active" aria-current="page"> Task list </li>
+    </ol>
+  </nav>
+
   <table class="table table-hover">
     <thead>
       <tr>

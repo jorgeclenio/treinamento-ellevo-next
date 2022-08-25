@@ -6,6 +6,7 @@ import { Component, OnInit } from "@angular/core";
 
 import { AppUtilityService } from "../../../../../shared";
 import { TaskUpdateComponent } from "src/app/modules/registration/modules/task/components/task-update";
+import { Router } from "@angular/router";
 
 export interface TaskInterface {
   Id: number;
@@ -84,6 +85,7 @@ export class TaskListComponent implements OnInit {
   ];
 
   constructor(
+    private router: Router,
     public dialog: MatDialog,
     public global_utilities: AppUtilityService
   ) {}
@@ -115,5 +117,9 @@ export class TaskListComponent implements OnInit {
       minWidth: "650px",
       disableClose: true,
     });
+  }
+
+  public navigateToDashboard() {
+    this.router.navigate(["/home/dashboard"]);
   }
 }
