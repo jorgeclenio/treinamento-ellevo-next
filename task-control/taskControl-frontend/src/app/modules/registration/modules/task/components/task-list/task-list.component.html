@@ -1,6 +1,5 @@
 <div class="container">
   <app-title [title]="title"></app-title>
-  <hr>
   <table class="table table-hover">
     <thead>
       <tr>
@@ -24,19 +23,18 @@
         <td> {{ task.Responsible }} </td>
         <td> {{ task.Activity }} </td>
         <td>
-          <button type="button" class="btn btn-outline-primary" (click)="navigateToDetails()">
+          <button type="button" class="btn btn-primary" (click)="navigateToDetails()">
             <i class="bi bi-journal-text"></i>
           </button>
-          <button type="button" class="btn btn-outline-warning ml-5px" (click)="navigateToUpdate()">
+          <button type="button" class="btn btn-warning text-white ml-5px" (click)="navigateToUpdate()">
             <i class="bi bi-pencil"></i>
           </button>
-          <button type="button" class="btn btn-outline-danger ml-5px">
+          <button type="button" class="btn btn-danger ml-5px" (click)="deleteTask()">
             <i class="bi bi-x"></i>
           </button>
         </td>
       </tr>
     </tbody>
   </table>
-  <hr>
   <button type="button" class="btn btn-primary mr-10px" (click)="newTask()"> Create task </button>
 </div>

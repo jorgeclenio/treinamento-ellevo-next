@@ -4,8 +4,6 @@ import { MatDialog } from "@angular/material";
 
 import { AppUtilityService } from "../../services";
 
-import { AboutComponent, ProfileComponent } from "./../../views";
-
 @Component({
   selector: "app-header",
   templateUrl: "./header.component.html",

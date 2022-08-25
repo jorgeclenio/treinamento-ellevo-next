@@ -1,11 +1,11 @@
-import { TaskDetailsComponent } from './../task-details/task-details.component';
+import { TaskDetailsComponent } from "./../task-details/task-details.component";
 import { Task } from "./../../../../models/task.model";
 import { TaskCreateComponent } from "./../task-create/task-create.component";
 import { MatDialog } from "@angular/material";
 import { Component, OnInit } from "@angular/core";
 
 import { AppUtilityService } from "../../../../../shared";
-import { TaskUpdateComponent } from 'src/app/modules/registration/modules/task/components/task-update';
+import { TaskUpdateComponent } from "src/app/modules/registration/modules/task/components/task-update";
 
 export interface TaskInterface {
   Id: number;
@@ -37,7 +37,7 @@ export class TaskListComponent implements OnInit {
 
   public tasks: Task[] = [
     {
-      Id: "edf1e",
+      Id: "edf1e1",
       Generator: "Jorge Clênio",
       Title: "Teste 001",
       Description: "Este é um teste 001",
@@ -46,7 +46,7 @@ export class TaskListComponent implements OnInit {
       Activity: "bla",
     },
     {
-      Id: "edf1f",
+      Id: "edf1f2",
       Generator: "Jorge Clênio",
       Title: "Teste 002",
       Description: "Este é um teste 002",
@@ -55,7 +55,7 @@ export class TaskListComponent implements OnInit {
       Activity: "bla",
     },
     {
-      Id: "edf1g",
+      Id: "edf1g3",
       Generator: "Jorge Clênio",
       Title: "Teste 003",
       Description: "Este é um teste 003",
@@ -64,7 +64,7 @@ export class TaskListComponent implements OnInit {
       Activity: "bla",
     },
     {
-      Id: "edf1h",
+      Id: "edf1h4",
       Generator: "Jorge Clênio",
       Title: "Teste 004",
       Description: "Este é um teste 004",
@@ -73,7 +73,7 @@ export class TaskListComponent implements OnInit {
       Activity: "bla",
     },
     {
-      Id: "edf1i",
+      Id: "edf1i5",
       Generator: "Jorge Clênio",
       Title: "Teste 005",
       Description: "Este é um teste 005",
@@ -95,6 +95,10 @@ export class TaskListComponent implements OnInit {
       minWidth: "650px",
       disableClose: true,
     });
+  }
+
+  public deleteTask() {
+    console.log("delete task");
   }
 
   public navigateToDetails() {

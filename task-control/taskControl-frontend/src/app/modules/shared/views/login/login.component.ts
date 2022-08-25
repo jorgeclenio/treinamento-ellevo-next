@@ -5,7 +5,6 @@ import { Router } from "@angular/router";
 import { AppUtilityService } from "../..";
 
 import { User } from "./user";
-
 import { AuthService } from "./auth.service";
 
 @Component({

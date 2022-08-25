@@ -1,31 +1,33 @@
-import { UserModule } from "./modules/registration/modules/user/user.module";
-import { UserCreateComponent } from "./modules/registration/modules/user/components/user-create/user-create.component";
-import { TaskModule } from "./modules/registration/modules/task/task.module";
-import { MatInputModule, MatNativeDateModule } from "@angular/material";
 import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatInputModule, MatNativeDateModule } from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { AuthService, SharedModule } from "./modules/shared";
 
-import {
-  SharedModule,
-  DashboardComponent,
-  LoginComponent,
-  ProfileComponent,
-  AboutComponent,
-  AuthService,
-} from "./modules/shared";
-
+import { HomeComponent } from "./home";
 import { AuthGuard } from "./modules/shared/guards/auth.guard";
 
-import { MatDialogModule } from "@angular/material/dialog";
-import { HomeComponent } from "./home";
-import { TaskCreateComponent } from "src/app/modules/registration/modules/task";
+import { AboutComponent } from "./modules/shared/views/about/about.component";
+import { DashboardComponent } from "./modules/shared/views/dashboard/dashboard.component";
+import { LoginComponent } from "./modules/shared/views/login/login.component";
+import { ProfileComponent } from "./modules/shared/views/profile/profile.component";
+
+import {
+  TaskCreateComponent,
+  TaskDetailsComponent,
+  TaskUpdateComponent,
+  UserCreateComponent,
+  UserDetailsComponent,
+  UserUpdateComponent,
+} from "./modules/registration/modules";
+
+import { TaskModule, UserModule } from "./modules/registration/modules";
 
 @NgModule({
   declarations: [
@@ -50,7 +52,14 @@ import { TaskCreateComponent } from "src/app/modules/registration/modules/task";
     TaskModule,
     UserModule,
   ],
-  entryComponents: [TaskCreateComponent, UserCreateComponent],
+  entryComponents: [
+    TaskCreateComponent,
+    TaskDetailsComponent,
+    TaskUpdateComponent,
+    UserCreateComponent,
+    UserDetailsComponent,
+    UserUpdateComponent,
+  ],
   providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent],
 })

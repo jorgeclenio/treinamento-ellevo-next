@@ -1,3 +1,28 @@
-<p>
-  task-details works!
-</p>
+<h2 mat-dialog-title class="text-center"> Task details </h2>
+<hr>
+<mat-dialog-content>
+  <form [formGroup]="form" novalidate>
+    <div class="input-group mb-2">
+      <input type="text" class="form-control" placeholder="Generator" formControlName="Generator">
+    </div>
+    <div class="input-group mb-2">
+      <input type="text" class="form-control" placeholder="Title" formControlName="Title">
+    </div>
+    <div class="input-group mb-2">
+      <textarea class="form-control" placeholder="Description" formControlName="Description"></textarea>
+    </div>
+    <div class="input-group mb-2">
+      <input type="text" class="form-control" placeholder="Status" formControlName="Status">
+    </div>
+    <div class="input-group mb-2">
+      <input type="text" class="form-control" placeholder="Responsible" formControlName="Responsible">
+    </div>
+    <div class="input-group mb-2">
+      <input type="text" class="form-control" placeholder="Activity" formControlName="Activity">
+    </div>
+  </form>
+</mat-dialog-content>
+<hr>
+<mat-dialog-actions>
+  <button type="button" class="btn btn-danger" (click)="closeDialog()"> Close </button>
+</mat-dialog-actions>

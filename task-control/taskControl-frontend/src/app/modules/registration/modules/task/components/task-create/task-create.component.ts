@@ -35,17 +35,15 @@ export class TaskCreateComponent implements OnInit {
 
   public createTask() {
     console.log("create");
-    if(!this.form.valid){
+    if (!this.form.valid) {
       return;
     }
     const task: Task = this.form.value;
     console.log(task);
   }
 
-  public close() {
+  public closeDialog() {
     this.dialogRef.close();
     console.log("dialog closed");
   }
 }
-
-// DialogFormComponent
