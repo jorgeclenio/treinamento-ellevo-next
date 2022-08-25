@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
 
+import { Task } from "./../../../../models/task.model";
+
 @Component({
   selector: "app-task-details",
   templateUrl: "./task-details.component.html",
@@ -21,12 +23,12 @@ export class TaskDetailsComponent implements OnInit {
 
   public generateForm() {
     this.form = this.fb.group({
-      Generator: [""],
-      Title: [""],
-      Description: [""],
-      Status: [""],
-      Responsible: [""],
-      Activity: [""],
+      Generator: [{ value: "", disabled: true }],
+      Title: [{ value: "", disabled: true }],
+      Description: [{ value: "", disabled: true }],
+      Status: [{ value: "", disabled: true }],
+      Responsible: [{ value: "", disabled: true }],
+      Activity: [{ value: "", disabled: true }],
     });
   }
 

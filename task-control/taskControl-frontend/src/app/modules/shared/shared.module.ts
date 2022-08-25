@@ -4,6 +4,7 @@ import { CommonModule } from "@angular/common";
 import {
   DialogFormComponent,
   FooterComponent,
+  FormDebugComponent,
   HeaderComponent,
   TitleComponent,
 } from "src/app/modules/shared/components";
@@ -14,10 +15,12 @@ import {
     FooterComponent,
     HeaderComponent,
     TitleComponent,
+    FormDebugComponent,
   ],
   imports: [CommonModule],
   exports: [
     DialogFormComponent,
+    FormDebugComponent,
     FooterComponent,
     HeaderComponent,
     TitleComponent,

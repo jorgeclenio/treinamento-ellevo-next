@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
-import { Task } from "src/app/modules/registration/models";
+
+import { Task } from "./../../../../models/task.model";
 
 @Component({
   selector: "app-task-update",
@@ -32,7 +33,7 @@ export class TaskUpdateComponent implements OnInit {
   }
 
   public updateTask() {
-    console.log("create");
+    console.log("update task");
     if (!this.form.valid) {
       return;
     }

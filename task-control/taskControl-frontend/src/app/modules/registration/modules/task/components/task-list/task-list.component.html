@@ -1,6 +1,5 @@
 <div class="container">
   <app-title [title]="title"></app-title>
-
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item p_pointer"><a (click)="navigateToDashboard()"> Dashboard </a></li>
@@ -31,10 +30,10 @@
         <td> {{ task.Responsible }} </td>
         <td> {{ task.Activity }} </td>
         <td>
-          <button type="button" class="btn btn-primary" (click)="navigateToDetails()">
+          <button type="button" class="btn btn-primary" (click)="navigateToTaskDetails()">
             <i class="bi bi-journal-text"></i>
           </button>
-          <button type="button" class="btn btn-warning text-white ml-5px" (click)="navigateToUpdate()">
+          <button type="button" class="btn btn-warning text-white ml-5px" (click)="navigateToTaskUpdate()">
             <i class="bi bi-pencil"></i>
           </button>
           <button type="button" class="btn btn-danger ml-5px" (click)="deleteTask()">

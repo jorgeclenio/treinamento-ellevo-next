@@ -3,7 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material/dialog";
 
-import { Task } from "./../../../../models";
+import { Task } from "./../../../../models/task.model";
 
 @Component({
   selector: "app-task-create",

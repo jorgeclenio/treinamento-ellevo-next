@@ -1,3 +1,26 @@
-<p>
-  user-details works!
-</p>
+<h2 mat-dialog-title class="text-center"> User details </h2>
+<hr>
+<mat-dialog-content>
+  <form [formGroup]="form" novalidate>
+    <div class="input-group mb-2">
+      <input type="text" class="form-control" placeholder="Name" formControlName="Name">
+    </div>
+    <div class="input-group mb-2">
+      <input type="text" class="form-control" placeholder="Username" formControlName="Username">
+    </div>
+    <div class="input-group mb-2">
+      <input type="password" class="form-control" placeholder="Password" formControlName="Password">
+    </div>
+    <div class="input-group mb-2">
+      <input type="text" class="form-control" placeholder="CPF" formControlName="Cpf">
+      <input type="text" class="form-control" placeholder="Phonenumber" formControlName="Phonenumber">
+    </div>
+    <div class="input-group mb-2">
+      <input type="text" class="form-control" placeholder="Email" formControlName="Email">
+    </div>
+  </form>
+</mat-dialog-content>
+<hr>
+<mat-dialog-actions>
+  <button type="button" class="btn btn-danger" (click)="closeDialog()"> Close </button>
+</mat-dialog-actions>
