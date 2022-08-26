@@ -1,4 +1,3 @@
-import { DialogFormComponent } from './../shared/components/dialog-form/dialog-form.component';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { CommonModule } from '@angular/common';
 

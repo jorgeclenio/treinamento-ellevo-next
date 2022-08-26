@@ -9,13 +9,23 @@ import {
   TitleComponent,
 } from "src/app/modules/shared/components";
 
+import { CamelCasePipe } from "./pipes/camel-case.pipe";
+import { CpfPipe } from './pipes/cpf.pipe';
+import { EmailPipe } from './pipes/email.pipe';
+import { PhoneNumberPipe } from './pipes/phone-number.pipe';
+
 @NgModule({
   declarations: [
     DialogFormComponent,
     FooterComponent,
+    FormDebugComponent,
     HeaderComponent,
     TitleComponent,
-    FormDebugComponent,
+
+    CamelCasePipe,
+    CpfPipe,
+    EmailPipe,
+    PhoneNumberPipe,
   ],
   imports: [CommonModule],
   exports: [

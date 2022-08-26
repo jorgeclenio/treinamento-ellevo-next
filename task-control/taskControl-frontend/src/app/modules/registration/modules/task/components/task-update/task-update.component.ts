@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
 
 import { Task } from "./../../../../models/task.model";
@@ -23,12 +23,12 @@ export class TaskUpdateComponent implements OnInit {
 
   public generateForm() {
     this.form = this.fb.group({
-      Generator: [""],
-      Title: [""],
-      Description: [""],
-      Status: [""],
-      Responsible: [""],
-      Activity: [""],
+      Generator: ["", [Validators.required]],
+      Title: ["", [Validators.required]],
+      Description: ["", [Validators.required]],
+      Status: ["", [Validators.required]],
+      Responsible: ["", [Validators.required]],
+      Activity: ["", [Validators.required]],
     });
   }
 

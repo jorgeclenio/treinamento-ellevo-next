@@ -36,7 +36,7 @@ export class UserCreateComponent implements OnInit {
         ],
       ],
       Phonenumber: ["", [Validators.required]],
-      Email: ["", [Validators.required, Validators.email]],
+      Email: ["", [Validators.email]],
     });
   }
 
