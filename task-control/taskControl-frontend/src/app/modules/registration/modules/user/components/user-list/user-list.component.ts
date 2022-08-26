@@ -30,15 +30,6 @@ export class UserListComponent implements OnInit {
   public users: User[] = [
     {
       Id: "tdf1e1",
-      Name: "Jorge Clênio",
-      Username: "jorgeclenio",
-      Password: "a1b2c3d4e5",
-      Cpf: "123.456.759-00",
-      Phonenumber: "(00) 12345-1230",
-      Email: "jorgeclenio@email.com",
-    },
-    {
-      Id: "tdf1e2",
       Name: "Harry Potter",
       Username: "harry.potter",
       Password: "a1b2c3d4e5",
@@ -47,7 +38,7 @@ export class UserListComponent implements OnInit {
       Email: "harry.potter@email.com",
     },
     {
-      Id: "tdf1e3",
+      Id: "tdf1e2",
       Name: "Ron Weasley",
       Username: "ron.weasley",
       Password: "a1b2c3d4e5",
@@ -56,7 +47,7 @@ export class UserListComponent implements OnInit {
       Email: "ron.weasley@email.com",
     },
     {
-      Id: "tdf1e4",
+      Id: "tdf1e3",
       Name: "Hermione Granger",
       Username: "hermione.granger",
       Password: "a1b2c3d4e5",
@@ -65,13 +56,22 @@ export class UserListComponent implements OnInit {
       Email: "hermione.granger@email.com",
     },
     {
-      Id: "tdf1e5",
+      Id: "tdf1e4",
       Name: "Draco Malfoy",
       Username: "draco.malfoy",
       Password: "a1b2c3d4e5",
       Cpf: "123.456.759-04",
       Phonenumber: "(00) 12345-1234",
       Email: "draco.malfoy@email.com",
+    },
+    {
+      Id: "tdf1e5",
+      Name: "Luna Lovegood",
+      Username: "luna.lovegood",
+      Password: "a1b2c3d4e5",
+      Cpf: "123.456.759-05",
+      Phonenumber: "(00) 12345-1230",
+      Email: "luna.lovegood@email.com",
     },
   ];
 
@@ -91,11 +91,9 @@ export class UserListComponent implements OnInit {
   }
 
   public deleteUser() {
-    console.log("delete user");
   }
 
   public navigateToUserDetails() {
-    console.log("call details");
     this.dialog.open(UserDetailsComponent, {
       minWidth: "650px",
       disableClose: true,
@@ -103,7 +101,6 @@ export class UserListComponent implements OnInit {
   }
 
   public navigateToUserUpdate() {
-    console.log("call update");
     this.dialog.open(UserUpdateComponent, {
       minWidth: "650px",
       disableClose: true,

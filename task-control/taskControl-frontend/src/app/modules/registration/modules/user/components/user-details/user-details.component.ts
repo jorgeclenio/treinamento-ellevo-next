@@ -19,6 +19,7 @@ export class UserDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.generateForm();
+    this.closeDialogWithEscapeButton();
   }
 
   public generateForm() {
@@ -34,6 +35,13 @@ export class UserDetailsComponent implements OnInit {
 
   public closeDialog() {
     this.dialogRef.close();
-    console.log("dialog closed");
+  }
+
+  public closeDialogWithEscapeButton() {
+    this.dialogRef.keydownEvents().subscribe((event) => {
+      if (event.key === "Escape") {
+        this.dialogRef.close();
+      }
+    });
   }
 }

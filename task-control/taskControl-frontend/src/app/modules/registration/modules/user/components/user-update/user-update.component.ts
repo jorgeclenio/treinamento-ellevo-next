@@ -19,6 +19,7 @@ export class UserUpdateComponent implements OnInit {
 
   ngOnInit() {
     this.generateForm();
+    this.closeDialogWithEscapeButton();
   }
 
   public generateForm() {
@@ -29,21 +30,26 @@ export class UserUpdateComponent implements OnInit {
       Password: [null, [Validators.required]],
       Cpf: [null, [Validators.required]],
       Phonenumber: [null, [Validators.required]],
-      Email: [null, [Validators.required]],
+      Email: [null, [Validators.email]],
     });
   }
 
   public updateUser() {
-    console.log("update user");
     if (!this.form.valid) {
       return;
     }
     const user: User = this.form.value;
-    console.log(user);
   }
 
   public closeDialog() {
     this.dialogRef.close();
-    console.log("dialog closed");
+  }
+
+  public closeDialogWithEscapeButton() {
+    this.dialogRef.keydownEvents().subscribe((event) => {
+      if (event.key === "Escape") {
+        this.dialogRef.close();
+      }
+    });
   }
 }

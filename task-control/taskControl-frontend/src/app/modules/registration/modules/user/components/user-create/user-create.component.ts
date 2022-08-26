@@ -20,6 +20,7 @@ export class UserCreateComponent implements OnInit {
 
   ngOnInit() {
     this.generateForm();
+    this.closeDialogWithEscapeButton();
   }
 
   public generateForm() {
@@ -35,22 +36,34 @@ export class UserCreateComponent implements OnInit {
           Validators.maxLength(14),
         ],
       ],
-      Phonenumber: ["", [Validators.required]],
+      Phonenumber: [
+        "",
+        [
+          Validators.required,
+          Validators.minLength(15),
+          Validators.maxLength(15),
+        ],
+      ],
       Email: ["", [Validators.email]],
     });
   }
 
   public createUser() {
-    console.log("create");
     if (!this.form.valid) {
       return;
     }
     const user: User = this.form.value;
-    console.log(user);
   }
 
   public closeDialog() {
     this.dialogRef.close();
-    console.log("dialog closed");
+  }
+
+  public closeDialogWithEscapeButton() {
+    this.dialogRef.keydownEvents().subscribe((event) => {
+      if (event.key === "Escape") {
+        this.dialogRef.close();
+      }
+    });
   }
 }

@@ -1,47 +1,53 @@
 <div class="container">
   <app-title [title]="title"></app-title>
+
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item p_pointer"><a (click)="navigateToDashboard()"> Dashboard </a></li>
       <li class="breadcrumb-item active" aria-current="page"> Task list </li>
     </ol>
   </nav>
+  <hr>
 
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col"> Id </th>
-        <th scope="col"> Generator </th>
-        <th scope="col"> Title </th>
-        <th scope="col"> Description </th>
-        <th scope="col"> Status </th>
-        <th scope="col"> Responsible </th>
-        <th scope="col"> Activity </th>
-        <th scope="col"> Actions </th>
-      </tr>
-    </thead>
-    <tbody class="table-group-divider">
-      <tr *ngFor="let task of tasks">
-        <td> {{ task.Id }} </td>
-        <td> {{ task.Generator }} </td>
-        <td> {{ task.Title }} </td>
-        <td> {{ task.Description }} </td>
-        <td> {{ task.Status }} </td>
-        <td> {{ task.Responsible }} </td>
-        <td> {{ task.Activity }} </td>
-        <td>
-          <button type="button" class="btn btn-primary" (click)="navigateToTaskDetails()">
-            <i class="bi bi-journal-text"></i>
-          </button>
-          <button type="button" class="btn btn-warning text-white ml-5px" (click)="navigateToTaskUpdate()">
-            <i class="bi bi-pencil"></i>
-          </button>
-          <button type="button" class="btn btn-danger ml-5px" (click)="deleteTask()">
-            <i class="bi bi-x"></i>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <button type="button" class="btn btn-primary mr-10px" (click)="newTask()"> Create task </button>
+  <div class="shadow-none p-3 bg-light border rounded">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col"> Id </th>
+          <th scope="col"> Generator </th>
+          <th scope="col"> Title </th>
+          <th scope="col"> Description </th>
+          <th scope="col"> Status </th>
+          <th scope="col"> Responsible </th>
+          <th scope="col"> Activity </th>
+          <th scope="col"> Actions </th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr *ngFor="let task of tasks">
+          <td> {{ task.Id }} </td>
+          <td> {{ task.Generator }} </td>
+          <td> {{ task.Title }} </td>
+          <td> {{ task.Description }} </td>
+          <td> {{ task.Status }} </td>
+          <td> {{ task.Responsible }} </td>
+          <td> {{ task.Activity }} </td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="navigateToTaskDetails()">
+              <i class="bi bi-journal-text"></i>
+            </button>
+            <button type="button" class="btn btn-warning text-white ml-5px" (click)="navigateToTaskUpdate()">
+              <i class="bi bi-pencil"></i>
+            </button>
+            <button type="button" class="btn btn-danger ml-5px" (click)="deleteTask()">
+              <i class="bi bi-x"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <button type="button" class="btn btn-primary mt-10px" (click)="newTask()"> Create task </button>
+
 </div>

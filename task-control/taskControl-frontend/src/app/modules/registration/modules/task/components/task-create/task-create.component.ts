@@ -20,6 +20,7 @@ export class TaskCreateComponent implements OnInit {
 
   ngOnInit() {
     this.generateForm();
+    this.closeDialogWithEscapeButton();
   }
 
   public generateForm() {
@@ -34,16 +35,21 @@ export class TaskCreateComponent implements OnInit {
   }
 
   public createTask() {
-    console.log("create");
     if (!this.form.valid) {
       return;
     }
     const task: Task = this.form.value;
-    console.log(task);
   }
 
   public closeDialog() {
     this.dialogRef.close();
-    console.log("dialog closed");
+  }
+
+  public closeDialogWithEscapeButton() {
+    this.dialogRef.keydownEvents().subscribe((event) => {
+      if (event.key === "Escape") {
+        this.dialogRef.close();
+      }
+    });
   }
 }

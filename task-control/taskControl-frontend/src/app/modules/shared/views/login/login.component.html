@@ -1,15 +1,12 @@
 <!-- BEGIN LOGIN FORM -->
-<!-- WITH REACTIVE FORM -->
-<div class="position-relative top-50 start-50 translate-middle form-box">
+<div class="position-relative top-50 start-50 translate-middle p-3 bg-dark bg-opacity-10 border rounded form-box">
   <h1 class="text-center"> Task Control </h1>
   <hr>
   <form [formGroup]="form">
-    <div class="mb-4">
-      <!-- <label class="form-label"> Username </label> -->
+    <div class="mb-3">
       <input type="text" class="form-control" formControlName="Username" placeholder="Username">
     </div>
     <div class="mb-3">
-      <!-- <label class="form-label"> Password </label> -->
       <input type="password" class="form-control" formControlName="Password" placeholder="Password">
     </div>
     <hr>
@@ -18,4 +15,4 @@
     </div>
   </form>
 </div>
-<!-- <app-footer></app-footer> -->
+<!-- END LOGIN FORM -->

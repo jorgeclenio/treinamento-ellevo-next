@@ -1,47 +1,53 @@
 <div class="container">
   <app-title [title]="title"></app-title>
+
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item p_pointer"><a (click)="navigateToDashboard()"> Dashboard </a></li>
       <li class="breadcrumb-item active" aria-current="page"> User list </li>
     </ol>
   </nav>
+  <hr>
 
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col"> Id </th>
-        <th scope="col"> Name </th>
-        <th scope="col"> Username </th>
-        <th scope="col"> Password </th>
-        <th scope="col"> Cpf </th>
-        <th scope="col"> Phonenumber </th>
-        <th scope="col"> Email </th>
-        <th scope="col"> Actions </th>
-      </tr>
-    </thead>
-    <tbody class="table-group-divider">
-      <tr *ngFor="let user of users">
-        <td> {{ user.Id }} </td>
-        <td> {{ user.Name }} </td>
-        <td> {{ user.Username }} </td>
-        <td> {{ user.Password }} </td>
-        <td> {{ user.Cpf }} </td>
-        <td> {{ user.Phonenumber }} </td>
-        <td> {{ user.Email }} </td>
-        <td>
-          <button type="button" class="btn btn-primary" (click)="navigateToUserDetails()">
-            <i class="bi bi-journal-text"></i>
-          </button>
-          <button type="button" class="btn btn-warning text-white ml-5px" (click)="navigateToUserUpdate()">
-            <i class="bi bi-pencil"></i>
-          </button>
-          <button type="button" class="btn btn-danger ml-5px" (click)="deleteUser()">
-            <i class="bi bi-x"></i>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  <button type="button" class="btn btn-primary mr-10px" (click)="newUser()"> Create user </button>
+  <div class="shadow-none p-3 bg-light border rounded">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col"> Id </th>
+          <th scope="col"> Name </th>
+          <th scope="col"> Username </th>
+          <th scope="col"> Password </th>
+          <th scope="col"> Cpf </th>
+          <th scope="col"> Phonenumber </th>
+          <th scope="col"> Email </th>
+          <th scope="col"> Actions </th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr *ngFor="let user of users">
+          <td> {{ user.Id }} </td>
+          <td> {{ user.Name }} </td>
+          <td> {{ user.Username }} </td>
+          <td> {{ user.Password }} </td>
+          <td> {{ user.Cpf }} </td>
+          <td> {{ user.Phonenumber }} </td>
+          <td> {{ user.Email }} </td>
+          <td>
+            <button type="button" class="btn btn-primary" (click)="navigateToUserDetails()">
+              <i class="bi bi-journal-text"></i>
+            </button>
+            <button type="button" class="btn btn-warning text-white ml-5px" (click)="navigateToUserUpdate()">
+              <i class="bi bi-pencil"></i>
+            </button>
+            <button type="button" class="btn btn-danger ml-5px" (click)="deleteUser()">
+              <i class="bi bi-x"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <button type="button" class="btn btn-primary mt-10px" (click)="newUser()"> Create user </button>
+
 </div>

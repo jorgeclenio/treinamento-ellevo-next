@@ -1,32 +1,38 @@
 <h2 mat-dialog-title class="text-center"> Create task </h2>
 <hr>
-<mat-dialog-content>
-  <form [formGroup]="form" novalidate>
-    <div class="input-group mb-2">
-      <input type="text" class="form-control" placeholder="Generator" formControlName="Generator">
-    </div>
-    <div class="input-group mb-2">
-      <input type="text" class="form-control" placeholder="Title" formControlName="Title">
-    </div>
-    <div class="input-group mb-2">
-      <textarea class="form-control" placeholder="Description" formControlName="Description"></textarea>
-    </div>
-    <div class="input-group mb-2">
-      <input type="text" class="form-control" placeholder="Status" formControlName="Status">
-    </div>
-    <div class="input-group mb-2">
-      <input type="text" class="form-control" placeholder="Responsible" formControlName="Responsible">
-    </div>
-    <div class="input-group mb-2">
-      <input type="text" class="form-control" placeholder="Activity" formControlName="Activity">
-    </div>
-  </form>
-</mat-dialog-content>
+
+<div class="shadow-none p-3 bg-light border rounded">
+  <mat-dialog-content>
+    <form [formGroup]="form" novalidate>
+      <div class="input-group mb-2">
+        <input type="text" class="form-control" placeholder="Generator" formControlName="Generator">
+      </div>
+      <div class="input-group mb-2">
+        <input type="text" class="form-control" placeholder="Title" formControlName="Title">
+      </div>
+      <div class="input-group mb-2">
+        <textarea class="form-control" placeholder="Description" formControlName="Description"></textarea>
+      </div>
+      <div class="input-group mb-2">
+        <input type="text" class="form-control" placeholder="Status" formControlName="Status">
+      </div>
+      <div class="input-group mb-2">
+        <input type="text" class="form-control" placeholder="Responsible" formControlName="Responsible">
+      </div>
+      <div class="input-group mb-2">
+        <input type="text" class="form-control" placeholder="Activity" formControlName="Activity">
+      </div>
+    </form>
+  </mat-dialog-content>
+</div>
 <hr>
+
 <mat-dialog-actions>
   <button type="button" class="btn btn-primary" (click)="createTask()" [disabled]="!form.valid">
     Create task
   </button>
-  <button type="button" class="btn btn-danger ml-10px" (click)="closeDialog()"> Cancel </button>
+  <button type="button" class="btn btn-danger ml-10px" (click)="closeDialog()">
+    Cancel
+  </button>
 </mat-dialog-actions>
 <!-- <app-form-debug [form]="form"></app-form-debug> -->

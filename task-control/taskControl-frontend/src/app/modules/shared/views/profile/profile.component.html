@@ -7,9 +7,38 @@
       <li class="breadcrumb-item active" aria-current="page"> Profile </li>
     </ol>
   </nav>
+  <hr>
 
-  <h4> Current user data </h4>
-
-  <!-- form para retornar as informações do usuário logado   -->
-
+  <div class="shadow-none p-3 bg-light border rounded">
+  <!-- informação do username do usuário logado vem do user.model.ts -->
+  <div class="text-center">
+    <h4> User data - {{ userData }} </h4>
+  </div>
+  <hr>
+  <!-- form para retornar as informações do usuário logado -->
+    <mat-dialog-content>
+      <form [formGroup]="form" novalidate>
+        <div class="input-group mb-2">
+          <input type="text" class="form-control" placeholder="Name" formControlName="Name">
+        </div>
+        <div class="input-group mb-2">
+          <input type="text" class="form-control" placeholder="Username" formControlName="Username">
+        </div>
+        <div class="input-group mb-2">
+          <input type="password" class="form-control" placeholder="Password" formControlName="Password">
+        </div>
+        <div class="input-group mb-2">
+          <input appMask="cpf" type="text" class="form-control" placeholder="Ex.: 123.456.789-10" formControlName="Cpf"
+            maxlength="14">
+          <input appMask="phone" type="text" class="form-control" placeholder="Ex.: (47) 31234-5678"
+            formControlName="Phonenumber" maxlength="15">
+        </div>
+        <div class="input-group mb-2">
+          <input type="text" class="form-control" placeholder="Ex.: email@email.com" formControlName="Email">
+        </div>
+      </form>
+      <hr>
+    </mat-dialog-content>
+  </div>
+  <!-- <app-form-debug [form]="form"></app-form-debug> -->
 </div>

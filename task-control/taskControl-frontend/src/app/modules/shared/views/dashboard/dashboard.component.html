@@ -1,32 +1,38 @@
 <div class="container">
   <app-title [title]="title"></app-title>
+
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item active" aria-current="page"> Dashboard </li>
     </ol>
   </nav>
-  <div class="row">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title"> Registered tasks </h5>
-        <p class="card-text"> List of all registered tasks; </p>
-        <button type="button" class="btn btn-primary" (click)="navigateToTask()">
-          Go to
-        </button>
+  <hr>
+
+  <div class="shadow-none p-3 bg-light border rounded">
+    <div class="row">
+      <div class="card ml-10px" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"> Registered tasks </h5>
+          <p class="card-text"> List of all registered tasks; </p>
+          <button type="button" class="btn btn-primary" (click)="navigateToTask()">
+            Go to
+          </button>
+        </div>
       </div>
-    </div>
-    <div class="card ml-15px" style="width: 18rem;">
-      <div class="card-body">
-        <h5 class="card-title"> Registered users </h5>
-        <p class="card-text"> List of all registered users; </p>
-        <button type="button" class="btn btn-primary" (click)="navigateToUser()">
-          Go to
-        </button>
+      <div class="card ml-10px" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title"> Registered users </h5>
+          <p class="card-text"> List of all registered users; </p>
+          <button type="button" class="btn btn-primary" (click)="navigateToUser()">
+            Go to
+          </button>
+        </div>
       </div>
     </div>
   </div>
   <hr>
-  <div class="row">
+
+  <div class="row ml-10px">
     <ul>
       <h6> > Tasks </h6>
       <li> gerador devera retornar nome do usuário logado; </li>
@@ -38,15 +44,11 @@
     <hr>
     <ul>
       <h6> > Users </h6>
-      <li> adicionar máscara email e poderá ser opcional; </li>
-      <li> adicionar máscara telefone utilizando diretivas do angular (15 digitos contando com a máscara); </li>
-      <li> adicionar máscara cpf utilizando diretivas do angular (14 digitos contando com a máscara); </li>
+      <li> adicionar mais itens da documentação do desafio; </li>
     </ul>
     <hr>
     <ul>
       <h6> > Opcionais </h6>
-      <li> trocar cor principal aplicação; </li>
-      <li> sombreamento nas tabelas (list); </li>
       <li> paginação nas tabelas; </li>
     </ul>
   </div>

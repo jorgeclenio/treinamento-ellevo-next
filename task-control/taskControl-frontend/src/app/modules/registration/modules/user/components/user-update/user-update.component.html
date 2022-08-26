@@ -1,31 +1,36 @@
 <h2 mat-dialog-title class="text-center"> Update user </h2>
 <hr>
-<mat-dialog-content>
-  <form [formGroup]="form" novalidate>
-    <div class="input-group mb-2">
-      <input type="text" class="form-control" placeholder="Name" formControlName="Name">
-    </div>
-    <div class="input-group mb-2">
-      <input type="text" class="form-control" placeholder="Username" formControlName="Username">
-    </div>
-    <div class="input-group mb-2">
-      <input type="password" class="form-control" placeholder="Password" formControlName="Password">
-    </div>
-    <div class="input-group mb-2">
-      <input type="text" class="form-control" placeholder="CPF" formControlName="Cpf">
-      <input type="text" class="form-control" placeholder="Phonenumber" formControlName="Phonenumber">
-    </div>
-    <div class="input-group mb-2">
-      <input type="text" class="form-control" placeholder="Email" formControlName="Email">
-    </div>
-  </form>
-</mat-dialog-content>
+
+<div class="shadow-none p-3 bg-light border rounded">
+  <mat-dialog-content>
+    <form [formGroup]="form" novalidate>
+      <div class="input-group mb-2">
+        <input type="text" class="form-control" placeholder="Name" formControlName="Name">
+      </div>
+      <div class="input-group mb-2">
+        <input type="text" class="form-control" placeholder="Username" formControlName="Username">
+      </div>
+      <div class="input-group mb-2">
+        <input type="password" class="form-control" placeholder="Password" formControlName="Password">
+      </div>
+      <div class="input-group mb-2">
+        <input appMask="cpf" type="text" class="form-control" placeholder="Ex.: 123.456.789-10" formControlName="Cpf"
+          maxlength="14">
+        <input appMask="phone" type="text" class="form-control" placeholder="Ex.: (47) 31234-5678"
+          formControlName="Phonenumber" maxlength="15">
+      </div>
+      <div class="input-group mb-2">
+        <input type="text" class="form-control" placeholder="Ex.: email@email.com" formControlName="Email">
+      </div>
+    </form>
+  </mat-dialog-content>
+</div>
 <hr>
+
 <mat-dialog-actions>
   <button type="button" class="btn btn-warning text-white" (click)="updateUser()" [disabled]="!form.valid">
     Update user
   </button>
   <button type="button" class="btn btn-danger ml-10px" (click)="closeDialog()"> Cancel </button>
 </mat-dialog-actions>
-<app-form-debug [form]="form"></app-form-debug>
-
+<!-- <app-form-debug [form]="form"></app-form-debug> -->

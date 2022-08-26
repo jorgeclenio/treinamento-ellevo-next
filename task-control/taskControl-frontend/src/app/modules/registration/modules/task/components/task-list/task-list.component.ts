@@ -91,11 +91,9 @@ export class TaskListComponent implements OnInit {
   }
 
   public deleteTask() {
-    console.log("delete task");
   }
 
   public navigateToTaskDetails() {
-    console.log("call details");
     this.dialog.open(TaskDetailsComponent, {
       minWidth: "650px",
       disableClose: true,
@@ -103,7 +101,6 @@ export class TaskListComponent implements OnInit {
   }
 
   public navigateToTaskUpdate() {
-    console.log("call update");
     this.dialog.open(TaskUpdateComponent, {
       minWidth: "650px",
       disableClose: true,

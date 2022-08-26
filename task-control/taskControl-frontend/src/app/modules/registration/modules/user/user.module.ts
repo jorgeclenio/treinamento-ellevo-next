@@ -1,3 +1,5 @@
+import { DirectivesModule } from "./../../../shared/directives/directives.module";
+import { MaskDirective } from "./../../../shared/directives/mask.directive";
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
@@ -27,6 +29,7 @@ import {
     ReactiveFormsModule,
     SharedModule,
     UserRoutingModule,
+    DirectivesModule,
   ],
   declarations: [
     UserCreateComponent,
