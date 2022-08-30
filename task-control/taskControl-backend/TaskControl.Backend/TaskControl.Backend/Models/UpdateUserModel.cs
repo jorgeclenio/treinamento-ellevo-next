@@ -1,6 +1,6 @@
 ﻿namespace TaskControl.Backend.Models
 {
-    public class AddUserModel
+    public class UpdateUserModel
     {
         public string Name { get; set; }
         public string Username { get; set; }

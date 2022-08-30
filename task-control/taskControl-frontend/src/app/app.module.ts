@@ -2,8 +2,6 @@ import { NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MatDialogModule } from "@angular/material/dialog";
-import { MatInputModule, MatNativeDateModule } from "@angular/material";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
@@ -28,6 +26,7 @@ import {
 } from "./modules/registration/modules";
 
 import { TaskModule, UserModule } from "./modules/registration/modules";
+import { MaterialModule } from "./material.module";
 
 @NgModule({
   declarations: [
@@ -44,9 +43,9 @@ import { TaskModule, UserModule } from "./modules/registration/modules";
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    MatDialogModule,
-    MatInputModule,
-    MatNativeDateModule,
+
+    MaterialModule,
+
     ReactiveFormsModule,
     SharedModule,
     TaskModule,

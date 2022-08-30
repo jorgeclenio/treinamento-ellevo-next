@@ -17,6 +17,18 @@ namespace TaskControl.Backend.Controllers
             _userService = userService;
         }
 
+        [HttpPost("/login")]
+        public async Task<IActionResult> Login([FromBody] Login login)
+        {
+            var jwtLogin = await _userService.Login(login);
+            
+            if(jwtLogin != null)
+            {
+                return Ok(jwtLogin);
+            }            
+            return BadRequest();
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateUser([FromBody] AddUserModel userModels)
         {
@@ -40,6 +52,12 @@ namespace TaskControl.Backend.Controllers
         {
             _userService.DeleteUser(new ObjectId(userId));
             return NoContent();
+        }
+
+        [HttpPut("{userId}")]
+        public IActionResult UpdateUser([FromBody] UpdateUserModel userModels, [FromRoute] string userId)
+        {
+            return Ok(_userService.UpdateUser(userModels, new ObjectId(userId)));
         }
     }
 }

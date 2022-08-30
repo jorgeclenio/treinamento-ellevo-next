@@ -4,12 +4,12 @@ import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 
-import { MatInputModule } from "@angular/material";
-
 import { SharedModule } from "./../../../shared";
 
 import { TaskRoutingModule } from "./task-routing.module";
 import { TaskComponent } from "./task.component";
+
+import { MaterialModule } from "./../../../../material.module";
 
 import {
   TaskCreateComponent,
@@ -18,19 +18,17 @@ import {
   TaskUpdateComponent,
 } from "./components";
 
-import {MatTableModule} from '@angular/material/table';
-
-
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    MatInputModule,
+
+    MaterialModule,
+
     RouterModule,
     ReactiveFormsModule,
     SharedModule,
     TaskRoutingModule,
-    MatTableModule
   ],
   declarations: [
     TaskCreateComponent,

@@ -1,5 +1,4 @@
-export class User {
-  public Id: string;
+export class UpdateUser {
   public Name: string;
   public Username: string;
   public Password: string;

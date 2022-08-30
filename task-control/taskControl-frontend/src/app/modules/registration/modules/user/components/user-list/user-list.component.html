@@ -18,7 +18,7 @@
           <th scope="col"> Username </th>
           <th scope="col"> Password </th>
           <th scope="col"> Cpf </th>
-          <th scope="col"> Phonenumber </th>
+          <th scope="col"> Phone Number </th>
           <th scope="col"> Email </th>
           <th scope="col"> Actions </th>
         </tr>
@@ -30,7 +30,7 @@
           <td> {{ user.Username }} </td>
           <td> {{ user.Password }} </td>
           <td> {{ user.Cpf }} </td>
-          <td> {{ user.Phonenumber }} </td>
+          <td> {{ user.PhoneNumber }} </td>
           <td> {{ user.Email }} </td>
           <td>
             <button type="button" class="btn btn-primary" (click)="navigateToUserDetails()">
@@ -46,7 +46,15 @@
         </tr>
       </tbody>
     </table>
+
+    <!-- <mat-paginator [length]="100"
+                   [pageSize]="10"
+                   [pageSizeOptions]="[5, 10, 25, 100]"
+                   aria-label="Select page">
+    </mat-paginator> -->
+
   </div>
+  <hr>
 
   <button type="button" class="btn btn-primary mt-10px" (click)="newUser()"> Create user </button>
 

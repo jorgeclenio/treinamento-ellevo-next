@@ -1,8 +1,10 @@
 ﻿using AutoMapper;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using TaskControl.Backend.Cryptography;
 using TaskControl.Backend.Entities;
 using TaskControl.Backend.Models;
 
@@ -54,5 +56,27 @@ namespace TaskControl.Backend.Services
             return _userCollection.DeleteOne(user => user.Id == userId);
         }
 
+        public UserEntity UpdateUser(UpdateUserModel updateUserModel, ObjectId userId)
+        {
+            var userEntity = _mapper.Map<UpdateUserModel, UserEntity>(updateUserModel);
+            userEntity.Id = userId;
+
+            _userCollection.ReplaceOne(task => task.Id == userId, userEntity);
+            return userEntity;
+        }
+
+        public async Task<string> Login(Login login)
+        {
+            var userEntity = _userCollection.Find(user => user.Username == login.UserName).FirstOrDefault();
+
+            if (userEntity.Password != TaskControlCryptography.Encrypt(login.Password))
+            {
+                throw new Exception("Invalid credentials.");
+            }
+
+            // funçao gerar jwf;
+            // função vericar jwf é válido;
+            return "Login successful";
+        }
     }
 }

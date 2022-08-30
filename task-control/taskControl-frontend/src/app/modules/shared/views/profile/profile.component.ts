@@ -38,7 +38,7 @@ export class ProfileComponent implements OnInit {
       Username: [{ value: "", disabled: true }],
       Password: [{ value: "", disabled: true }],
       Cpf: [{ value: "", disabled: true }],
-      Phonenumber: [{ value: "", disabled: true }],
+      PhoneNumber: [{ value: "", disabled: true }],
       Email: [{ value: "", disabled: true }],
     });
   }

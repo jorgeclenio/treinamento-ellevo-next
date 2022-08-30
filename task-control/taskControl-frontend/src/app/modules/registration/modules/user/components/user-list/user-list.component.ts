@@ -17,16 +17,6 @@ import { UserUpdateComponent } from "./../user-update/user-update.component";
 export class UserListComponent implements OnInit {
   public title: string = "User list";
 
-  public displayedColumns: string[] = [
-    "Id",
-    "Name",
-    "Username",
-    "Password",
-    "Cpf",
-    "Phonenumber",
-    "Email",
-  ];
-
   public users: User[] = [
     {
       Id: "tdf1e1",
@@ -34,7 +24,7 @@ export class UserListComponent implements OnInit {
       Username: "harry.potter",
       Password: "a1b2c3d4e5",
       Cpf: "123.456.759-01",
-      Phonenumber: "(00) 12345-1231",
+      PhoneNumber: "(00) 12345-1231",
       Email: "harry.potter@email.com",
     },
     {
@@ -43,7 +33,7 @@ export class UserListComponent implements OnInit {
       Username: "ron.weasley",
       Password: "a1b2c3d4e5",
       Cpf: "123.456.759-02",
-      Phonenumber: "(00) 12345-1232",
+      PhoneNumber: "(00) 12345-1232",
       Email: "ron.weasley@email.com",
     },
     {
@@ -52,7 +42,7 @@ export class UserListComponent implements OnInit {
       Username: "hermione.granger",
       Password: "a1b2c3d4e5",
       Cpf: "123.456.759-03",
-      Phonenumber: "(00) 12345-1233",
+      PhoneNumber: "(00) 12345-1233",
       Email: "hermione.granger@email.com",
     },
     {
@@ -61,7 +51,7 @@ export class UserListComponent implements OnInit {
       Username: "draco.malfoy",
       Password: "a1b2c3d4e5",
       Cpf: "123.456.759-04",
-      Phonenumber: "(00) 12345-1234",
+      PhoneNumber: "(00) 12345-1234",
       Email: "draco.malfoy@email.com",
     },
     {
@@ -70,7 +60,7 @@ export class UserListComponent implements OnInit {
       Username: "luna.lovegood",
       Password: "a1b2c3d4e5",
       Cpf: "123.456.759-05",
-      Phonenumber: "(00) 12345-1230",
+      PhoneNumber: "(00) 12345-1230",
       Email: "luna.lovegood@email.com",
     },
   ];
@@ -90,8 +80,7 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  public deleteUser() {
-  }
+  public deleteUser() {}
 
   public navigateToUserDetails() {
     this.dialog.open(UserDetailsComponent, {

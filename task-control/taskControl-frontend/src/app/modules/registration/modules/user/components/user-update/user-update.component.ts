@@ -28,8 +28,15 @@ export class UserUpdateComponent implements OnInit {
       Name: [null, [Validators.required]],
       Username: [null, [Validators.required]],
       Password: [null, [Validators.required]],
-      Cpf: [null, [Validators.required]],
-      Phonenumber: [null, [Validators.required]],
+      Cpf: [
+        null,
+        [
+          Validators.required,
+          Validators.minLength(14),
+          Validators.maxLength(14),
+        ],
+      ],
+      PhoneNumber: [null, [Validators.minLength(15), Validators.maxLength(15)]],
       Email: [null, [Validators.email]],
     });
   }

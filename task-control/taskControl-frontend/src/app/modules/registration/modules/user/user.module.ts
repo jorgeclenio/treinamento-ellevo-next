@@ -1,12 +1,9 @@
 import { DirectivesModule } from "./../../../shared/directives/directives.module";
-import { MaskDirective } from "./../../../shared/directives/mask.directive";
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
-
-import { MatInputModule } from "@angular/material";
 
 import { SharedModule } from "./../../../shared";
 
@@ -20,11 +17,16 @@ import {
   UserUpdateComponent,
 } from "./components";
 
+import { MaterialModule } from "./../../../../material.module";
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    MatInputModule,
+
+    // import all API from material.module.ts
+    MaterialModule,
+
     RouterModule,
     ReactiveFormsModule,
     SharedModule,

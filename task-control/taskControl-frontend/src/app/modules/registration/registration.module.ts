@@ -1,15 +1,20 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
-import { CommonModule } from '@angular/common';
+import { CommonModule } from "@angular/common";
 
-import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from "@angular/router";
+import { ReactiveFormsModule } from "@angular/forms";
 
-import { RegistrationRoutingModule } from './registration-routing.module';
-import { SharedModule } from './../shared/shared.module';
+import { MatPaginatorModule } from "@angular/material/paginator";
+
+import { RegistrationRoutingModule } from "./registration-routing.module";
+import { SharedModule } from "./../shared/shared.module";
 
 @NgModule({
   imports: [
     CommonModule,
+
+    MatPaginatorModule,
+
     RouterModule,
     ReactiveFormsModule,
     RegistrationRoutingModule,
@@ -18,6 +23,6 @@ import { SharedModule } from './../shared/shared.module';
   declarations: [],
   exports: [RouterModule],
   providers: [],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class RegistrationModule{}
+export class RegistrationModule {}

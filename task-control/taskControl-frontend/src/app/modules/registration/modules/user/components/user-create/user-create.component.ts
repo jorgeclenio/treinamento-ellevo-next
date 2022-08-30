@@ -36,14 +36,7 @@ export class UserCreateComponent implements OnInit {
           Validators.maxLength(14),
         ],
       ],
-      Phonenumber: [
-        "",
-        [
-          Validators.required,
-          Validators.minLength(15),
-          Validators.maxLength(15),
-        ],
-      ],
+      PhoneNumber: ["", [Validators.minLength(15), Validators.maxLength(15)]],
       Email: ["", [Validators.email]],
     });
   }

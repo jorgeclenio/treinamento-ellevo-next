@@ -26,6 +26,14 @@ namespace TaskControl.Backend.Mappings
                 .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status))
                 .ForMember(dest => dest.ResponsibleId, opt => opt.MapFrom(src => src.ResponsibleId))
                 .ForMember(dest => dest.ActivityId, opt => opt.MapFrom(src => src.ActivityId));
+
+            CreateMap<UpdateTaskModel, TaskEntity>()
+                .ForMember(dest => dest.GeneratorId, opt => opt.MapFrom(src => new ObjectId(src.GeneratorId)))
+                .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Title))
+                .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
+                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status))
+                .ForMember(dest => dest.ResponsibleId, opt => opt.MapFrom(src => new ObjectId(src.ResponsibleId)))
+                .ForMember(dest => dest.ActivityId, opt => opt.MapFrom(src => new ObjectId(src.ActivityId)));
         }
     }
 }

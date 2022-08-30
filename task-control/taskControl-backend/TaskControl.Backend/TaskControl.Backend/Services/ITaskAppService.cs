@@ -13,5 +13,6 @@ namespace TaskControl.Backend.Services
         List<TaskModel> GetAllTasks();
         TaskModel GetTaskById(ObjectId taskId);
         DeleteResult DeleteTask(ObjectId taskId);
+        TaskEntity UpdateTask(UpdateTaskModel taskModels, ObjectId taskId);
     }
 }

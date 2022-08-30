@@ -41,5 +41,11 @@ namespace TaskControl.Backend.Controllers
             _taskService.DeleteTask(new ObjectId(taskId));
             return NoContent();
         }
+
+        [HttpPut("{taskId}")]
+        public IActionResult UpdateTask([FromBody] UpdateTaskModel taskModels, [FromRoute] string taskId)
+        {
+            return Ok(_taskService.UpdateTask(taskModels, new ObjectId(taskId)));
+        }
     }
 }

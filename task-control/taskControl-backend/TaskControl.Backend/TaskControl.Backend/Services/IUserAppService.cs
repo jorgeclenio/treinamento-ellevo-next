@@ -13,5 +13,7 @@ namespace TaskControl.Backend.Services
         List<UserModel> GetAllUsers();
         UserModel GetUserById(ObjectId userId);
         DeleteResult DeleteUser(ObjectId userId);
+        UserEntity UpdateUser(UpdateUserModel userModels, ObjectId userId);
+        Task<string> Login(Login login);
     }
 }

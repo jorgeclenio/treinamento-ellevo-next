@@ -53,5 +53,14 @@ namespace TaskControl.Backend.Services
         {
             return _taskCollection.DeleteOne(task => task.Id == taskId);
         }
+
+        public TaskEntity UpdateTask(UpdateTaskModel updateTaskModel, ObjectId taskId)
+        {
+            var taskEntity = _mapper.Map<UpdateTaskModel, TaskEntity>(updateTaskModel);
+            taskEntity.Id = taskId;
+
+            _taskCollection.ReplaceOne(task => task.Id == taskId, taskEntity);
+            return taskEntity;
+        }
     }
 }
