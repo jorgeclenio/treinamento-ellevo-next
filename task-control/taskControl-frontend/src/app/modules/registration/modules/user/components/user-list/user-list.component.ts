@@ -6,6 +6,7 @@ import { AppUtilityService } from "../../../../../shared";
 
 import { User } from "./../../../../models/user.model";
 import { UserCreateComponent } from "./../user-create/user-create.component";
+import { UserDeleteComponent } from "./../user-delete/user-delete.component";
 import { UserDetailsComponent } from "./../user-details/user-details.component";
 import { UserUpdateComponent } from "./../user-update/user-update.component";
 
@@ -80,7 +81,12 @@ export class UserListComponent implements OnInit {
     });
   }
 
-  public deleteUser() {}
+  public navigateToUserDelete() {
+    this.dialog.open(UserDeleteComponent, {
+      minWidth: "650px",
+      disableClose: true,
+    });
+  }
 
   public navigateToUserDetails() {
     this.dialog.open(UserDetailsComponent, {

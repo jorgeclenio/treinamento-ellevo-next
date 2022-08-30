@@ -18,6 +18,7 @@ import {
 } from "./components";
 
 import { MaterialModule } from "./../../../../material.module";
+import { UserDeleteComponent } from './components/user-delete/user-delete.component';
 
 @NgModule({
   imports: [
@@ -34,14 +35,15 @@ import { MaterialModule } from "./../../../../material.module";
     DirectivesModule,
   ],
   declarations: [
+    UserComponent,
     UserCreateComponent,
+    UserDeleteComponent,
     UserDetailsComponent,
     UserListComponent,
     UserUpdateComponent,
-    UserComponent,
   ],
   exports: [UserCreateComponent],
-  entryComponents: [],
+  entryComponents: [UserDeleteComponent],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

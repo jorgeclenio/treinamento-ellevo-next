@@ -6,6 +6,7 @@ import { AppUtilityService } from "../../../../../shared";
 
 import { Task } from "./../../../../models/task.model";
 import { TaskCreateComponent } from "./../task-create/task-create.component";
+import { TaskDeleteComponent } from "./../task-delete/task-delete.component";
 import { TaskDetailsComponent } from "./../task-details/task-details.component";
 import { TaskUpdateComponent } from "./../task-update/task-update.component";
 
@@ -90,7 +91,11 @@ export class TaskListComponent implements OnInit {
     });
   }
 
-  public deleteTask() {
+  public navigateToTaskDelete() {
+    this.dialog.open(TaskDeleteComponent, {
+      minWidth: "650px",
+      disableClose: true,
+    });
   }
 
   public navigateToTaskDetails() {

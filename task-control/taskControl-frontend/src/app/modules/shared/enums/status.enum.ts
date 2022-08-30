@@ -1,6 +1,6 @@
 export enum Status {
-  NotStarted = 0,         //
-  InProgress = 1,         //
-  Waiting = 2,            //
-  Concluded = 3,          //
+  NotStarted = 0,         // não iniciado
+  InProgress = 1,         // em andamento
+  Waiting = 2,            // aguardando
+  Concluded = 3,          // concluído
 }

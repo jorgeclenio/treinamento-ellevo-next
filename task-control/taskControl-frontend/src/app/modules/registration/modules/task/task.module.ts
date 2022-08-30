@@ -17,6 +17,7 @@ import {
   TaskListComponent,
   TaskUpdateComponent,
 } from "./components";
+import { TaskDeleteComponent } from './components/task-delete/task-delete.component';
 
 @NgModule({
   imports: [
@@ -31,14 +32,15 @@ import {
     TaskRoutingModule,
   ],
   declarations: [
+    TaskComponent,
     TaskCreateComponent,
+    TaskDeleteComponent,
     TaskDetailsComponent,
     TaskListComponent,
     TaskUpdateComponent,
-    TaskComponent,
   ],
   exports: [TaskCreateComponent],
-  entryComponents: [],
+  entryComponents: [TaskDeleteComponent],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

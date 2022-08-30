@@ -2,26 +2,26 @@
 <hr>
 
 <div class="shadow-none p-3 bg-light border rounded">
-  <mat-dialog-content>
-    <form [formGroup]="form" novalidate>
-      <div class="input-group mb-2">
-        <input type="text" class="form-control" placeholder="Name" formControlName="Name">
-      </div>
-      <div class="input-group mb-2">
-        <input type="text" class="form-control" placeholder="Username" formControlName="Username">
-      </div>
-      <div class="input-group mb-2">
-        <input type="password" class="form-control" placeholder="Password" formControlName="Password">
-      </div>
-      <div class="input-group mb-2">
-        <input appMask="cpf" type="text" class="form-control" placeholder="CPF" formControlName="Cpf">
-        <input appMask="phone" type="text" class="form-control" placeholder="PhoneNumber" formControlName="PhoneNumber">
-      </div>
-      <div class="input-group mb-2">
-        <input type="text" class="form-control" placeholder="Email" formControlName="Email">
-      </div>
-    </form>
-  </mat-dialog-content>
+  <!-- <mat-dialog-content> -->
+  <form [formGroup]="form" novalidate>
+    <div class="input-group mb-2">
+      <input type="text" class="form-control" placeholder="Name" formControlName="Name">
+    </div>
+    <div class="input-group mb-2">
+      <input type="text" class="form-control" placeholder="Username" formControlName="Username">
+    </div>
+    <div class="input-group mb-2">
+      <input type="password" class="form-control" placeholder="Password" formControlName="Password">
+    </div>
+    <div class="input-group mb-2">
+      <input appMask="cpf" type="text" class="form-control" placeholder="CPF" formControlName="Cpf">
+      <input appMask="phone" type="text" class="form-control" placeholder="PhoneNumber" formControlName="PhoneNumber">
+    </div>
+    <div class="input-group mb-2">
+      <input type="text" class="form-control" placeholder="Email" formControlName="Email">
+    </div>
+  </form>
+  <!-- </mat-dialog-content> -->
 </div>
 <hr>
 
