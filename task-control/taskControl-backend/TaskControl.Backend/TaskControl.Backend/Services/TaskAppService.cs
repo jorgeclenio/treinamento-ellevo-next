@@ -18,7 +18,7 @@ namespace TaskControl.Backend.Services
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
-            _taskCollection = database.GetCollection<TaskEntity>(settings.CollectionName);
+            _taskCollection = database.GetCollection<TaskEntity>("Tasks");
             _mapper = mapper;
         }
 

@@ -27,7 +27,6 @@ export class TaskDeleteComponent implements OnInit {
   }
 
   public deleteTask() {
-    console.log("ok");
   }
 
   public closeDialog() {

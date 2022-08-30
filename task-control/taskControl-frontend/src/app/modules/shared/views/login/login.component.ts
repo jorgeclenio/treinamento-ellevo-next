@@ -16,8 +16,6 @@ export class LoginComponent implements OnInit {
   public title: string = "Login";
   public form: FormGroup;
 
-  public user: User = new User();
-
   constructor(
     private authService: AuthService,
     public fb: FormBuilder,
@@ -34,21 +32,19 @@ export class LoginComponent implements OnInit {
 
   public generateForm() {
     this.form = this.fb.group({
-      Username: ["", [Validators.required]],
+      UserName: ["", [Validators.required]],
       Password: ["", [Validators.required]],
     });
   }
 
   public onSubmit() {
-    console.log(this.form)
     if (!this.form.valid) {
-      return console.log("Invalid form");
+      return;
     }
-    localStorage.setItem("token", "clenio");
-    this.router.navigate(["/home"]);
+    this.makeLogin();
   }
 
   public makeLogin() {
-    this.authService.makeLogin(this.user);
+    this.authService.makeLogin(this.form.value);
   }
 }

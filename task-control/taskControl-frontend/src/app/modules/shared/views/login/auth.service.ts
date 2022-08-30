@@ -1,30 +1,22 @@
 import { Router } from "@angular/router";
 import { Injectable } from "@angular/core";
 
-import { User } from "./user";
+import { Login } from "src/app/modules/registration/models/login.model";
+import { Subscriber } from "rxjs";
+import { UserService } from "src/app/modules/shared/services/user.service";
 
 @Injectable()
 export class AuthService {
-  private authUser: boolean = false;
+  private subscriber = new Subscriber();
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private userApi: UserService) {}
 
-  public makeLogin(user: User) {
-    if (user.name === "admin" && user.pass === "123") {
-      this.authUser = true;
-
-      localStorage.setItem('token', 'clenio');
-
-      this.router.navigate(["/home"]);
-    } else {
-      this.authUser = false;
-    }
-  }
-
-  public userIsAuth() {
-    if (localStorage.getItem('token') === 'clenio'){
-      return true;
-    }
-    return this.authUser;
+  public makeLogin(loginData: Login) {
+    this.subscriber.add(
+      this.userApi.login(loginData).subscribe((response) => {
+        localStorage.setItem("jwt_token", response);
+        this.router.navigate(["/home"]);
+      })
+    );
   }
 }

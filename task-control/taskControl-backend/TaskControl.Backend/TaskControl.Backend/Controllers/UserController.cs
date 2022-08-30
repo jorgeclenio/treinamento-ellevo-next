@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using System.Threading.Tasks;
 using TaskControl.Backend.Models;
@@ -18,7 +19,7 @@ namespace TaskControl.Backend.Controllers
         }
 
         [HttpPost("/login")]
-        public async Task<IActionResult> Login([FromBody] Login login)
+        public async Task<IActionResult> Login([FromBody] LoginModel login)
         {
             var jwtLogin = await _userService.Login(login);
             
@@ -30,24 +31,28 @@ namespace TaskControl.Backend.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> CreateUser([FromBody] AddUserModel userModels)
         {
             return Ok(await _userService.CreateUser(userModels));
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult GetAllUsers()
         {
             return Ok(_userService.GetAllUsers());
         }
 
         [HttpGet("{userId}")]
+        [Authorize]
         public IActionResult GetUserById([FromRoute] string userId)
         {
             return Ok(_userService.GetUserById(new ObjectId(userId)));
         }
 
         [HttpDelete("{userId}")]
+        [Authorize]
         public IActionResult DeleteUser([FromRoute] string userId)
         {
             _userService.DeleteUser(new ObjectId(userId));
@@ -55,9 +60,17 @@ namespace TaskControl.Backend.Controllers
         }
 
         [HttpPut("{userId}")]
+        [Authorize]
         public IActionResult UpdateUser([FromBody] UpdateUserModel userModels, [FromRoute] string userId)
         {
             return Ok(_userService.UpdateUser(userModels, new ObjectId(userId)));
+        }
+
+        [HttpGet("/token-verification")]
+        [Authorize]
+        public IActionResult TokenVerification ()
+        {
+            return Ok();
         }
     }
 }

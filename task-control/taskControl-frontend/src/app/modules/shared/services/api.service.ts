@@ -7,8 +7,9 @@ import { Observable } from "rxjs";
 })
 export class ApiService {
   constructor(private httpClient: HttpClient) {}
+
   public getMessage(): Observable<string> {
-    return this.httpClient.get("https://localhost:5001/TaskControl", {
+    return this.httpClient.get("https://localhost:5001/", {
       responseType: "text",
     });
   }

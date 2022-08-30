@@ -20,7 +20,7 @@ namespace TaskControl.Backend.Services
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
-            _userCollection = database.GetCollection<UserEntity>(settings.CollectionName);
+            _userCollection = database.GetCollection<UserEntity>("Users");
             _mapper = mapper;
         }
 
@@ -65,18 +65,16 @@ namespace TaskControl.Backend.Services
             return userEntity;
         }
 
-        public async Task<string> Login(Login login)
+        public async Task<string> Login(LoginModel login)
         {
-            var userEntity = _userCollection.Find(user => user.Username == login.UserName).FirstOrDefault();
+            var userEntity = _userCollection.Find(user => user.UserName == login.UserName).FirstOrDefault();
 
             if (userEntity.Password != TaskControlCryptography.Encrypt(login.Password))
             {
                 throw new Exception("Invalid credentials.");
             }
 
-            // funçao gerar jwf;
-            // função vericar jwf é válido;
-            return "Login successful";
+            return TokenService.GenerateToken(userEntity);
         }
     }
 }

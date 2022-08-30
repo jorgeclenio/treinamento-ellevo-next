@@ -27,7 +27,6 @@ export class UserDeleteComponent implements OnInit {
   }
 
   public deleteUser() {
-    console.log("ok");
   }
 
   public closeDialog() {

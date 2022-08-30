@@ -13,7 +13,7 @@ namespace TaskControl.Backend.Mappings
             CreateMap<AddUserModel, UserEntity>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => ObjectId.GenerateNewId()))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
-                .ForMember(dest => dest.Username, opt => opt.MapFrom(src => src.Username))
+                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.UserName))
 
                 .ForMember(dest => dest.Password, opt => opt.MapFrom(src => TaskControlCryptography.Encrypt(src.Password)))
 
@@ -24,7 +24,7 @@ namespace TaskControl.Backend.Mappings
             CreateMap<UserEntity, UserModel>()
                 .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id))
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
-                .ForMember(dest => dest.Username, opt => opt.MapFrom(src => src.Username))
+                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.UserName))
 
                 .ForMember(dest => dest.Password, opt => opt.MapFrom(src => src.Password))
 
@@ -34,7 +34,7 @@ namespace TaskControl.Backend.Mappings
 
             CreateMap<UpdateUserModel, UserEntity>()
                 .ForMember(dest => dest.Name, opt => opt.MapFrom(src => src.Name))
-                .ForMember(dest => dest.Username, opt => opt.MapFrom(src => src.Username))
+                .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => src.UserName))
 
                 .ForMember(dest => dest.Password, opt => opt.MapFrom(src => src.Password))
 
