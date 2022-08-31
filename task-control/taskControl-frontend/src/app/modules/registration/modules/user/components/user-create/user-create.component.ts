@@ -85,26 +85,6 @@ export class UserCreateComponent implements OnInit, OnDestroy {
     });
   }
 
-  // SNACKBAR SUCCESS
-  // public openSnackbarSuccess(message: string) {
-  //   this.snackbar.open(message, "x", {
-  //     duration: 5000,
-  //     horizontalPosition: "center",
-  //     verticalPosition: "top",
-  //     panelClass: "snackbarSucces",
-  //   });
-  // }
-
-  // SNACKBAR ERROR
-  // public openSnackbarError(message: string) {
-  //   this.snackbar.open(message, "x", {
-  //     duration: 5000,
-  //     horizontalPosition: "center",
-  //     verticalPosition: "top",
-  //     panelClass: "snackbarSucces",
-  //   });
-  // }
-
   ngOnDestroy(): void {
     this.subscription.forEach((s) => s.unsubscribe());
   }

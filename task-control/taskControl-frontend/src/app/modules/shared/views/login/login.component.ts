@@ -40,8 +40,8 @@ export class LoginComponent implements OnInit {
   }
 
   public onSubmit() {
-    if (!this.form.valid) {
-      this.snackbar.showSnackbarError("", "Invalid username or password");
+    if (this.form.invalid) {
+      // this.snackbar.showSnackbarError("500", "Invalid username or password");
       return;
     }
     this.makeLogin();
