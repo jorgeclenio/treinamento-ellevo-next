@@ -12,7 +12,7 @@
   <div class="shadow-none p-3 bg-light border rounded">
   <!-- informação do username do usuário logado vem do user.model.ts -->
   <div class="text-center">
-    <h4> User data - {{ userData }} </h4>
+    <h4> User data | {{ userName }} </h4>
   </div>
   <hr>
   <!-- form para retornar as informações do usuário logado -->
@@ -22,7 +22,7 @@
           <input type="text" class="form-control" placeholder="Name" formControlName="Name">
         </div>
         <div class="input-group mb-2">
-          <input type="text" class="form-control" placeholder="Username" formControlName="Username">
+          <input type="text" class="form-control" placeholder="UserName" formControlName="UserName">
         </div>
         <div class="input-group mb-2">
           <input type="password" class="form-control" placeholder="Password" formControlName="Password">

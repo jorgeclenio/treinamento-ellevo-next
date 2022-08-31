@@ -1,8 +1,7 @@
-import { AddTask } from "./../../../../models/addTask.model";
 import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material";
 import { Router } from "@angular/router";
-import { Subscriber, Subscription } from "rxjs";
+import { Subscription } from "rxjs";
 
 import { AppUtilityService } from "../../../../../shared";
 
@@ -20,73 +19,67 @@ import { TaskService } from "./../../../../../shared/services/task.service";
   styleUrls: ["./task-list.component.scss"],
 })
 export class TaskListComponent implements OnInit {
-  public title: string = "Task list";
-
   public subscription: Subscription[] = [];
-  public taskService: TaskService;
-
-  public displayedColumns: string[] = [
-    "Id",
-    "Generator",
-    "Title",
-    "Description",
-    "Status",
-    "Responsible",
-    "Activity",
-  ];
   public tasks: Task[] = [];
+  public title: string = "Task list";
 
   constructor(
     private router: Router,
     public dialog: MatDialog,
+    public taskService: TaskService,
     public global_utilities: AppUtilityService
   ) {}
 
   ngOnInit() {
     // serviceTask => getTaks => subscribe => (tasks) this.taks = taks => cdr.detectChanges();
+    this.showTask();
   }
 
-  //
+  // SHOW TASKS
   public showTask() {
-    this.subscription.push(this.taskService.getTasks().subscribe());
+    this.subscription.push(
+      this.taskService.getTasks().subscribe(
+        (returnTask) => {
+          return console.log("ok");
+        },
+        (error) => {
+          return console.log("error");
+        }
+      )
+    );
   }
 
   // DIALOG CREATE
   public newTask() {
-    let dataRef = this.dialog.open(TaskCreateComponent, {
-      minWidth: "650px",
-      disableClose: true,
-    });
-    this.subscription.push(
-      dataRef.afterClosed().subscribe(() => this.showTask())
+    let dataTask = this.dialog.open(TaskCreateComponent, { minWidth: "650px", disableClose: true });
+    this.subscription.push(dataTask.afterClosed().subscribe(() => this.showTask()));
+  }
+
+  // DIALOG (READ) DETAILS
+  public navigateToTaskDetails(taskDetailsId: string) {
+    let dataDetails = this.dialog.open(TaskDetailsComponent, { minWidth: "650px",disableClose: true });
+
+    dataDetails.componentInstance.taskDetailsId = taskDetailsId;
+
+    this.subscription.push(dataDetails.afterClosed().subscribe(() => this.showTask()));
+  }
+
+  // DIALOG UPDATE
+  public navigateToTaskUpdate(taskUpdateId) {
+    let dataUpdate = this.dialog.open(TaskUpdateComponent, { minWidth: "650px", disableClose: true });
+
+    dataUpdate.componentInstance.taskUpdateId = taskUpdateId;
+
+    this.subscription.push(dataUpdate.afterClosed().subscribe(() => this.showTask())
     );
-  }
-
-  // DIALOG DETAILS
-  public navigateToTaskDetails() {
-    let dataRef = this.dialog.open(TaskDetailsComponent, {
-      minWidth: "650px",
-      disableClose: true,
-    });
-  }
-
-  // DIALOG DETAILS
-  public navigateToTaskUpdate() {
-    this.dialog.open(TaskUpdateComponent, {
-      minWidth: "650px",
-      disableClose: true,
-    });
   }
 
   // DIALOG DELETE
   public navigateToTaskDelete() {
-    this.dialog.open(TaskDeleteComponent, {
-      minWidth: "650px",
-      disableClose: true,
-    });
+    let dataDelete = this.dialog.open(TaskDeleteComponent, { minWidth: "650px", disableClose: true });
   }
 
-  // DIALOG DETAILS
+  // RETURN TO DASHBOARD PAGE
   public navigateToDashboard() {
     this.router.navigate(["/home/dashboard"]);
   }

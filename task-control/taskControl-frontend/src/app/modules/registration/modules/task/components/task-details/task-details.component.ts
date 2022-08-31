@@ -11,6 +11,7 @@ import { Task } from "./../../../../models/task.model";
 })
 export class TaskDetailsComponent implements OnInit {
   public form: FormGroup;
+  public taskDetailsId: string;
 
   constructor(
     public dialogRef: MatDialogRef<TaskDetailsComponent>,

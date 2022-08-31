@@ -20,6 +20,7 @@ export class UserDeleteComponent implements OnInit {
     this.closeDialogWithEscapeButton();
   }
 
+  // FUNCTION TO GENERATE FORM
   public generateForm() {
     this.form = this.fb.group({
       Checkbox: ["", [Validators.required]],
@@ -29,10 +30,12 @@ export class UserDeleteComponent implements OnInit {
   public deleteUser() {
   }
 
+  // BUTTON CANCEL FOR CLOSE DIALOG
   public closeDialog() {
     this.dialogRef.close();
   }
 
+  // CLOSE DIALOG WHEN ESC BUTTON IS PRESSED
   public closeDialogWithEscapeButton() {
     this.dialogRef.keydownEvents().subscribe((event) => {
       if (event.key === "Escape") {

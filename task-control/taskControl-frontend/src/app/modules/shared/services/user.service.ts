@@ -19,6 +19,14 @@ export class UserService {
     });
   }
 
+  // GET USER DATA
+  public getUserData() {
+    if(!localStorage['jwt_token']){
+      return null;
+    }
+    return JSON.parse(atob(localStorage['jwt_token'].split('.')[1]));
+  }
+
   // TOKEN VERIFICATION
   public tokenVerification(): Observable<any> {
     return this.httpClient.get("https://localhost:5001/token-verification", {

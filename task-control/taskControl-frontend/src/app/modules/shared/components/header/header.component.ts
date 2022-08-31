@@ -3,18 +3,29 @@ import { Router } from "@angular/router";
 
 import { AppUtilityService } from "../../services";
 
+import { UserService } from "src/app/modules/shared/services/user.service";
+
 @Component({
   selector: "app-header",
   templateUrl: "./header.component.html",
   styleUrls: ["./header.component.scss"],
 })
 export class HeaderComponent implements OnInit {
+  public userName: string = "";
+
   constructor(
     private router: Router,
+    private userService: UserService,
+
     public global_utilities: AppUtilityService
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    const token = this.userService.getUserData();
+    const name = token.unique_name.split(' ');
+
+    this.userName = name[0];
+  }
 
   public navigateToAbout() {
     this.router.navigate(["/home/about"]);

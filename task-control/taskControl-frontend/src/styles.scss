@@ -75,3 +75,29 @@ table {
   margin-bottom: 20px !important;
 }
 // ----------------------------------------------
+// SNACKBAR COLOR -------------------------------
+.snackbarSuccess.mat-snack-bar-container {
+  border-radius: 0.5rem;
+  background-color: #4caf50;
+  color: #ffffff;
+  white-space: pre-line;
+  .mat-simple-snackbar-action {
+    color: #ffffff;
+    button {
+      font-family: "RobotoBold", sans-serif;
+    }
+  }
+}
+.snackbarError.mat-snack-bar-container {
+  border-radius: 0.5rem;
+  background-color: #f44336;
+  color: #ffffff;
+  white-space: pre-line;
+  .mat-simple-snackbar-action {
+    color: #ffffff;
+    button {
+      font-family: "RobotoBold", sans-serif;
+    }
+  }
+}
+// ----------------------------------------------
