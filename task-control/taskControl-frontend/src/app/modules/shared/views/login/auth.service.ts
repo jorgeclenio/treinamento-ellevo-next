@@ -18,11 +18,18 @@ export class AuthService {
 
   public makeLogin(loginData: Login) {
     this.subscriber.add(
-      this.userApi.login(loginData).subscribe((response) => {
-        localStorage.setItem("jwt_token", response);
-        this.snackbar.showSnackbarSuccess("User logged in successfully.");
-        this.router.navigate(["/home"]);
-      })
+      this.userApi.login(loginData).subscribe(
+        (response) => {
+          localStorage.setItem("jwt_token", response);
+          const messageSuccess = "User logged in successfully.";
+          this.snackbar.showSnackbarSuccess(messageSuccess);
+          this.router.navigate(["/home"]);
+        },
+        (error) => {
+          const messageError = "Invalid username or password.";
+          this.snackbar.showSnackbarError(error.status, messageError);
+        }
+      )
     );
   }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { SnackbarService } from "./../../../../../shared/services/snackbar.service";
+import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material";
 import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
@@ -24,10 +25,12 @@ export class TaskListComponent implements OnInit {
   public title: string = "Task list";
 
   constructor(
-    private router: Router,
     public dialog: MatDialog,
-    public taskService: TaskService,
-    public global_utilities: AppUtilityService
+    private router: Router,
+    private snackbar: SnackbarService,
+    private cdr: ChangeDetectorRef,
+    private taskService: TaskService,
+    // public global_utilities: AppUtilityService
   ) {}
 
   ngOnInit() {
@@ -40,10 +43,11 @@ export class TaskListComponent implements OnInit {
     this.subscription.push(
       this.taskService.getTasks().subscribe(
         (returnTask) => {
-          return console.log("ok");
+          this.tasks = returnTask;
+          this.cdr.detectChanges();
         },
         (error) => {
-          return console.log("error");
+          this.snackbar.showSnackbarError(error.status, error.error.message);
         }
       )
     );
@@ -51,32 +55,49 @@ export class TaskListComponent implements OnInit {
 
   // DIALOG CREATE
   public newTask() {
-    let dataTask = this.dialog.open(TaskCreateComponent, { minWidth: "650px", disableClose: true });
-    this.subscription.push(dataTask.afterClosed().subscribe(() => this.showTask()));
+    let dataTask = this.dialog.open(TaskCreateComponent, {
+      minWidth: "650px",
+      disableClose: true,
+    });
+    this.subscription.push(
+      dataTask.afterClosed().subscribe(() => this.showTask())
+    );
   }
 
   // DIALOG (READ) DETAILS
   public navigateToTaskDetails(taskDetailsId: string) {
-    let dataDetails = this.dialog.open(TaskDetailsComponent, { minWidth: "650px",disableClose: true });
+    let dataDetails = this.dialog.open(TaskDetailsComponent, {
+      minWidth: "650px",
+      disableClose: true,
+    });
 
     dataDetails.componentInstance.taskDetailsId = taskDetailsId;
 
-    this.subscription.push(dataDetails.afterClosed().subscribe(() => this.showTask()));
+    this.subscription.push(
+      dataDetails.afterClosed().subscribe(() => this.showTask())
+    );
   }
 
   // DIALOG UPDATE
   public navigateToTaskUpdate(taskUpdateId) {
-    let dataUpdate = this.dialog.open(TaskUpdateComponent, { minWidth: "650px", disableClose: true });
+    let dataUpdate = this.dialog.open(TaskUpdateComponent, {
+      minWidth: "650px",
+      disableClose: true,
+    });
 
     dataUpdate.componentInstance.taskUpdateId = taskUpdateId;
 
-    this.subscription.push(dataUpdate.afterClosed().subscribe(() => this.showTask())
+    this.subscription.push(
+      dataUpdate.afterClosed().subscribe(() => this.showTask())
     );
   }
 
   // DIALOG DELETE
   public navigateToTaskDelete() {
-    let dataDelete = this.dialog.open(TaskDeleteComponent, { minWidth: "650px", disableClose: true });
+    let dataDelete = this.dialog.open(TaskDeleteComponent, {
+      minWidth: "650px",
+      disableClose: true,
+    });
   }
 
   // RETURN TO DASHBOARD PAGE

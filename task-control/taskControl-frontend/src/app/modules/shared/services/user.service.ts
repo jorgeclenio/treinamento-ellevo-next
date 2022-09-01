@@ -5,6 +5,7 @@ import { Observable } from "rxjs";
 import { Login } from "./../../registration/models/login.model";
 import { UpdateUser } from "./../../registration/models/updateUser.model";
 import { AddUser } from "./../../registration/models/addUser.model";
+import { User } from "src/app/modules/registration/models/user.model";
 
 @Injectable({
   providedIn: "root",
@@ -39,8 +40,7 @@ export class UserService {
 
   // GET
   public getUsers(): Observable<any> {
-    return this.httpClient.get("https://localhost:5001/user", {
-      responseType: "text",
+    return this.httpClient.get<Array<User>>("https://localhost:5001/user", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt_token")}`,
       },

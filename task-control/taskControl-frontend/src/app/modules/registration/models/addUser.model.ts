@@ -1,8 +1,8 @@
 export class AddUser {
-  Name: string;
-  Username: string;
-  Password: string;
-  Cpf: string;
-  PhoneNumber: string;
-  Email: string;
+  name: string;
+  userName: string;
+  password: string;
+  cpf: string;
+  phoneNumber: string;
+  email: string;
 }

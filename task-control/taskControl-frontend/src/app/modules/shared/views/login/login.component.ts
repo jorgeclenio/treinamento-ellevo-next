@@ -4,7 +4,6 @@ import { Router } from "@angular/router";
 
 import { AppUtilityService } from "../..";
 
-import { User } from "./user";
 import { AuthService } from "./auth.service";
 import { SnackbarService } from "src/app/modules/shared/services/snackbar.service";
 
@@ -41,7 +40,6 @@ export class LoginComponent implements OnInit {
 
   public onSubmit() {
     if (this.form.invalid) {
-      // this.snackbar.showSnackbarError("500", "Invalid username or password");
       return;
     }
     this.makeLogin();

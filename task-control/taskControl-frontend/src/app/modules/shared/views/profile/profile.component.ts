@@ -1,3 +1,4 @@
+import { SnackbarService } from "./../../services/snackbar.service";
 import { Subscription } from "rxjs";
 import { FormGroup } from "@angular/forms";
 import { Component, OnDestroy, OnInit } from "@angular/core";
@@ -18,12 +19,13 @@ export class ProfileComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   public subscription: Subscription[] = [];
   public title: string = "Profile";
-  public userName: string = "";
+  public userName: string;
 
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
     private router: Router,
+    private snackbar: SnackbarService,
     public global_utilities: AppUtilityService
   ) {}
 
@@ -32,19 +34,19 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.showLoggedUserDetails();
 
     const token = this.userService.getUserData();
-    const name = token.unique_name.split(' ');
+    const name = token.unique_name.split(" ");
     this.userName = name[0];
   }
 
   // GENERATE FORM WITH INFORMATIONS
   public generateForm() {
     this.form = this.fb.group({
-      Name: [{ value: "", disabled: true }],
-      UserName: [{ value: "", disabled: true }],
-      Password: [{ value: "", disabled: true }],
-      Cpf: [{ value: "", disabled: true }],
-      PhoneNumber: [{ value: "", disabled: true }],
-      Email: [{ value: "", disabled: true }],
+      name: [{ value: "", disabled: true }],
+      userName: [{ value: "", disabled: true }],
+      password: [{ value: "", disabled: true }],
+      cpf: [{ value: "", disabled: true }],
+      phoneNumber: [{ value: "", disabled: true }],
+      email: [{ value: "", disabled: true }],
     });
   }
 
@@ -53,16 +55,16 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.subscription.push(
       this.userService.getUserById(this.userId).subscribe(
         (returnUserData) => {
-          const userData = returnUserData.result;
-          this.form.get("Name").setValue(userData.Name);
-          this.form.get("UserName").setValue(userData.UserName);
-          this.form.get("Password").setValue(userData.Password);
-          this.form.get("Cpf").setValue(userData.Cpf);
-          this.form.get("PhoneNumber").setValue(userData.PhoneNumber);
-          this.form.get("Email").setValue(userData.Email);
+          const userData = returnUserData;
+          this.form.get("name").setValue(userData.name);
+          this.form.get("userName").setValue(userData.userName);
+          this.form.get("password").setValue(userData.password);
+          this.form.get("cpf").setValue(userData.cpf);
+          this.form.get("phoneNumber").setValue(userData.phoneNumber);
+          this.form.get("email").setValue(userData.email);
         },
         (error) => {
-          console.log("doesn't work");
+          this.snackbar.showSnackbarError(error.status, error.error.message);
         }
       )
     );

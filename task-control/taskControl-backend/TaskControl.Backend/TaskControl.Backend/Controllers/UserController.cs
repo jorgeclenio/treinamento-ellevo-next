@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using TaskControl.Backend.Models;
 using TaskControl.Backend.Services;
@@ -38,6 +39,7 @@ namespace TaskControl.Backend.Controllers
         }
 
         [HttpGet]
+        [ProducesResponseType(typeof(IEnumerable<UserModel>), 200)]
         [Authorize]
         public IActionResult GetAllUsers()
         {

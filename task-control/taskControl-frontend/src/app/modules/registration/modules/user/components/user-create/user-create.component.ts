@@ -32,10 +32,10 @@ export class UserCreateComponent implements OnInit, OnDestroy {
   // FUNCTION TO GENERATE FORM
   public generateForm() {
     this.form = this.fb.group({
-      Name: ["", [Validators.required]],
-      Username: ["", [Validators.required]],
-      Password: ["", [Validators.required]],
-      Cpf: [
+      name: ["", [Validators.required]],
+      userName: ["", [Validators.required]],
+      password: ["", [Validators.required]],
+      cpf: [
         "",
         [
           Validators.required,
@@ -43,8 +43,8 @@ export class UserCreateComponent implements OnInit, OnDestroy {
           Validators.maxLength(14),
         ],
       ],
-      PhoneNumber: ["", [Validators.minLength(15), Validators.maxLength(15)]],
-      Email: ["", [Validators.email]],
+      phoneNumber: ["", [Validators.minLength(15), Validators.maxLength(15)]],
+      email: ["", [Validators.email]],
     });
   }
 
@@ -63,7 +63,7 @@ export class UserCreateComponent implements OnInit, OnDestroy {
         },
         (error) => {
           const messageError: string = "User cannot be created.";
-          this.snackbar.showSnackbarError(error.status, error.error.Messagem);
+          this.snackbar.showSnackbarError(error.status, messageError);
           this.dialogRef.close();
         }
       )

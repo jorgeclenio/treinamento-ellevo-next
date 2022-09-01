@@ -10,48 +10,41 @@
   <hr>
 
   <div class="shadow-none p-3 bg-light border rounded">
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col"> Id </th>
-          <th scope="col"> Name </th>
-          <th scope="col"> Username </th>
-          <th scope="col"> Password </th>
-          <th scope="col"> Cpf </th>
-          <th scope="col"> Phone Number </th>
-          <th scope="col"> Email </th>
-          <th scope="col"> Actions </th>
-        </tr>
-      </thead>
-      <tbody class="table-group-divider">
-        <tr *ngFor="let user of users">
-          <td> {{ user.Id }} </td>
-          <td> {{ user.Name }} </td>
-          <td> {{ user.Username }} </td>
-          <td> {{ user.Password }} </td>
-          <td> {{ user.Cpf }} </td>
-          <td> {{ user.PhoneNumber }} </td>
-          <td> {{ user.Email }} </td>
-          <td>
-            <button type="button" class="btn btn-primary" (click)="navigateToUserDetails()">
-              <i class="bi bi-journal-text"></i>
-            </button>
-            <button type="button" class="btn btn-warning text-white ml-5px" (click)="navigateToUserUpdate()">
-              <i class="bi bi-pencil"></i>
-            </button>
-            <button type="button" class="btn btn-danger ml-5px" (click)="navigateToUserDelete()">
-              <i class="bi bi-x"></i>
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
+    <div class="scrollable">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col"> Name </th>
+            <th scope="col"> User Name </th>
+            <th scope="col"> CPF </th>
+            <th scope="col"> Phone Number </th>
+            <th scope="col"> Email </th>
+            <th scope="col"> Actions </th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr *ngFor="let user of users">
+            <td class="col-sz-name"> {{ user.name }} </td>
+            <td class="col-sz-userName"> {{ user.userName }} </td>
+            <td class="col-sz-cpf"> {{ user.cpf }} </td>
+            <td class="col-sz-phoneNumber"> {{ user.phoneNumber }} </td>
+            <td class="col-sz-email"> {{ user.email }} </td>
+            <td class="col-sz-button">
+              <button type="button" class="btn btn-primary" (click)="navigateToUserDetails(user.id)">
+                <i class="bi bi-journal-text"></i>
+              </button>
+              <button type="button" class="btn btn-warning text-white ml-5px" (click)="navigateToUserUpdate(user.id)">
+                <i class="bi bi-pencil"></i>
+              </button>
+              <button type="button" class="btn btn-danger ml-5px" (click)="navigateToUserDelete(user.id)">
+                <i class="bi bi-x"></i>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
     <!-- paginator -->
-
   </div>
-  <hr>
-
   <button type="button" class="btn btn-primary mt-10px" (click)="newUser()"> Create user </button>
-
 </div>

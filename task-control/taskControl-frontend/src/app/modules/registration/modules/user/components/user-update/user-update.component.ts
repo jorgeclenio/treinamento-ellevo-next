@@ -1,3 +1,4 @@
+import { SnackbarService } from "./../../../../../shared/services/snackbar.service";
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
@@ -18,8 +19,9 @@ export class UserUpdateComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<UserUpdateComponent>,
+    public userService: UserService,
     private fb: FormBuilder,
-    public userService: UserService
+    private snackbar: SnackbarService
   ) {}
 
   ngOnInit() {
@@ -30,11 +32,10 @@ export class UserUpdateComponent implements OnInit {
 
   public generateForm() {
     this.form = this.fb.group({
-      Id: [null],
-      Name: [null, [Validators.required]],
-      Username: [null, [Validators.required]],
-      Password: [null, [Validators.required]],
-      Cpf: [
+      name: [null, [Validators.required]],
+      userName: [null, [Validators.required]],
+      password: [null, [Validators.required]],
+      cpf: [
         null,
         [
           Validators.required,
@@ -42,8 +43,8 @@ export class UserUpdateComponent implements OnInit {
           Validators.maxLength(14),
         ],
       ],
-      PhoneNumber: [null, [Validators.minLength(15), Validators.maxLength(15)]],
-      Email: [null, [Validators.email]],
+      phoneNumber: [null, [Validators.minLength(15), Validators.maxLength(15)]],
+      email: [null, [Validators.email]],
     });
   }
 
@@ -52,15 +53,18 @@ export class UserUpdateComponent implements OnInit {
       this.userService.getUserById(this.userUpdateId).subscribe(
         (returnUserData) => {
           const userData = returnUserData;
-          this.form.get("Name").setValue(userData.Name);
-          this.form.get("UserName").setValue(userData.UserName);
-          this.form.get("Password").setValue(userData.Password);
-          this.form.get("Cpf").setValue(userData.Cpf);
-          this.form.get("PhoneNumber").setValue(userData.PhoneNumber);
-          this.form.get("Email").setValue(userData.Email);
+          this.form.get("name").setValue(userData.name);
+          this.form.get("userName").setValue(userData.userName);
+          this.form.get("password").setValue(userData.password);
+          this.form.get("cpf").setValue(userData.cpf);
+          this.form.get("phoneNumber").setValue(userData.phoneNumber);
+          this.form.get("email").setValue(userData.email);
         },
         (error) => {
-          console.log("doesn't work");
+          this.snackbar.showSnackbarError(
+            error.status,
+            error.error.messageError
+          );
           this.dialogRef.close();
         }
       )
@@ -76,12 +80,14 @@ export class UserUpdateComponent implements OnInit {
       this.userService.updateUser(user).subscribe(
         (returnUserUpdated) => {
           const messageSuccess: string = "User updated successfully.";
-          alert(messageSuccess);
+          this.snackbar.showSnackbarSuccess(messageSuccess);
           this.dialogRef.close();
         },
         (error) => {
-          const messageError: string = "User cannot be updated.";
-          alert(messageError);
+          this.snackbar.showSnackbarError(
+            error.status,
+            error.error.messageError
+          );
           this.dialogRef.close();
         }
       )

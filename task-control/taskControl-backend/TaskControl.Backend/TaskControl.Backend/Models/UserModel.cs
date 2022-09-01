@@ -7,7 +7,7 @@ namespace TaskControl.Backend.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public ObjectId Id { get; set; }
+        public string Id { get; set; }
         public string Name { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }

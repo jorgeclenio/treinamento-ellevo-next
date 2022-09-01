@@ -1,10 +1,10 @@
 import { Status } from "src/app/modules/shared/enums/status.enum";
 
 export class AddTask {
-  GeneratorId: string;
-  Title: string;
-  Description: string;
-  Status: Status;
-  ResponsibleId: string;
-  ActivityId: string;
+  generatorId: string;
+  title: string;
+  description: string;
+  status: Status;
+  responsibleId: string;
+  activityId: string;
 }

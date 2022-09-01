@@ -1,9 +1,9 @@
 export class Task {
-  Id: string;
-  Generator: string;
-  Title: string;
-  Description: string;
-  Status: string;
-  Responsible: string;
-  Activity: string;
+  id: string;
+  generator: string;
+  title: string;
+  description: string;
+  status: string;
+  responsible: string;
+  activity: string;
 }

@@ -1,7 +1,6 @@
-export class UpdateUser {
+export class DetailsUser {
   name: string;
   userName: string;
-  password: string;
   cpf: string;
   phoneNumber: string;
   email: string;
