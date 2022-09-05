@@ -1,12 +1,13 @@
-import { Subscription } from "rxjs";
 import { Component, OnDestroy, OnInit } from "@angular/core";
+import { Subscription } from "rxjs";
 
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material/dialog";
 
-import { User } from "./../../../../models/user.model";
-import { UserService } from "src/app/modules/shared/services/user.service";
+import { UserService } from "./../../../../../shared/services/user.service";
 import { SnackbarService } from "src/app/modules/shared/services/snackbar.service";
+
+import { AddUser } from "./../../../../models/addUser.model";
 
 @Component({
   selector: "app-user-create",
@@ -53,7 +54,7 @@ export class UserCreateComponent implements OnInit, OnDestroy {
     if (!this.form.valid) {
       return;
     }
-    const user: User = this.form.value;
+    const user: AddUser = this.form.value;
     this.subscription.push(
       this.userService.postUser(user).subscribe(
         (returnUserCreated) => {

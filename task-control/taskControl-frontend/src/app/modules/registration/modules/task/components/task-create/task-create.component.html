@@ -15,8 +15,6 @@
     </div>
     <div class="input-group mb-2">
       <input type="text" class="form-control" placeholder="Status" formControlName="Status">
-    </div>
-    <div class="input-group mb-2">
       <input type="text" class="form-control" placeholder="Responsible" formControlName="Responsible">
     </div>
     <div class="input-group mb-2">
@@ -25,14 +23,11 @@
   </form>
   <!-- </mat-dialog-content> -->
 </div>
-<hr>
 
 <mat-dialog-actions>
   <button type="button" class="btn btn-primary" (click)="createTask()" [disabled]="!form.valid">
     Create task
   </button>
-  <button type="button" class="btn btn-danger ml-10px" (click)="closeDialog()">
-    Cancel
-  </button>
+  <button type="button" class="btn btn-danger ml-10px" (click)="closeDialog()"> Cancel </button>
 </mat-dialog-actions>
 <!-- <app-form-debug [form]="form"></app-form-debug> -->

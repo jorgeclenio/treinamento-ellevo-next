@@ -1,5 +1,5 @@
 import { SnackbarService } from "./../../../../../shared/services/snackbar.service";
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
 import { Subscription } from "rxjs";
@@ -12,7 +12,7 @@ import { User } from "./../../../../models/user.model";
   templateUrl: "./user-update.component.html",
   styleUrls: ["./user-update.component.scss"],
 })
-export class UserUpdateComponent implements OnInit {
+export class UserUpdateComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   public subscription: Subscription[] = [];
   public userUpdateId: string;
@@ -51,8 +51,7 @@ export class UserUpdateComponent implements OnInit {
   public showUserData() {
     this.subscription.push(
       this.userService.getUserById(this.userUpdateId).subscribe(
-        (returnUserData) => {
-          const userData = returnUserData;
+        (userData) => {
           this.form.get("name").setValue(userData.name);
           this.form.get("userName").setValue(userData.userName);
           this.form.get("password").setValue(userData.password);
@@ -63,7 +62,7 @@ export class UserUpdateComponent implements OnInit {
         (error) => {
           this.snackbar.showSnackbarError(
             error.status,
-            error.error.messageError
+            "Unable to fetch the requested information."
           );
           this.dialogRef.close();
         }
@@ -79,14 +78,13 @@ export class UserUpdateComponent implements OnInit {
     this.subscription.push(
       this.userService.updateUser(user).subscribe(
         (returnUserUpdated) => {
-          const messageSuccess: string = "User updated successfully.";
-          this.snackbar.showSnackbarSuccess(messageSuccess);
+          this.snackbar.showSnackbarSuccess("User updated successfully.");
           this.dialogRef.close();
         },
         (error) => {
           this.snackbar.showSnackbarError(
             error.status,
-            error.error.messageError
+            "Could not update user."
           );
           this.dialogRef.close();
         }
@@ -107,5 +105,9 @@ export class UserUpdateComponent implements OnInit {
         this.dialogRef.close();
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.subscription.forEach((s) => s.unsubscribe());
   }
 }

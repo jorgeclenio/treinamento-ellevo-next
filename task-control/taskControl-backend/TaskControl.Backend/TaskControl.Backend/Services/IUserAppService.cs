@@ -14,6 +14,6 @@ namespace TaskControl.Backend.Services
         UserModel GetUserById(ObjectId userId);
         DeleteResult DeleteUser(ObjectId userId);
         UserEntity UpdateUser(UpdateUserModel userModels, ObjectId userId);
-        Task<string> Login(LoginModel login);
+        Task<JwtModel> Login(LoginModel login);
     }
 }

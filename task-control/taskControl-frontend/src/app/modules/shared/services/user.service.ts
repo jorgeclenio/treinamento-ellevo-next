@@ -1,3 +1,4 @@
+import { JwtToken } from './../models/jwtToken.model';
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
@@ -15,9 +16,7 @@ export class UserService {
 
   // LOGIN
   public login(loginData: Login): Observable<any> {
-    return this.httpClient.post("https://localhost:5001/login", loginData, {
-      responseType: "text",
-    });
+    return this.httpClient.post<JwtToken>("https://localhost:5001/login", loginData);
   }
 
   // GET USER DATA
@@ -49,8 +48,7 @@ export class UserService {
 
   // GET BY ID
   public getUserById(id: string): Observable<any> {
-    return this.httpClient.get(`https://localhost:5001/user/${id}`, {
-      responseType: "text",
+    return this.httpClient.get<User>(`https://localhost:5001/user/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt_token")}`,
       },

@@ -65,7 +65,7 @@ namespace TaskControl.Backend.Services
             return userEntity;
         }
 
-        public async Task<string> Login(LoginModel login)
+        public async Task<JwtModel> Login(LoginModel login)
         {
             var userEntity = _userCollection.Find(user => user.UserName == login.UserName).FirstOrDefault();
 
@@ -74,7 +74,12 @@ namespace TaskControl.Backend.Services
                 throw new Exception("Invalid credentials.");
             }
 
-            return TokenService.GenerateToken(userEntity);
+            return new JwtModel
+            {
+
+                AccessToken = TokenService.GenerateToken(userEntity),
+                UserId = userEntity.Id.ToString()
+            };
         }
     }
 }

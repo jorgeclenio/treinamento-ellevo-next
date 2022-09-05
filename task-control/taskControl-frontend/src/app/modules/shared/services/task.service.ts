@@ -1,3 +1,4 @@
+import { Task } from './../../registration/models/task.model';
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
@@ -12,8 +13,7 @@ export class TaskService {
 
   // GET
   public getTasks(): Observable<any> {
-    return this.httpClient.get("https://localhost:5001/task", {
-      responseType: "text",
+    return this.httpClient.get<Array<Task>>("https://localhost:5001/task", {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt_token")}`,
       },

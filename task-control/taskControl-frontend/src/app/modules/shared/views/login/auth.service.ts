@@ -20,7 +20,8 @@ export class AuthService {
     this.subscriber.add(
       this.userApi.login(loginData).subscribe(
         (response) => {
-          localStorage.setItem("jwt_token", response);
+          localStorage.setItem("jwt_token", response.accessToken);
+          localStorage.setItem("userId", response.userId);
           const messageSuccess = "User logged in successfully.";
           this.snackbar.showSnackbarSuccess(messageSuccess);
           this.router.navigate(["/home"]);

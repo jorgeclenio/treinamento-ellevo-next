@@ -1,7 +1,7 @@
 import { SnackbarService } from "./../../services/snackbar.service";
 import { Subscription } from "rxjs";
 import { FormGroup } from "@angular/forms";
-import { Component, OnDestroy, OnInit } from "@angular/core";
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
 import { Router } from "@angular/router";
 
@@ -15,7 +15,7 @@ import { UserService } from "./../../services/user.service";
   styleUrls: ["./profile.component.scss"],
 })
 export class ProfileComponent implements OnInit, OnDestroy {
-  public userId: string = "";
+  public userId: string = localStorage.getItem("userId");
   public form: FormGroup;
   public subscription: Subscription[] = [];
   public title: string = "Profile";
@@ -26,7 +26,8 @@ export class ProfileComponent implements OnInit, OnDestroy {
     private userService: UserService,
     private router: Router,
     private snackbar: SnackbarService,
-    public global_utilities: AppUtilityService
+    private cdr: ChangeDetectorRef,
+    public global_utilities: AppUtilityService,
   ) {}
 
   ngOnInit() {
@@ -34,8 +35,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     this.showLoggedUserDetails();
 
     const token = this.userService.getUserData();
-    const name = token.unique_name.split(" ");
-    this.userName = name[0];
+    this.userName = token.unique_name;
   }
 
   // GENERATE FORM WITH INFORMATIONS
@@ -54,14 +54,15 @@ export class ProfileComponent implements OnInit, OnDestroy {
   public showLoggedUserDetails() {
     this.subscription.push(
       this.userService.getUserById(this.userId).subscribe(
-        (returnUserData) => {
-          const userData = returnUserData;
+        (userData) => {
           this.form.get("name").setValue(userData.name);
           this.form.get("userName").setValue(userData.userName);
           this.form.get("password").setValue(userData.password);
           this.form.get("cpf").setValue(userData.cpf);
           this.form.get("phoneNumber").setValue(userData.phoneNumber);
           this.form.get("email").setValue(userData.email);
+
+          this.cdr.detectChanges();
         },
         (error) => {
           this.snackbar.showSnackbarError(error.status, error.error.message);

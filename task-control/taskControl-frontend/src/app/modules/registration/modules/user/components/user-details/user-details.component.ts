@@ -1,11 +1,9 @@
 import { SnackbarService } from "./../../../../../shared/services/snackbar.service";
 import { Subscription } from "rxjs";
 import { UserService } from "./../../../../../shared/services/user.service";
-import { Component, Input, OnDestroy, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
-
-// import { User } from "./../../../../models/user.model";
 
 @Component({
   selector: "app-user-details",
@@ -15,7 +13,6 @@ import { MatDialogRef } from "@angular/material";
 export class UserDetailsComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   public subscription: Subscription[] = [];
-  // @Input()
   public userDetailsId: string;
 
   constructor(
@@ -46,8 +43,7 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
   public showUserData() {
     this.subscription.push(
       this.userService.getUserById(this.userDetailsId).subscribe(
-        (returnUserData) => {
-          const userData = returnUserData;
+        (userData) => {
           this.form.get("name").setValue(userData.name);
           this.form.get("userName").setValue(userData.userName);
           this.form.get("cpf").setValue(userData.cpf);
