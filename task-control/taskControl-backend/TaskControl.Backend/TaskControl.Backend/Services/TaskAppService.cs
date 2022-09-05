@@ -12,14 +12,16 @@ namespace TaskControl.Backend.Services
     {
         private readonly IMongoCollection<TaskEntity> _taskCollection;
         private readonly IMapper _mapper;
+        private readonly IUserAppService _userAppService;
 
-        public TaskAppService(ITaskControlDbDatabaseSettings settings, IMapper mapper)
+        public TaskAppService(ITaskControlDbDatabaseSettings settings, IMapper mapper, IUserAppService userAppService)
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
 
             _taskCollection = database.GetCollection<TaskEntity>("Tasks");
             _mapper = mapper;
+            _userAppService = userAppService;
         }
 
         public async Task<TaskEntity> CreateTask(AddTaskModel addTaskModel)
@@ -37,7 +39,16 @@ namespace TaskControl.Backend.Services
 
             foreach (var taskEntity in taskEntities)
             {
-                taskModelsList.Add(_mapper.Map<TaskEntity, TaskModel>(taskEntity));
+                taskModelsList.Add(
+                    new TaskModel
+                    {
+                        Id = taskEntity.Id.ToString(),
+                        Description = taskEntity.Description,
+                        Status = taskEntity.Status,
+                        Title = taskEntity.Title,
+                        Responsible = _userAppService.GetUserById(taskEntity.ResponsibleId),
+                        Generator = _userAppService.GetUserById(taskEntity.GeneratorId),
+                    });
             }
             return taskModelsList;
         }
@@ -46,7 +57,15 @@ namespace TaskControl.Backend.Services
         {
             var taskEntity = _taskCollection.Find(task => task.Id == taskId).FirstOrDefault();
 
-            return _mapper.Map<TaskEntity, TaskModel>(taskEntity);
+            return new TaskModel
+            {
+                Id = taskEntity.Id.ToString(),
+                Description = taskEntity.Description,
+                Status = taskEntity.Status,
+                Title = taskEntity.Title,
+                Responsible = _userAppService.GetUserById(taskEntity.ResponsibleId),
+                Generator = _userAppService.GetUserById(taskEntity.GeneratorId),
+            };
         }
 
         public DeleteResult DeleteTask(ObjectId taskId)

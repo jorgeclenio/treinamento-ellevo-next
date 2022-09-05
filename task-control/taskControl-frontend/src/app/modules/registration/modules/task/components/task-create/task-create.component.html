@@ -5,20 +5,19 @@
   <!-- <mat-dialog-content> -->
   <form [formGroup]="form" novalidate>
     <div class="input-group mb-2">
-      <input type="text" class="form-control" placeholder="Generator" formControlName="Generator">
+      <input type="text" class="form-control" placeholder="Title" formControlName="title">
     </div>
     <div class="input-group mb-2">
-      <input type="text" class="form-control" placeholder="Title" formControlName="Title">
+      <textarea class="form-control" placeholder="Description" formControlName="description"></textarea>
     </div>
     <div class="input-group mb-2">
-      <textarea class="form-control" placeholder="Description" formControlName="Description"></textarea>
-    </div>
-    <div class="input-group mb-2">
-      <input type="text" class="form-control" placeholder="Status" formControlName="Status">
-      <input type="text" class="form-control" placeholder="Responsible" formControlName="Responsible">
-    </div>
-    <div class="input-group mb-2">
-      <input type="text" class="form-control" placeholder="Activity" formControlName="Activity">
+      <select class="form-select" formControlName="status">
+        <option selected [value]="statusEnum.NotStarted"> Not Started </option>
+        <option [value]="statusEnum.InProgress"> In Progress </option>
+        <option [value]="statusEnum.Waiting"> Waiting </option>
+        <option [value]="statusEnum.Concluded"> Concluded </option>
+      </select>
+      <input type="text" class="form-control" placeholder="Responsible" formControlName="responsibleId">
     </div>
   </form>
   <!-- </mat-dialog-content> -->

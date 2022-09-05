@@ -9,6 +9,5 @@ namespace TaskControl.Backend.Models
         public string Description { get; set; }
         public ETaskTypes Status { get; set; }
         public string ResponsibleId { get; set; }
-        public string ActivityId { get; set; }
     }
 }

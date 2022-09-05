@@ -58,13 +58,11 @@ export class UserCreateComponent implements OnInit, OnDestroy {
     this.subscription.push(
       this.userService.postUser(user).subscribe(
         (returnUserCreated) => {
-          const messageSuccess: string = "User created successfully.";
-          this.snackbar.showSnackbarSuccess(messageSuccess);
+          this.snackbar.showSnackbarSuccess("User created successfully.");
           this.dialogRef.close();
         },
         (error) => {
-          const messageError: string = "User cannot be created.";
-          this.snackbar.showSnackbarError(error.status, messageError);
+          this.snackbar.showSnackbarError(error.status, "User cannot be created.");
           this.dialogRef.close();
         }
       )

@@ -1,3 +1,4 @@
+import { Status } from "src/app/modules/shared/enums/status.enum";
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 
@@ -17,6 +18,7 @@ import { AddTask } from "./../../../../models/addTask.model";
 export class TaskCreateComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   public subscription: Subscription[] = [];
+  public statusEnum = Status;
 
   constructor(
     public dialogRef: MatDialogRef<TaskCreateComponent>,
@@ -33,16 +35,15 @@ export class TaskCreateComponent implements OnInit, OnDestroy {
   // FUNCTION TO GENERATE FORM
   public generateForm() {
     this.form = this.fb.group({
-      Generator: ["", [Validators.required]],
-      Title: ["", [Validators.required]],
-      Description: ["", [Validators.required]],
-      Status: ["", [Validators.required]],
-      Responsible: [""],
-      Activity: ["", [Validators.required]],
+      generatorId: [localStorage.getItem("userId")],
+      title: ["", [Validators.required]],
+      description: ["", [Validators.required]],
+      status: ["", [Validators.required]],
+      responsibleId: [""],
     });
   }
 
-  // FUCTION TO CREATE USER
+  // FUCTION TO CREATE TASK
   public createTask() {
     if (!this.form.valid) {
       return;
@@ -51,17 +52,19 @@ export class TaskCreateComponent implements OnInit, OnDestroy {
     this.subscription.push(
       this.taskService.postTask(task).subscribe(
         (returnTaskCreated) => {
-          const messageSuccess: string = "Task created successfully.";
-          this.snackbar.showSnackbarSuccess(messageSuccess);
+          this.snackbar.showSnackbarSuccess("Task created successfully.");
           this.dialogRef.close();
         },
         (error) => {
-          const messageError: string = "Task cannot be created.";
-          this.snackbar.showSnackbarError(error.status, messageError);
+          this.snackbar.showSnackbarError(
+            error.status,
+            "Task cannot be created."
+          );
           this.dialogRef.close();
         }
       )
     );
+    return false;
   }
 
   // BUTTON CANCEL FOR CLOSE DIALOG

@@ -1,11 +1,13 @@
-import { SnackbarService } from "./../../../../../shared/services/snackbar.service";
+import { UpdateUser } from './../../../../models/updateUser.model';
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
 import { Subscription } from "rxjs";
-import { UserService } from "src/app/modules/shared/services/user.service";
 
 import { User } from "./../../../../models/user.model";
+
+import { UserService } from "src/app/modules/shared/services/user.service";
+import { SnackbarService } from "./../../../../../shared/services/snackbar.service";
 
 @Component({
   selector: "app-user-update",
@@ -19,7 +21,7 @@ export class UserUpdateComponent implements OnInit, OnDestroy {
 
   constructor(
     public dialogRef: MatDialogRef<UserUpdateComponent>,
-    public userService: UserService,
+    private userService: UserService,
     private fb: FormBuilder,
     private snackbar: SnackbarService
   ) {}
@@ -30,6 +32,7 @@ export class UserUpdateComponent implements OnInit, OnDestroy {
     this.closeDialogWithEscapeButton();
   }
 
+  // FUNCTION TO GENERATE FORM
   public generateForm() {
     this.form = this.fb.group({
       name: [null, [Validators.required]],
@@ -48,6 +51,7 @@ export class UserUpdateComponent implements OnInit, OnDestroy {
     });
   }
 
+  // FUNCTION TO SHOW USER DATA
   public showUserData() {
     this.subscription.push(
       this.userService.getUserById(this.userUpdateId).subscribe(
@@ -70,13 +74,14 @@ export class UserUpdateComponent implements OnInit, OnDestroy {
     );
   }
 
+  // FUNCTION TO UPDATE USER DATA
   public updateUser() {
     if (!this.form.valid) {
       return;
     }
-    const user: User = this.form.value;
+    const user: UpdateUser = this.form.value;
     this.subscription.push(
-      this.userService.updateUser(user).subscribe(
+      this.userService.updateUser(this.userUpdateId, user).subscribe(
         (returnUserUpdated) => {
           this.snackbar.showSnackbarSuccess("User updated successfully.");
           this.dialogRef.close();

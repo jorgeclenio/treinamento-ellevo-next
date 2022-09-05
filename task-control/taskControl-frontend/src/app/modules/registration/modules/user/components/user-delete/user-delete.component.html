@@ -16,7 +16,7 @@
 </div>
 
 <mat-dialog-actions>
-  <button type="button" class="btn btn-danger" [disabled]="!form.valid" (click)="deleteUser()">
+  <button type="button" class="btn btn-danger" [disabled]="!form.value.Checkbox" (click)="deleteUser()">
     Delete user
   </button>
   <button type="button" class="btn btn-secondary ml-10px" (click)="closeDialog()">

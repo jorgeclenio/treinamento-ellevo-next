@@ -1,7 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-
-import { ApiService } from "src/app/modules/shared/services/api.service";
-import { AppUtilityService, AuthService } from "./modules/shared/";
+import { AppUtilityService } from "./modules/shared/";
 
 @Component({
   selector: "app-root",
@@ -11,17 +9,7 @@ import { AppUtilityService, AuthService } from "./modules/shared/";
 export class AppComponent implements OnInit {
   public message: string;
 
-  constructor(
-    private authSevice: AuthService,
-    public global_utilities: AppUtilityService,
-    private helloWorldService: ApiService
-  ) {}
+  constructor(public global_utilities: AppUtilityService) {}
 
-  ngOnInit(): void {
-    this.helloWorldService.getMessage().subscribe({
-      next: (message: string) => {
-        this.message = message;
-      },
-    });
-  }
+  ngOnInit(): void {}
 }

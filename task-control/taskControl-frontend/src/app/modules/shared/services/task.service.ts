@@ -1,9 +1,11 @@
-import { Task } from './../../registration/models/task.model';
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { UpdateTask } from "src/app/modules/registration/models/updateTask.model";
-import { AddTask } from "src/app/modules/registration/models/addTask.model";
+
+import { AddTask } from "./../../registration/models/addTask.model";
+import { UpdateTask } from "./../../registration/models/updateTask.model";
+
+import { Task } from "./../../registration/models/task.model";
 
 @Injectable({
   providedIn: "root",
@@ -11,7 +13,7 @@ import { AddTask } from "src/app/modules/registration/models/addTask.model";
 export class TaskService {
   constructor(private httpClient: HttpClient) {}
 
-  // GET
+  // GET TASKS
   public getTasks(): Observable<any> {
     return this.httpClient.get<Array<Task>>("https://localhost:5001/task", {
       headers: {
@@ -20,10 +22,9 @@ export class TaskService {
     });
   }
 
-  // GET BY ID
+  // GET TASKS BY ID
   public getTaskById(id: string): Observable<any> {
-    return this.httpClient.get(`https://localhost:5001/task/${id}`, {
-      responseType: "text",
+    return this.httpClient.get<Task>(`https://localhost:5001/task/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt_token")}`,
       },
@@ -41,8 +42,8 @@ export class TaskService {
   }
 
   // UPDATE
-  public updateTask(taskData: UpdateTask): Observable<any> {
-    return this.httpClient.put("https://localhost:5001/task", taskData, {
+  public updateTask(id: string ,taskData: UpdateTask): Observable<any> {
+    return this.httpClient.put(`https://localhost:5001/task/${id}`, taskData, {
       responseType: "text",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt_token")}`,

@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     private router: Router,
     private snackbar: SnackbarService,
     private cdr: ChangeDetectorRef,
-    public global_utilities: AppUtilityService,
+    public global_utilities: AppUtilityService
   ) {}
 
   ngOnInit() {
@@ -65,7 +65,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
           this.cdr.detectChanges();
         },
         (error) => {
-          this.snackbar.showSnackbarError(error.status, error.error.message);
+          this.snackbar.showSnackbarError(
+            error.status,
+            "Unable to fetch the requested information."
+          );
         }
       )
     );

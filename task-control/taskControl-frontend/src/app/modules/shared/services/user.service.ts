@@ -1,12 +1,14 @@
-import { JwtToken } from './../models/jwtToken.model';
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 
 import { Login } from "./../../registration/models/login.model";
-import { UpdateUser } from "./../../registration/models/updateUser.model";
 import { AddUser } from "./../../registration/models/addUser.model";
-import { User } from "src/app/modules/registration/models/user.model";
+import { UpdateUser } from "./../../registration/models/updateUser.model";
+
+import { JwtToken } from './../models/jwtToken.model';
+
+import { User } from "./../../registration/models/user.model";
 
 @Injectable({
   providedIn: "root",
@@ -37,7 +39,7 @@ export class UserService {
     });
   }
 
-  // GET
+  // GET USERS
   public getUsers(): Observable<any> {
     return this.httpClient.get<Array<User>>("https://localhost:5001/user", {
       headers: {
@@ -46,7 +48,7 @@ export class UserService {
     });
   }
 
-  // GET BY ID
+  // GET USERS BY ID
   public getUserById(id: string): Observable<any> {
     return this.httpClient.get<User>(`https://localhost:5001/user/${id}`, {
       headers: {
@@ -66,8 +68,8 @@ export class UserService {
   }
 
   // UPDATE
-  public updateUser(userData: UpdateUser): Observable<any> {
-    return this.httpClient.put("https://localhost:5001/user", userData, {
+  public updateUser(id: string , userData: UpdateUser): Observable<any> {
+    return this.httpClient.put(`https://localhost:5001/user/${id}`, userData, {
       responseType: "text",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt_token")}`,

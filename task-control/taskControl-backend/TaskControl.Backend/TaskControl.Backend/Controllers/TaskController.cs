@@ -22,7 +22,7 @@ namespace TaskControl.Backend.Controllers
         [Authorize]
         public async Task<IActionResult> CreateTask([FromBody] AddTaskModel taskModels)
         {
-            return Ok(await _taskService.CreateTask(taskModels));
+            ''return Ok(await _taskService.CreateTask(taskModels));
         }
 
         [HttpGet]
@@ -41,7 +41,7 @@ namespace TaskControl.Backend.Controllers
 
         [HttpDelete("{taskId}")]
         [Authorize]
-        public  IActionResult DeleteTask([FromRoute] string taskId)
+        public IActionResult DeleteTask([FromRoute] string taskId)
         {
             _taskService.DeleteTask(new ObjectId(taskId));
             return NoContent();

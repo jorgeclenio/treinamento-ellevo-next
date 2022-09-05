@@ -1,9 +1,11 @@
-import { SnackbarService } from "./../../../../../shared/services/snackbar.service";
-import { Subscription } from "rxjs";
-import { UserService } from "./../../../../../shared/services/user.service";
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
+
+import { Subscription } from "rxjs";
+
+import { UserService } from "./../../../../../shared/services/user.service";
+import { SnackbarService } from "./../../../../../shared/services/snackbar.service";
 
 @Component({
   selector: "app-user-details",
@@ -16,9 +18,9 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
   public userDetailsId: string;
 
   constructor(
-    private fb: FormBuilder,
     public dialogRef: MatDialogRef<UserDetailsComponent>,
     public userService: UserService,
+    private fb: FormBuilder,
     private snackbar: SnackbarService
   ) {}
 
@@ -53,7 +55,7 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
         (error) => {
           this.snackbar.showSnackbarError(
             error.status,
-            error.error.messageError
+            "Unable to fetch the requested information."
           );
           this.dialogRef.close();
         }

@@ -15,25 +15,14 @@ namespace TaskControl.Backend.Mappings
                 .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Title))
                 .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
                 .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status))
-                .ForMember(dest => dest.ResponsibleId, opt => opt.MapFrom(src => new ObjectId(src.ResponsibleId)))
-                .ForMember(dest => dest.ActivityId, opt => opt.MapFrom(src => new ObjectId(src.ActivityId)));
-
-            CreateMap<TaskEntity, TaskModel>()
-                .ForMember(dest => dest.Id, opt => opt.MapFrom(src => src.Id.ToString()))
-                .ForMember(dest => dest.GeneratorId, opt => opt.MapFrom(src => src.GeneratorId))
-                .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Title))
-                .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
-                .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status))
-                .ForMember(dest => dest.ResponsibleId, opt => opt.MapFrom(src => src.ResponsibleId))
-                .ForMember(dest => dest.ActivityId, opt => opt.MapFrom(src => src.ActivityId));
+                .ForMember(dest => dest.ResponsibleId, opt => opt.MapFrom(src => new ObjectId(src.ResponsibleId)));
 
             CreateMap<UpdateTaskModel, TaskEntity>()
                 .ForMember(dest => dest.GeneratorId, opt => opt.MapFrom(src => new ObjectId(src.GeneratorId)))
                 .ForMember(dest => dest.Title, opt => opt.MapFrom(src => src.Title))
                 .ForMember(dest => dest.Description, opt => opt.MapFrom(src => src.Description))
                 .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status))
-                .ForMember(dest => dest.ResponsibleId, opt => opt.MapFrom(src => new ObjectId(src.ResponsibleId)))
-                .ForMember(dest => dest.ActivityId, opt => opt.MapFrom(src => new ObjectId(src.ActivityId)));
+                .ForMember(dest => dest.ResponsibleId, opt => opt.MapFrom(src => new ObjectId(src.ResponsibleId)));
         }
     }
 }

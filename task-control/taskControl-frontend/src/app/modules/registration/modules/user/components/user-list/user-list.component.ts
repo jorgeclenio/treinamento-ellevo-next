@@ -4,13 +4,13 @@ import { MatDialog } from "@angular/material";
 import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
 
-import { UserService } from "./../../../../../shared/services/user.service";
-
 import { User } from "./../../../../models/user.model";
 import { UserCreateComponent } from "./../user-create/user-create.component";
 import { UserDeleteComponent } from "./../user-delete/user-delete.component";
 import { UserDetailsComponent } from "./../user-details/user-details.component";
 import { UserUpdateComponent } from "./../user-update/user-update.component";
+
+import { UserService } from "./../../../../../shared/services/user.service";
 
 @Component({
   selector: "app-user-list",
@@ -18,8 +18,8 @@ import { UserUpdateComponent } from "./../user-update/user-update.component";
   styleUrls: ["./user-list.component.scss"],
 })
 export class UserListComponent implements OnInit {
-  public subscription: Subscription[] = [];
   public title: string = "User list";
+  public subscription: Subscription[] = [];
   public users: User[] = [];
 
   constructor(
@@ -43,7 +43,10 @@ export class UserListComponent implements OnInit {
           this.cdr.detectChanges();
         },
         (error) => {
-          this.snackbar.showSnackbarError(error.status, error.error.message);
+          this.snackbar.showSnackbarError(
+            error.status,
+            "Unable to fetch the requested information."
+          );
         }
       )
     );
@@ -89,11 +92,17 @@ export class UserListComponent implements OnInit {
   }
 
   // DIALOG DELETE
-  public navigateToUserDelete() {
+  public navigateToUserDelete(userDeleteId: string) {
     let navigateUserDelete = this.dialog.open(UserDeleteComponent, {
       minWidth: "650px",
       disableClose: true,
     });
+
+    navigateUserDelete.componentInstance.userDeleteId = userDeleteId;
+
+    this.subscription.push(
+      navigateUserDelete.afterClosed().subscribe(() => this.showUsers())
+    );
   }
 
   // RETURN TO DASHBOARD PAGE

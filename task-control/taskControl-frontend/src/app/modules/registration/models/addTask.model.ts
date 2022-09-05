@@ -6,5 +6,4 @@ export class AddTask {
   description: string;
   status: Status;
   responsibleId: string;
-  activityId: string;
 }

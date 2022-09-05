@@ -1,9 +1,11 @@
+import { User } from "src/app/modules/registration/models/user.model";
+import { Status } from "./../../shared/enums/status.enum";
+
 export class Task {
   id: string;
-  generator: string;
+  generator: User;
   title: string;
   description: string;
-  status: string;
-  responsible: string;
-  activity: string;
+  status: Status;
+  responsible: User;
 }
