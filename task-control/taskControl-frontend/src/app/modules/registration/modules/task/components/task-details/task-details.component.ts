@@ -1,12 +1,10 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
-
 import { Subscription } from "rxjs";
-
 import { TaskService } from "./../../../../../shared/services/task.service";
 import { SnackbarService } from "./../../../../../shared/services/snackbar.service";
-import { Status } from "src/app/modules/shared";
+import { Status } from "./../../../../../shared/enums/status.enum";
 
 @Component({
   selector: "app-task-details",
@@ -32,7 +30,6 @@ export class TaskDetailsComponent implements OnInit, OnDestroy {
     this.closeDialogWithEscapeButton();
   }
 
-  // FUNCTION TO GENERATE FORM
   public generateForm() {
     this.form = this.fb.group({
       generator: [{ value: "", disabled: true }],
@@ -43,7 +40,6 @@ export class TaskDetailsComponent implements OnInit, OnDestroy {
     });
   }
 
-  // FUNCTION TO SHOW TASK DATA
   public showTaskData() {
     this.subscription.push(
       this.taskService.getTaskById(this.taskDetailsId).subscribe(
@@ -66,12 +62,10 @@ export class TaskDetailsComponent implements OnInit, OnDestroy {
     return false;
   }
 
-  // BUTTON CANCEL FOR CLOSE DIALOG
   public closeDialog() {
     this.dialogRef.close();
   }
 
-  // CLOSE DIALOG WHEN ESC BUTTON IS PRESSED
   public closeDialogWithEscapeButton() {
     this.dialogRef.keydownEvents().subscribe((event) => {
       if (event.key === "Escape") {

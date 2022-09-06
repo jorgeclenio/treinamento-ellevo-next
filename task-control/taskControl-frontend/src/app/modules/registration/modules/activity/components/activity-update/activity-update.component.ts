@@ -2,11 +2,11 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
 import { Subscription } from "rxjs";
-
 import { UpdateActivity } from "./../../../../models/updateActivity.model";
-
-import { ActivityService } from "./../../../../../shared/services/activity.service";
-import { SnackbarService } from "./../../../../../shared/services/snackbar.service";
+import {
+  ActivityService,
+  SnackbarService,
+} from "./../../../../../shared/services";
 
 @Component({
   selector: "app-activity-update",

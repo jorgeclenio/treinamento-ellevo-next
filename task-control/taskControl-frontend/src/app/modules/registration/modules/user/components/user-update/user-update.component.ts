@@ -2,11 +2,8 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
 import { Subscription } from "rxjs";
-
-import { UpdateUser } from './../../../../models/updateUser.model';
-
-import { UserService } from "./../../../../../shared/services/user.service";
-import { SnackbarService } from "./../../../../../shared/services/snackbar.service";
+import { UpdateUser } from "./../../../../models/updateUser.model";
+import { SnackbarService, UserService } from "./../../../../../shared/services";
 
 @Component({
   selector: "app-user-update",

@@ -1,17 +1,14 @@
-import { SnackbarService } from "./../../../../../shared/services/snackbar.service";
 import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material";
 import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
-
 import { Task } from "./../../../../models/task.model";
 import { TaskCreateComponent } from "./../task-create/task-create.component";
 import { TaskDeleteComponent } from "./../task-delete/task-delete.component";
 import { TaskDetailsComponent } from "./../task-details/task-details.component";
 import { TaskUpdateComponent } from "./../task-update/task-update.component";
-
-import { TaskService } from "./../../../../../shared/services/task.service";
-import { Status } from "src/app/modules/shared";
+import { TaskService, SnackbarService } from "./../../../../../shared/services";
+import { Status } from "./../../../../../shared/enums/status.enum";
 
 @Component({
   selector: "app-task-list",
@@ -35,7 +32,19 @@ export class TaskListComponent implements OnInit {
     this.showTask();
   }
 
-  // SHOW TASKS REGISTERED IN THE SYSTEM
+  public getStatusRef(status: Status): string {
+    switch (status) {
+      case Status.NotStarted:
+        return "Not Started";
+      case Status.Concluded:
+        return "Concluded";
+      case Status.InProgress:
+        return "In Progress";
+      case Status.Waiting:
+        return "Waiting";
+    }
+  }
+
   public showTask() {
     this.subscription.push(
       this.taskService.getTasks().subscribe(
@@ -53,7 +62,6 @@ export class TaskListComponent implements OnInit {
     );
   }
 
-  // OPEN DIALOG CREATE NEW TASK
   public newTask() {
     let dataTask = this.dialog.open(TaskCreateComponent, {
       minWidth: "650px",
@@ -64,7 +72,6 @@ export class TaskListComponent implements OnInit {
     );
   }
 
-  // DIALOG (READ) DETAILS
   public navigateToTaskDetails(taskDetailsId: string) {
     let dataDetails = this.dialog.open(TaskDetailsComponent, {
       minWidth: "650px",
@@ -78,7 +85,6 @@ export class TaskListComponent implements OnInit {
     );
   }
 
-  // DIALOG UPDATE
   public navigateToTaskUpdate(taskUpdateId: string) {
     let dataUpdate = this.dialog.open(TaskUpdateComponent, {
       minWidth: "650px",
@@ -92,7 +98,6 @@ export class TaskListComponent implements OnInit {
     );
   }
 
-  // DIALOG DELETE
   public navigateToTaskDelete() {
     let dataDelete = this.dialog.open(TaskDeleteComponent, {
       minWidth: "650px",
@@ -100,21 +105,7 @@ export class TaskListComponent implements OnInit {
     });
   }
 
-  // RETURN TO DASHBOARD PAGE
   public navigateToDashboard() {
     this.router.navigate(["/home/dashboard"]);
-  }
-
-  public getStatusRef(status: Status): string{
-    switch(status){
-      case Status.NotStarted:
-        return 'Not Started'
-      case Status.Concluded:
-        return 'Concluded'
-      case Status.InProgress:
-        return 'In Progress'
-      case Status.Waiting:
-        return 'Waiting'
-    }
   }
 }

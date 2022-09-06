@@ -1,11 +1,8 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
-
 import { Subscription } from "rxjs";
-
-import { UserService } from "./../../../../../shared/services/user.service";
-import { SnackbarService } from "./../../../../../shared/services/snackbar.service";
+import { SnackbarService, UserService } from "./../../../../../shared/services";
 
 @Component({
   selector: "app-user-details",
@@ -30,7 +27,6 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
     this.closeDialogWithEscapeButton();
   }
 
-  // FUNCTION TO GENERATE FORM
   public generateForm() {
     this.form = this.fb.group({
       name: [{ value: "", disabled: true }],
@@ -41,7 +37,6 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
     });
   }
 
-  // FUNCTION TO SHOW USER DATA
   public showUserData() {
     this.subscription.push(
       this.userService.getUserById(this.userDetailsId).subscribe(
@@ -64,12 +59,10 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
     return false;
   }
 
-  // BUTTON CANCEL FOR CLOSE DIALOG
   public closeDialog() {
     this.dialogRef.close();
   }
 
-  // CLOSE DIALOG WHEN ESC BUTTON IS PRESSED
   public closeDialogWithEscapeButton() {
     this.dialogRef.keydownEvents().subscribe((event) => {
       if (event.key === "Escape") {

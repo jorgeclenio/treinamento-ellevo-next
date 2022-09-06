@@ -1,8 +1,6 @@
 <h2 mat-dialog-title class="text-center"> Create user </h2>
 <hr>
-
 <div class="shadow-none p-3 bg-light border rounded">
-  <!-- <mat-dialog-content> -->
   <form [formGroup]="form" novalidate>
     <div class="input-group mb-3">
       <input type="text" class="form-control" placeholder="Name" formControlName="name">
@@ -23,13 +21,10 @@
       <input type="text" class="form-control" placeholder="Ex.: email@email.com" formControlName="email">
     </div>
   </form>
-  <!-- </mat-dialog-content> -->
 </div>
-
 <mat-dialog-actions>
   <button type="button" class="btn btn-primary" (click)="createUser()" [disabled]="!form.valid">
     Create user
   </button>
   <button type="button" class="btn btn-danger ml-10px" (click)="closeDialog()"> Cancel </button>
 </mat-dialog-actions>
-<!-- <app-form-debug [form]="form"></app-form-debug> -->

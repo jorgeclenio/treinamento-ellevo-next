@@ -3,14 +3,11 @@ import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material";
 import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
-
 import { Activity } from "./../../../../models/activity.model";
-
 import { ActivityCreateComponent } from "./../activity-create/activity-create.component";
 import { ActivityDeleteComponent } from "./../activity-delete/activity-delete.component";
 import { ActivityDetailsComponent } from "./../activity-details/activity-details.component";
 import { ActivityUpdateComponent } from "./../activity-update/activity-update.component";
-
 import { ActivityService } from "./../../../../../shared/services/activity.service";
 
 @Component({

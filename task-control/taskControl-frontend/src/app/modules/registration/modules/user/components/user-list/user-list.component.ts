@@ -1,17 +1,13 @@
-import { SnackbarService } from "./../../../../../shared/services/snackbar.service";
 import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material";
 import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
-
 import { User } from "./../../../../models/user.model";
-
 import { UserCreateComponent } from "./../user-create/user-create.component";
 import { UserDeleteComponent } from "./../user-delete/user-delete.component";
 import { UserDetailsComponent } from "./../user-details/user-details.component";
 import { UserUpdateComponent } from "./../user-update/user-update.component";
-
-import { UserService } from "./../../../../../shared/services/user.service";
+import { SnackbarService, UserService } from "./../../../../../shared/services";
 
 @Component({
   selector: "app-user-list",

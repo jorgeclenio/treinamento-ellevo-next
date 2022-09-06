@@ -1,1 +1,19 @@
-<p>activity-delete works!</p>
+<h2 mat-dialog-title class="text-center"> Delete activity </h2>
+<hr>
+<div class="shadow-none p-3 bg-light border rounded">
+  <form [formGroup]="form" novalidate>
+    <h6> The activity will be permanently deleted from the system. Are you sure? </h6>
+    <div class="form-check mt-3">
+      <input class="form-check-input" type="checkbox" formControlName="Checkbox">
+      <label class="form-check-label"> Yes, I'm sure! </label>
+    </div>
+  </form>
+</div>
+<mat-dialog-actions>
+  <button type="button" class="btn btn-danger" [disabled]="!form.value.Checkbox" (click)="deleteActivity()">
+    Delete activity
+  </button>
+  <button type="button" class="btn btn-secondary ml-10px" (click)="closeDialog()">
+    Cancel
+  </button>
+</mat-dialog-actions>

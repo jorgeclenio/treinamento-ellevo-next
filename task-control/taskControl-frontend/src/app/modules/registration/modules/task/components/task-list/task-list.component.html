@@ -1,6 +1,5 @@
 <div class="container">
   <app-title [title]="title"></app-title>
-
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item p_pointer"><a (click)="navigateToDashboard()"> Dashboard </a></li>
@@ -8,10 +7,8 @@
     </ol>
   </nav>
   <hr>
-
   <div class="shadow-none p-3 bg-light border rounded">
     <div class="scrollable">
-
       <table class="table table-hover">
         <thead>
           <tr>
@@ -45,7 +42,6 @@
         </tbody>
       </table>
     </div>
-    <!-- paginator -->
   </div>
   <button type="button" class="btn btn-primary mt-10px" (click)="newTask()"> Create task </button>
 </div>

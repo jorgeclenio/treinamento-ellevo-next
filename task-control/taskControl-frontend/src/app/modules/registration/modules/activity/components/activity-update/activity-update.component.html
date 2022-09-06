@@ -1,1 +1,15 @@
-<p>activity-update works!</p>
+<h2 mat-dialog-title class="text-center"> Update activity </h2>
+<hr>
+<div class="shadow-none p-3 bg-light border rounded">
+  <form [formGroup]="form" novalidate>
+    <div class="input-group mb-3">
+      <textarea class="form-control" placeholder="Activity" formControlName="activity"></textarea>
+    </div>
+  </form>
+</div>
+<mat-dialog-actions>
+  <button type="button" class="btn btn-warning text-white" (click)="updateActivity()" [disabled]="!form.valid">
+    Update activity
+  </button>
+  <button type="button" class="btn btn-danger ml-10px" (click)="closeDialog()"> Cancel </button>
+</mat-dialog-actions>

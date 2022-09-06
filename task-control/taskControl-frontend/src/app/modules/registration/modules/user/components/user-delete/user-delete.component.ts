@@ -2,8 +2,7 @@ import { ChangeDetectorRef, Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
 import { Subscriber } from "rxjs";
-
-import { SnackbarService, UserService } from "src/app/modules/shared/services";
+import { SnackbarService, UserService } from "./../../../../../shared/services";
 
 @Component({
   selector: "app-user-delete",

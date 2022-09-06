@@ -1,12 +1,8 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
-
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material/dialog";
-
-import { UserService } from "./../../../../../shared/services/user.service";
-import { SnackbarService } from "src/app/modules/shared/services/snackbar.service";
-
+import { SnackbarService, UserService } from "./../../../../../shared/services";
 import { AddUser } from "./../../../../models/addUser.model";
 
 @Component({

@@ -1,8 +1,6 @@
 <h2 mat-dialog-title class="text-center"> Task details </h2>
 <hr>
-
 <div class="shadow-none p-3 bg-light border rounded">
-  <!-- <mat-dialog-content> -->
   <form [formGroup]="form" novalidate>
     <div class="input-group mb-3">
       <input type="text" class="form-control" placeholder="Generator" formControlName="generator">
@@ -25,9 +23,7 @@
       <input type="text" class="form-control" placeholder="Responsible" formControlName="responsible">
     </div>
   </form>
-  <!-- </mat-dialog-content> -->
 </div>
-
 <mat-dialog-actions>
   <button type="button" class="btn btn-danger" (click)="closeDialog()"> Close </button>
 </mat-dialog-actions>

@@ -1,12 +1,11 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
-
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material/dialog";
-
-import { ActivityService } from "./../../../../../shared/services/activity.service";
-import { SnackbarService } from "src/app/modules/shared/services/snackbar.service";
-
+import {
+  ActivityService,
+  SnackbarService,
+} from "./../../../../../shared/services";
 import { AddActivity } from "./../../../../models/addActivity.model";
 
 @Component({
