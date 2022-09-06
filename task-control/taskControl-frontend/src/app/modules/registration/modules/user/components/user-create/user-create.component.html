@@ -4,22 +4,22 @@
 <div class="shadow-none p-3 bg-light border rounded">
   <!-- <mat-dialog-content> -->
   <form [formGroup]="form" novalidate>
-    <div class="input-group mb-2">
+    <div class="input-group mb-3">
       <input type="text" class="form-control" placeholder="Name" formControlName="name">
     </div>
-    <div class="input-group mb-2">
-      <input type="text" class="form-control" placeholder="UserName" formControlName="userName">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" placeholder="Username" formControlName="userName">
     </div>
-    <div class="input-group mb-2">
+    <div class="input-group mb-3">
       <input type="password" class="form-control" placeholder="Password" formControlName="password">
     </div>
-    <div class="input-group mb-2">
+    <div class="input-group mb-3">
       <input appMask="cpf" type="text" class="form-control" placeholder="Ex.: 123.456.789-10" formControlName="cpf"
         maxlength="14">
       <input appMask="phone" type="text" class="form-control" placeholder="Ex.: (47) 31234-5678"
         formControlName="phoneNumber" maxlength="15">
     </div>
-    <div class="input-group mb-2">
+    <div class="input-group">
       <input type="text" class="form-control" placeholder="Ex.: email@email.com" formControlName="email">
     </div>
   </form>

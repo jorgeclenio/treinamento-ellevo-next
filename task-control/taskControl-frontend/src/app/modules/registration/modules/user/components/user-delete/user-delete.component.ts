@@ -32,13 +32,11 @@ export class UserDeleteComponent implements OnInit {
   private initiateSubscriptions(): void {
     this.subscriptions.add(
       this.form.get("Checkbox").valueChanges.subscribe((value) => {
-        // console.log(this.form);
         this.cdr.detectChanges();
       })
     );
   }
 
-  // FUNCTION TO GENERATE FORM
   public generateForm() {
     this.form = this.fb.group({
       Checkbox: [false, [Validators.required]],
@@ -63,12 +61,10 @@ export class UserDeleteComponent implements OnInit {
     );
   }
 
-  // BUTTON CANCEL FOR CLOSE DIALOG
   public closeDialog() {
     this.dialogRef.close();
   }
 
-  // CLOSE DIALOG WHEN ESC BUTTON IS PRESSED
   public closeDialogWithEscapeButton() {
     this.dialogRef.keydownEvents().subscribe((event) => {
       if (event.key === "Escape") {

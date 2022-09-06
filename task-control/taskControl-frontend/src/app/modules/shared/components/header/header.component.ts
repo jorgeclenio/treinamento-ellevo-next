@@ -1,9 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 
-import { AppUtilityService } from "../../services";
-
-import { UserService } from "src/app/modules/shared/services/user.service";
+import { AppUtilityService, UserService } from "../../services";
 
 @Component({
   selector: "app-header",
@@ -42,6 +40,10 @@ export class HeaderComponent implements OnInit {
 
   public navigateToProfile() {
     this.router.navigate(["/home/profile"]);
+  }
+
+  public navigateToActivity() {
+    this.router.navigate(["/home/registration/activity"]);
   }
 
   public navigateToTask() {

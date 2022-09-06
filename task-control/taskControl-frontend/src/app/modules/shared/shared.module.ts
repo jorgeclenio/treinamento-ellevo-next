@@ -1,18 +1,13 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-
 import {
   DialogFormComponent,
   FooterComponent,
   FormDebugComponent,
   HeaderComponent,
   TitleComponent,
-} from "src/app/modules/shared/components";
-
-import { CamelCasePipe } from "./pipes/camel-case.pipe";
-import { CpfPipe } from './pipes/cpf.pipe';
-import { EmailPipe } from './pipes/email.pipe';
-import { PhoneNumberPipe } from './pipes/phone-number.pipe';
+} from "./../shared/components";
+import { CamelCasePipe, CpfPipe, EmailPipe, PhoneNumberPipe } from "./pipes";
 
 @NgModule({
   declarations: [
@@ -21,7 +16,6 @@ import { PhoneNumberPipe } from './pipes/phone-number.pipe';
     FormDebugComponent,
     HeaderComponent,
     TitleComponent,
-
     CamelCasePipe,
     CpfPipe,
     EmailPipe,

@@ -1,15 +1,10 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
-
-
 import { HomeComponent } from "./home/";
-
 import { AboutComponent } from "./modules/shared/views/about/about.component";
 import { DashboardComponent } from "./modules/shared/views/dashboard/dashboard.component";
 import { LoginComponent } from "./modules/shared/views/login/login.component";
 import { ProfileComponent } from "./modules/shared/views/profile/profile.component";
-
-
 import { AuthGuard } from "./modules/shared/guards/auth.guard";
 
 const routes: Routes = [

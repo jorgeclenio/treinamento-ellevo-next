@@ -30,7 +30,6 @@ export class UserCreateComponent implements OnInit, OnDestroy {
     this.closeDialogWithEscapeButton();
   }
 
-  // FUNCTION TO GENERATE FORM
   public generateForm() {
     this.form = this.fb.group({
       name: ["", [Validators.required]],
@@ -49,7 +48,6 @@ export class UserCreateComponent implements OnInit, OnDestroy {
     });
   }
 
-  // FUCTION TO CREATE USER
   public createUser() {
     if (!this.form.valid) {
       return;
@@ -62,7 +60,10 @@ export class UserCreateComponent implements OnInit, OnDestroy {
           this.dialogRef.close();
         },
         (error) => {
-          this.snackbar.showSnackbarError(error.status, "User cannot be created.");
+          this.snackbar.showSnackbarError(
+            error.status,
+            "User cannot be created."
+          );
           this.dialogRef.close();
         }
       )
@@ -70,12 +71,10 @@ export class UserCreateComponent implements OnInit, OnDestroy {
     return false;
   }
 
-  // BUTTON CANCEL FOR CLOSE DIALOG
   public closeDialog() {
     this.dialogRef.close();
   }
 
-  // CLOSE DIALOG WHEN ESC BUTTON IS PRESSED
   public closeDialogWithEscapeButton() {
     this.dialogRef.keydownEvents().subscribe((event) => {
       if (event.key === "Escape") {

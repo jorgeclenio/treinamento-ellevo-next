@@ -5,7 +5,7 @@ import {
   OnDestroy,
   OnInit,
   Optional,
-  Self
+  Self,
 } from "@angular/core";
 import Cleave from "cleave.js";
 
@@ -17,10 +17,8 @@ import { NgControl } from "@angular/forms";
 export class MaskDirective implements OnInit, OnDestroy {
   @Input("appMask")
   public appMask: "cpf" | "phone";
-
   @Input("appMaskCustom")
   public custom: string;
-
   @Input("appMaskNumberMaxLength")
   public maxLength: number;
   @Input("appMaskNumberMinValue")
@@ -29,7 +27,6 @@ export class MaskDirective implements OnInit, OnDestroy {
   public maxValue: number;
   @Input("appMaskNumberDecimalScale")
   public decimalScale = 2;
-
   private cleave: Cleave;
   private firstValueCorrection = true;
 
@@ -71,6 +68,7 @@ export class MaskDirective implements OnInit, OnDestroy {
       this.cleave.destroy();
     }
   }
+
   private getCleaveOptions(currentValue: string): Object {
     switch (this.appMask) {
       case "cpf":

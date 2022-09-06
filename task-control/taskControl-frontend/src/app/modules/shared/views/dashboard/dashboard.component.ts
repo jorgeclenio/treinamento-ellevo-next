@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-import { AppUtilityService } from "../..";
+import { AppUtilityService } from "./../..";
 
 @Component({
   selector: "app-dashboard",
@@ -16,6 +16,10 @@ export class DashboardComponent implements OnInit {
   ) {}
 
   ngOnInit() {}
+
+  public navigateToActivity() {
+    this.router.navigate(["/home/registration/activity"]);
+  }
 
   public navigateToTask() {
     this.router.navigate(["/home/registration/task"]);

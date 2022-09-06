@@ -1,4 +1,3 @@
-<!-- BEGIN NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <div class="container">
     <a class="navbar-brand" style="cursor: pointer;" (click)="navigateToDashboard()"> Task Control </a>
@@ -10,7 +9,8 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Registration </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu p_pointer">
+            <li><a class="dropdown-item" (click)="navigateToActivity()"> Activity </a></li>
             <li><a class="dropdown-item" (click)="navigateToTask()"> Task </a></li>
             <li><a class="dropdown-item" (click)="navigateToUser()"> User </a></li>
           </ul>
@@ -18,8 +18,8 @@
       </ul>
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
-          <!-- informação do username do usuário logado vem do user.model.ts -->
-          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Hi, {{ userName }} </a>
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Hi, {{ userName
+            }} </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" (click)="navigateToAbout()"> About </a></li>
             <li><a class="dropdown-item" (click)="navigateToProfile()"> Profile </a></li>
@@ -33,4 +33,3 @@
     </div>
   </div>
 </nav>
-<!-- END NAVBAR -->

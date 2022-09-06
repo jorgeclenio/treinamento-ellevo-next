@@ -1,0 +1,18 @@
+.scrollable {
+  min-height: 400px;
+  max-height: 400px;
+  overflow: scroll;
+}
+
+.col-sz-activity {
+  min-width: 150px;
+  max-width: 150px;
+  text-overflow: ellipsis !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.col-sz-button {
+  min-width: 175px;
+  max-width: 175px;
+}

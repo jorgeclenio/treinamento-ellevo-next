@@ -1,5 +1,5 @@
-import { User } from "src/app/modules/registration/models/user.model";
-import { Status } from "./../../shared/enums/status.enum";
+import { Status } from "./../../shared/enums";
+import { User } from "./../../registration/models";
 
 export class Task {
   id: string;

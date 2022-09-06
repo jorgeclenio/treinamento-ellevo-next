@@ -6,7 +6,6 @@ import { Injectable } from "@angular/core";
 export class AppUtilityService {
   constructor() {}
 
-  // ROUTING
   public onRouteActivation() {
     window.scrollTo({
       top: 0,

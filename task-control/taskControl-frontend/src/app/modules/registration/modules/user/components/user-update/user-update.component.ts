@@ -1,12 +1,11 @@
-import { UpdateUser } from './../../../../models/updateUser.model';
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
 import { Subscription } from "rxjs";
 
-import { User } from "./../../../../models/user.model";
+import { UpdateUser } from './../../../../models/updateUser.model';
 
-import { UserService } from "src/app/modules/shared/services/user.service";
+import { UserService } from "./../../../../../shared/services/user.service";
 import { SnackbarService } from "./../../../../../shared/services/snackbar.service";
 
 @Component({
@@ -32,7 +31,6 @@ export class UserUpdateComponent implements OnInit, OnDestroy {
     this.closeDialogWithEscapeButton();
   }
 
-  // FUNCTION TO GENERATE FORM
   public generateForm() {
     this.form = this.fb.group({
       name: [null, [Validators.required]],
@@ -51,7 +49,6 @@ export class UserUpdateComponent implements OnInit, OnDestroy {
     });
   }
 
-  // FUNCTION TO SHOW USER DATA
   public showUserData() {
     this.subscription.push(
       this.userService.getUserById(this.userUpdateId).subscribe(
@@ -74,7 +71,6 @@ export class UserUpdateComponent implements OnInit, OnDestroy {
     );
   }
 
-  // FUNCTION TO UPDATE USER DATA
   public updateUser() {
     if (!this.form.valid) {
       return;
@@ -98,12 +94,10 @@ export class UserUpdateComponent implements OnInit, OnDestroy {
     return false;
   }
 
-  // BUTTON CANCEL FOR CLOSE DIALOG
   public closeDialog() {
     this.dialogRef.close();
   }
 
-  // CLOSE DIALOG WHEN ESC BUTTON IS PRESSED
   public closeDialogWithEscapeButton() {
     this.dialogRef.keydownEvents().subscribe((event) => {
       if (event.key === "Escape") {

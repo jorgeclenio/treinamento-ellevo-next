@@ -3,6 +3,11 @@ import { RouterModule, Routes } from "@angular/router";
 
 const RegistrationRoutes: Routes = [
   {
+    path: "activity",
+    loadChildren: () =>
+      import("./modules/activity").then((m) => m.ActivityModule),
+  },
+  {
     path: "user",
     loadChildren: () => import("./modules/user").then((m) => m.UserModule),
   },

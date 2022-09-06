@@ -2,13 +2,8 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 
-import { Login } from "./../../registration/models/login.model";
-import { AddUser } from "./../../registration/models/addUser.model";
-import { UpdateUser } from "./../../registration/models/updateUser.model";
-
-import { JwtToken } from './../models/jwtToken.model';
-
-import { User } from "./../../registration/models/user.model";
+import { JwtToken } from "./../models/jwtToken.model";
+import { AddUser, Login, UpdateUser, User } from "./../../registration/models";
 
 @Injectable({
   providedIn: "root",
@@ -18,15 +13,18 @@ export class UserService {
 
   // LOGIN
   public login(loginData: Login): Observable<any> {
-    return this.httpClient.post<JwtToken>("https://localhost:5001/login", loginData);
+    return this.httpClient.post<JwtToken>(
+      "https://localhost:5001/login",
+      loginData
+    );
   }
 
   // GET USER DATA
   public getUserData() {
-    if(!localStorage['jwt_token']){
+    if (!localStorage["jwt_token"]) {
       return null;
     }
-    return JSON.parse(atob(localStorage['jwt_token'].split('.')[1]));
+    return JSON.parse(atob(localStorage["jwt_token"].split(".")[1]));
   }
 
   // TOKEN VERIFICATION
@@ -68,7 +66,7 @@ export class UserService {
   }
 
   // UPDATE
-  public updateUser(id: string , userData: UpdateUser): Observable<any> {
+  public updateUser(id: string, userData: UpdateUser): Observable<any> {
     return this.httpClient.put(`https://localhost:5001/user/${id}`, userData, {
       responseType: "text",
       headers: {

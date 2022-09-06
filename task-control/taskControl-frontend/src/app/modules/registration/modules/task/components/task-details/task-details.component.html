@@ -4,30 +4,29 @@
 <div class="shadow-none p-3 bg-light border rounded">
   <!-- <mat-dialog-content> -->
   <form [formGroup]="form" novalidate>
-    <div class="input-group mb-2">
+    <div class="input-group mb-3">
       <input type="text" class="form-control" placeholder="Generator" formControlName="generator">
     </div>
-    <div class="input-group mb-2">
+    <div class="input-group mb-3">
       <input type="text" class="form-control" placeholder="Title" formControlName="title">
     </div>
-    <div class="input-group mb-2">
+    <div class="input-group mb-3">
       <textarea class="form-control" placeholder="Description" formControlName="description"></textarea>
     </div>
-    <div class="input-group mb-2">
+    <div class="input-group mb-3">
       <select class="form-select" formControlName="status">
-        <option selected [value]="statusEnum.NotStarted"> Not Started </option>
+        <option [value]="statusEnum.NotStarted"> Not Started </option>
         <option [value]="statusEnum.InProgress"> In Progress </option>
         <option [value]="statusEnum.Waiting"> Waiting </option>
         <option [value]="statusEnum.Concluded"> Concluded </option>
       </select>
     </div>
-    <div class="input-group mb-2">
+    <div class="input-group">
       <input type="text" class="form-control" placeholder="Responsible" formControlName="responsible">
     </div>
   </form>
   <!-- </mat-dialog-content> -->
 </div>
-<hr>
 
 <mat-dialog-actions>
   <button type="button" class="btn btn-danger" (click)="closeDialog()"> Close </button>

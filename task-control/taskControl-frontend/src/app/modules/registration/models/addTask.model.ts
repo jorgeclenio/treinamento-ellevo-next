@@ -1,4 +1,4 @@
-import { Status } from "src/app/modules/shared/enums/status.enum";
+import { Status } from "./../../shared/enums";
 
 export class AddTask {
   generatorId: string;

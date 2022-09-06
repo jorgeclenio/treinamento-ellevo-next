@@ -5,6 +5,7 @@ import { Router } from "@angular/router";
 import { Subscription } from "rxjs";
 
 import { User } from "./../../../../models/user.model";
+
 import { UserCreateComponent } from "./../user-create/user-create.component";
 import { UserDeleteComponent } from "./../user-delete/user-delete.component";
 import { UserDetailsComponent } from "./../user-details/user-details.component";
@@ -34,7 +35,6 @@ export class UserListComponent implements OnInit {
     this.showUsers();
   }
 
-  // SHOW USERS REGISTERED IN THE SYSTEM
   public showUsers() {
     this.subscription.push(
       this.userService.getUsers().subscribe(
@@ -52,7 +52,6 @@ export class UserListComponent implements OnInit {
     );
   }
 
-  // OPEN DIALOG CREATE NEW USER
   public newUser() {
     let dataUser = this.dialog.open(UserCreateComponent, {
       minWidth: "650px",
@@ -63,7 +62,6 @@ export class UserListComponent implements OnInit {
     );
   }
 
-  // DIALOG (READ) DETAILS
   public navigateToUserDetails(userDetailsId: string) {
     let userDetails = this.dialog.open(UserDetailsComponent, {
       minWidth: "650px",
@@ -77,7 +75,6 @@ export class UserListComponent implements OnInit {
     );
   }
 
-  // DIALOG UPDATE
   public navigateToUserUpdate(userUpdateId: string) {
     let userUpdate = this.dialog.open(UserUpdateComponent, {
       minWidth: "650px",
@@ -91,21 +88,19 @@ export class UserListComponent implements OnInit {
     );
   }
 
-  // DIALOG DELETE
   public navigateToUserDelete(userDeleteId: string) {
-    let navigateUserDelete = this.dialog.open(UserDeleteComponent, {
+    let userDelete = this.dialog.open(UserDeleteComponent, {
       minWidth: "650px",
       disableClose: true,
     });
 
-    navigateUserDelete.componentInstance.userDeleteId = userDeleteId;
+    userDelete.componentInstance.userDeleteId = userDeleteId;
 
     this.subscription.push(
-      navigateUserDelete.afterClosed().subscribe(() => this.showUsers())
+      userDelete.afterClosed().subscribe(() => this.showUsers())
     );
   }
 
-  // RETURN TO DASHBOARD PAGE
   public navigateToDashboard() {
     this.router.navigate(["/home/dashboard"]);
   }

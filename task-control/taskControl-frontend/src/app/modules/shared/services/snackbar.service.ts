@@ -24,7 +24,7 @@ export class SnackbarService {
       displayMessage || this.error_messages.service_failure,
       "X",
       {
-        duration: 3500,
+        duration: 2000,
         horizontalPosition: "center",
         verticalPosition: "top",
         panelClass: "snackbarSuccess",
@@ -39,7 +39,7 @@ export class SnackbarService {
         "Error: " + code + ".\n" + this.error_messages.service_failure,
       "X",
       {
-        duration: 3500,
+        duration: 2000,
         horizontalPosition: "center",
         verticalPosition: "top",
         panelClass: "snackbarError",

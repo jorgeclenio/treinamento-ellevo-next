@@ -38,7 +38,7 @@ export class TaskCreateComponent implements OnInit, OnDestroy {
       generatorId: [localStorage.getItem("userId")],
       title: ["", [Validators.required]],
       description: ["", [Validators.required]],
-      status: ["", [Validators.required]],
+      status: [Status.NotStarted, [Validators.required]],
       responsibleId: [""],
     });
   }

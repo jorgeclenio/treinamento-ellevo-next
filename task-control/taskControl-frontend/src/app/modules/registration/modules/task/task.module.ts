@@ -6,18 +6,18 @@ import { RouterModule } from "@angular/router";
 
 import { SharedModule } from "./../../../shared";
 
-import { TaskRoutingModule } from "./task-routing.module";
-import { TaskComponent } from "./task.component";
-
 import { MaterialModule } from "./../../../../material.module";
 
 import {
   TaskCreateComponent,
+  TaskDeleteComponent,
   TaskDetailsComponent,
   TaskListComponent,
   TaskUpdateComponent,
 } from "./components";
-import { TaskDeleteComponent } from './components/task-delete/task-delete.component';
+
+import { TaskComponent } from "./task.component";
+import { TaskRoutingModule } from "./task-routing.module";
 
 @NgModule({
   imports: [

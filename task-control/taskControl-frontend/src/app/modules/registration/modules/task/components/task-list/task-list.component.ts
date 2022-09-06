@@ -108,7 +108,7 @@ export class TaskListComponent implements OnInit {
   public getStatusRef(status: Status): string{
     switch(status){
       case Status.NotStarted:
-        return 'Not Initiated'
+        return 'Not Started'
       case Status.Concluded:
         return 'Concluded'
       case Status.InProgress:

@@ -4,7 +4,6 @@ import {
   MatDialogModule,
   MatInputModule,
   MatNativeDateModule,
-  MatPaginatorModule,
   MatSnackBarModule,
   MatTableModule,
 } from "@angular/material";
@@ -13,7 +12,6 @@ const MATERIAL_COMPONENTS = [
   MatDialogModule,
   MatInputModule,
   MatNativeDateModule,
-  MatPaginatorModule,
   MatSnackBarModule,
   MatTableModule,
 ];
