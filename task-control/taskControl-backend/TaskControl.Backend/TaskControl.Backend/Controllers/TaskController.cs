@@ -22,7 +22,7 @@ namespace TaskControl.Backend.Controllers
         [Authorize]
         public async Task<IActionResult> CreateTask([FromBody] AddTaskModel taskModels)
         {
-            ''return Ok(await _taskService.CreateTask(taskModels));
+            return Ok(await _taskService.CreateTask(taskModels));
         }
 
         [HttpGet]
