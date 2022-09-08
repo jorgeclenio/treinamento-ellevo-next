@@ -8,11 +8,10 @@ import { AppUtilityService } from "./../..";
   styleUrls: ["./dashboard.component.scss"],
 })
 export class DashboardComponent implements OnInit {
-  public title: string = "Dashboard"; // Quick shortcuts
-
+  public title: string = "Dashboard";
   constructor(
-    private router: Router,
-    public global_utilities: AppUtilityService
+    public global_utilities: AppUtilityService,
+    private router: Router
   ) {}
 
   ngOnInit() {}

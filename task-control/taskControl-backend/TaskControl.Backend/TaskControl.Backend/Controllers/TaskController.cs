@@ -24,7 +24,7 @@ namespace TaskControl.Backend.Controllers
         {
             return Ok(await _taskService.CreateTask(taskModels));
         }
-
+        
         [HttpGet]
         [Authorize]
         public IActionResult GetAllTasks()

@@ -13,12 +13,14 @@
         <thead>
           <tr>
             <th scope="col"> Activity </th>
+            <th scope="col"> Date </th>
             <th scope="col"> Actions </th>
           </tr>
         </thead>
         <tbody class="table-group-divider">
           <tr *ngFor="let activity of activities">
             <td class="col-sz-activity"> {{ activity.activity}} </td>
+            <td class="col-sz-date"> {{ activity.date}} </td>
             <td class="col-sz-button">
               <button type="button" class="btn btn-primary" (click)="navigateToActivityDetails(activity.id)">
                 <i class="bi bi-journal-text"></i>
