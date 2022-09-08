@@ -1,6 +1,5 @@
 <div class="container">
   <app-title [title]="title"></app-title>
-
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
       <li class="breadcrumb-item p_pointer"><a (click)="navigateToDashboard()"> Dashboard </a></li>
@@ -8,14 +7,11 @@
     </ol>
   </nav>
   <hr>
-
-  <div class="shadow-none p-3 bg-light border rounded">
-  <!-- informação do username do usuário logado vem do user.model.ts -->
-  <div class="text-center">
-    <h4> User data | {{ userName }} </h4>
-  </div>
-  <hr>
-  <!-- form para retornar as informações do usuário logado -->
+  <div class="shadow-none p-2 bg-light border rounded">
+    <div class="text-center">
+      <h4> User data | {{ userName }} </h4>
+    </div>
+    <hr>
     <mat-dialog-content>
       <form [formGroup]="form" novalidate>
         <div class="input-group mb-2">
@@ -36,5 +32,4 @@
       </form>
     </mat-dialog-content>
   </div>
-  <!-- <app-form-debug [form]="form"></app-form-debug> -->
 </div>

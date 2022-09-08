@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using TaskControl.Backend.Entities;
+using TaskControl.Backend.Models;
 
 namespace TaskControl.Backend.Services
 {
     public class IActivityAppService
     {
-    }
+        /*Task<ActivityEntity> CreateActivity(AddActivityModel addActivityModel);*/
+
+    }    
 }

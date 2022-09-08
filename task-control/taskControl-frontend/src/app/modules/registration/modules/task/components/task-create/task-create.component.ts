@@ -1,10 +1,11 @@
-import { Status } from "src/app/modules/shared/enums/status.enum";
 import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material/dialog";
-import { TaskService, SnackbarService } from "./../../../../../shared/services";
+import { TaskService, SnackbarService, UserService } from "./../../../../../shared/services";
 import { AddTask } from "./../../../../models/addTask.model";
+import { Status } from "./../../../../../shared/enums/status.enum";
+import { User } from "./../../../../../registration/models";
 
 @Component({
   selector: "app-task-create",
@@ -15,16 +16,19 @@ export class TaskCreateComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   public subscription: Subscription[] = [];
   public statusEnum = Status;
+  public users: User[] = [];
 
   constructor(
     public dialogRef: MatDialogRef<TaskCreateComponent>,
     public taskService: TaskService,
     private fb: FormBuilder,
-    private snackbar: SnackbarService
+    private snackbar: SnackbarService,
+    private userService: UserService,
   ) {}
 
   ngOnInit() {
     this.generateForm();
+    this.getUserData();
     this.closeDialogWithEscapeButton();
   }
 
@@ -36,6 +40,22 @@ export class TaskCreateComponent implements OnInit, OnDestroy {
       status: [Status.NotStarted, [Validators.required]],
       responsibleId: [""],
     });
+  }
+
+  public getUserData() {
+    this.subscription.push(
+      this.userService.getUsers().subscribe(
+        (returnUser) => {
+          this.users = returnUser;
+        },
+        (error) => {
+          this.snackbar.showSnackbarError(
+            error.status,
+            "Unable to fetch the requested information."
+          );
+        }
+      )
+    );
   }
 
   public createTask() {

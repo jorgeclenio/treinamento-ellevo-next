@@ -7,7 +7,7 @@
     </ol>
   </nav>
   <hr>
-  <div class="shadow-none p-3 bg-light border rounded">
+  <div class="shadow-none p-2 bg-light border rounded">
     <div class="scrollable">
       <table class="table table-hover">
         <thead>
@@ -28,13 +28,16 @@
             <td class="col-status"> {{ getStatusRef(task.status) }} </td>
             <td class="col-responsible"> {{ task.responsible.name }} </td>
             <td class="col-sz-action-buttons">
-              <button type="button" class="btn btn-primary" (click)="navigateToTaskDetails(task.id)">
+              <button type="button" class="btn btn-success" matTooltip="Activities">
+                <i class="bi bi-list-task"></i>
+              </button>
+              <button type="button" class="btn btn-primary ml-5px" matTooltip="Details" (click)="navigateToTaskDetails(task.id)">
                 <i class="bi bi-journal-text"></i>
               </button>
-              <button type="button" class="btn btn-warning text-white ml-5px" (click)="navigateToTaskUpdate(task.id)">
+              <button type="button" class="btn btn-warning text-white ml-5px" matTooltip="Update" (click)="navigateToTaskUpdate(task.id)">
                 <i class="bi bi-pencil"></i>
               </button>
-              <button type="button" class="btn btn-danger ml-5px" (click)="navigateToTaskDelete(task.id)">
+              <button type="button" class="btn btn-danger ml-5px" matTooltip="Delete" (click)="navigateToTaskDelete(task.id)">
                 <i class="bi bi-x"></i>
               </button>
             </td>

@@ -7,7 +7,7 @@
     </ol>
   </nav>
   <hr>
-  <div class="shadow-none p-3 bg-light border rounded">
+  <div class="shadow-none p-2 bg-light border rounded">
     <div class="scrollable">
       <table class="table table-hover">
         <thead>
@@ -28,13 +28,13 @@
             <td class="col-sz-phoneNumber"> {{ user.phoneNumber }} </td>
             <td class="col-sz-email"> {{ user.email }} </td>
             <td class="col-sz-button">
-              <button type="button" class="btn btn-primary" (click)="navigateToUserDetails(user.id)">
+              <button type="button" class="btn btn-primary" matTooltip="Details" (click)="navigateToUserDetails(user.id)">
                 <i class="bi bi-journal-text"></i>
               </button>
-              <button type="button" class="btn btn-warning text-white ml-5px" (click)="navigateToUserUpdate(user.id)">
+              <button type="button" class="btn btn-warning text-white ml-5px" matTooltip="Update" (click)="navigateToUserUpdate(user.id)">
                 <i class="bi bi-pencil"></i>
               </button>
-              <button type="button" class="btn btn-danger ml-5px" (click)="navigateToUserDelete(user.id)">
+              <button type="button" class="btn btn-danger ml-5px" matTooltip="Delete" (click)="navigateToUserDelete(user.id)">
                 <i class="bi bi-x"></i>
               </button>
             </td>

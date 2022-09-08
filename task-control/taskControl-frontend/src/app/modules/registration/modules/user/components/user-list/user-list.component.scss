@@ -15,16 +15,25 @@
 .col-sz-userName {
   min-width: 150px;
   max-width: 150px;
+  text-overflow: ellipsis !important;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .col-sz-cpf {
   min-width: 150px;
   max-width: 150px;
+  text-overflow: ellipsis !important;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .col-sz-phoneNumber {
   min-width: 150px;
   max-width: 150px;
+  text-overflow: ellipsis !important;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .col-sz-email {

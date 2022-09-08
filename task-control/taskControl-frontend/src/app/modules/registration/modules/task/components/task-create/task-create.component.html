@@ -1,6 +1,6 @@
 <h2 mat-dialog-title class="text-center"> Create task </h2>
 <hr>
-<div class="shadow-none p-3 bg-light border rounded">
+<div class="shadow-none p-2 bg-light border rounded">
   <form [formGroup]="form" novalidate>
     <div class="input-group mb-3">
       <input type="text" class="form-control" placeholder="Title" formControlName="title">
@@ -15,12 +15,9 @@
         <option [value]="statusEnum.Waiting"> Waiting </option>
         <option [value]="statusEnum.Concluded"> Concluded </option>
       </select>
-      <!-- *ngFor para percorrer lista com todos os usuários cadastrados no sistema; -->
       <select class="form-select" formControlName="responsibleId">
-        <option selected> Open this select menu </option>
-        <option value="1"> One </option>
-        <option value="2"> Two </option>
-        <option value="3"> Three </option>
+        <option value=""> Open this select menu </option>
+        <option *ngFor="let user of users" [value]="user.id"> {{ user.name }} </option>
       </select>
     </div>
   </form>

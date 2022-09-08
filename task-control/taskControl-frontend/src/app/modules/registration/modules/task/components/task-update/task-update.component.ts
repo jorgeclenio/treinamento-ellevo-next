@@ -2,9 +2,10 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
 import { Subscription } from "rxjs";
-import { SnackbarService, TaskService } from "./../../../../../shared/services";
+import { SnackbarService, TaskService, UserService } from "./../../../../../shared/services";
 import { Status } from "./../../../../../shared/enums/status.enum";
 import { UpdateTask } from "./../../../../../registration/models/updateTask.model";
+import { User } from "./../../../../../registration/models";
 
 @Component({
   selector: "app-task-update",
@@ -14,6 +15,7 @@ import { UpdateTask } from "./../../../../../registration/models/updateTask.mode
 export class TaskUpdateComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   public subscription: Subscription[] = [];
+  public users: User[] = [];
   public taskUpdateId: string;
   public statusEnum = Status;
   private generatorId: string;
@@ -24,13 +26,31 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
     private taskService: TaskService,
     private fb: FormBuilder,
     private snackbar: SnackbarService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private userService: UserService,
   ) {}
 
   ngOnInit() {
     this.generateForm();
     this.showTaskData();
+    this.getUserData();
     this.closeDialogWithEscapeButton();
+  }
+
+  public getUserData() {
+    this.subscription.push(
+      this.userService.getUsers().subscribe(
+        (returnUser) => {
+          this.users = returnUser;
+        },
+        (error) => {
+          this.snackbar.showSnackbarError(
+            error.status,
+            "Unable to fetch the requested information."
+          );
+        }
+      )
+    );
   }
 
   public generateForm() {
@@ -39,7 +59,7 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
       title: ["", [Validators.required]],
       description: ["", [Validators.required]],
       status: ["", [Validators.required]],
-      responsible: ["", [Validators.required]],
+      responsibleId: ["", [Validators.required]],
     });
   }
 
@@ -53,7 +73,7 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
           this.form.get("title").setValue(taskData.title);
           this.form.get("description").setValue(taskData.description);
           this.form.get("status").setValue(taskData.status);
-          this.form.get("responsible").setValue(taskData.responsible.name);
+          this.form.get("responsibleId").setValue(taskData.responsibleId);
           this.cdr.detectChanges();
         },
         (error) => {
