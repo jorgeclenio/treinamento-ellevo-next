@@ -2,13 +2,25 @@
   <app-title [title]="title"></app-title>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <li class="breadcrumb-item p_pointer"><a (click)="navigateToDashboard()"> Dashboard </a></li>
+      <i class="bi bi-list"></i>
+      <li class="breadcrumb-item p_pointer ml-5px"><a (click)="navigateToDashboard()"> Dashboard </a></li>
       <li class="breadcrumb-item active" aria-current="page"> Activity list </li>
     </ol>
   </nav>
   <hr>
-  <div class="shadow-none p-2 bg-light border rounded">
-    <div class="scrollable">
+  <div class="row-info">
+    <p> <b> Involved: </b> Generator <b> | </b> Responsible </p>
+    <p> <b> Status: </b> Not Stared </p>
+  </div>
+  <div class="shadow-none mb-2 p-2 bg-light border rounded">
+    <div class="scrollable-tb">
+      <div class="input-group">
+        <textarea class="form-control" placeholder="Description" formControlName="description"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="shadow-none mb-2 p-2 bg-light border rounded">
+    <div class="scrollable-bb">
       <table class="table table-hover">
         <thead>
           <tr>
@@ -25,7 +37,8 @@
               <button type="button" class="btn btn-primary" (click)="navigateToActivityDetails(activity.id)">
                 <i class="bi bi-journal-text"></i>
               </button>
-              <button type="button" class="btn btn-warning text-white ml-5px" (click)="navigateToActivityUpdate(activity.id)">
+              <button type="button" class="btn btn-warning text-white ml-5px"
+                (click)="navigateToActivityUpdate(activity.id)">
                 <i class="bi bi-pencil"></i>
               </button>
               <button type="button" class="btn btn-danger ml-5px" (click)="navigateToActivityDelete(activity.id)">
@@ -37,5 +50,5 @@
       </table>
     </div>
   </div>
-  <button type="button" class="btn btn-primary mt-10px" (click)="newActivity()"> Create activity </button>
+  <!-- <button type="button" class="btn btn-primary" (click)="newActivity()"> Create activity </button> -->
 </div>

@@ -72,6 +72,10 @@ export class TaskListComponent implements OnInit {
     );
   }
 
+  public navigateToActivityByTask(activityByTaskId: string) {
+    this.router.navigate(["/home/registration/activity"]);
+  }
+
   public navigateToTaskDetails(taskDetailsId: string) {
     let dataDetails = this.dialog.open(TaskDetailsComponent, {
       minWidth: "650px",

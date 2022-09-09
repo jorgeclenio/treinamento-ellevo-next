@@ -1,6 +1,16 @@
-.scrollable {
-  min-height: 400px;
-  max-height: 400px;
+textarea {
+  min-height: 200px;
+  max-height: 200px;
+}
+
+.scrollable-tb {
+  min-height: 200px;
+  max-height: 200px;
+}
+
+.scrollable-bb {
+  min-height: 250px;
+  max-height: 250px;
   overflow: scroll;
 }
 
@@ -20,4 +30,10 @@
 .col-sz-button {
   min-width: 175px;
   max-width: 175px;
+}
+
+.row-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
