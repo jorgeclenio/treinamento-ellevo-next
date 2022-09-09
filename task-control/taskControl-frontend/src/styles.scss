@@ -10,7 +10,6 @@ body {
   margin: 0;
   // font-family: Roboto, "Helvetica Neue", sans-serif;
 }
-
 table {
   width: 100% !important;
 }
@@ -99,5 +98,19 @@ table {
       font-family: "RobotoBold", sans-serif;
     }
   }
+}
+// ----------------------------------------------
+// STATUS COLOR ---------------------------------
+.c_not-started {
+  color: #f44336;
+}
+.c_in-progress {
+  color: #2196f3;
+}
+.c_waiting {
+  color: #ffeb3b;
+}
+.c_concluded {
+  color: #4caf50;
 }
 // ----------------------------------------------

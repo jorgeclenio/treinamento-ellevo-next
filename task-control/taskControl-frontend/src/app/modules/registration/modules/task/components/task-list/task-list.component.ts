@@ -72,8 +72,8 @@ export class TaskListComponent implements OnInit {
     );
   }
 
-  public navigateToActivityByTask(activityByTaskId: string) {
-    this.router.navigate(["/home/registration/activity"]);
+  public navigateToActivityByTask(taskId: string) {
+    this.router.navigate([`/home/registration/activity/${taskId}`]);
   }
 
   public navigateToTaskDetails(taskDetailsId: string) {

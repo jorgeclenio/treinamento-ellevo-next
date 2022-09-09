@@ -4,19 +4,22 @@
     <ol class="breadcrumb">
       <i class="bi bi-list"></i>
       <li class="breadcrumb-item p_pointer ml-5px"><a (click)="navigateToDashboard()"> Dashboard </a></li>
-      <li class="breadcrumb-item active" aria-current="page"> Activity list </li>
+      <li class="breadcrumb-item p_pointer"><a (click)="navigateToTaskList()"> Task list </a></li>
+      <li class="breadcrumb-item active"> Activity list </li>
     </ol>
   </nav>
   <hr>
   <div class="row-info">
-    <p> <b> Involved: </b> Generator <b> | </b> Responsible </p>
-    <p> <b> Status: </b> Not Stared </p>
+    <p><b> Generator: </b> {{ generator }} | <b> Responsible: </b> {{ responsible }} </p>
+    <p><b> Status: </b><span [innerHTML]="status"></span></p>
   </div>
   <div class="shadow-none mb-2 p-2 bg-light border rounded">
     <div class="scrollable-tb">
-      <div class="input-group">
-        <textarea class="form-control" placeholder="Description" formControlName="description"></textarea>
-      </div>
+      <form [formGroup]="form" novalidate>
+        <div class="input-group">
+          <textarea class="form-control" placeholder="Description" formControlName="description"></textarea>
+        </div>
+      </form>
     </div>
   </div>
   <div class="shadow-none mb-2 p-2 bg-light border rounded">
@@ -50,5 +53,5 @@
       </table>
     </div>
   </div>
-  <!-- <button type="button" class="btn btn-primary" (click)="newActivity()"> Create activity </button> -->
+  <button type="button" class="btn btn-primary" (click)="newActivity()"> Add new </button>
 </div>

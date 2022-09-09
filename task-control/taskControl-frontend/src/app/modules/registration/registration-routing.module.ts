@@ -3,7 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 
 const RegistrationRoutes: Routes = [
   {
-    path: "activity",
+    path: "activity/:taskId",
     loadChildren: () => import("./modules/activity").then((m) => m.ActivityModule),
   },
   {

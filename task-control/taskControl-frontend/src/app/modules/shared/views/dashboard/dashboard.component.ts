@@ -16,9 +16,9 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {}
 
-  public navigateToActivity() {
-    this.router.navigate(["/home/registration/activity"]);
-  }
+  // public navigateToActivity() {
+  //   this.router.navigate(["/home/registration/activity"]);
+  // }
 
   public navigateToTask() {
     this.router.navigate(["/home/registration/task"]);

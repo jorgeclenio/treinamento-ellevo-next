@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
-
 import { AppUtilityService, UserService } from "../../services";
 
 @Component({
@@ -12,16 +11,14 @@ export class HeaderComponent implements OnInit {
   public userName: string = "";
 
   constructor(
+    public global_utilities: AppUtilityService,
     private router: Router,
-    private userService: UserService,
-
-    public global_utilities: AppUtilityService
+    private userService: UserService
   ) {}
 
   ngOnInit() {
     const token = this.userService.getUserData();
-    const name = token.unique_name.split(' ');
-
+    const name = token.unique_name.split(" ");
     this.userName = name[0];
   }
 
@@ -42,9 +39,9 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(["/home/profile"]);
   }
 
-  public navigateToActivity() {
-    this.router.navigate(["/home/registration/activity"]);
-  }
+  // public navigateToActivity() {
+  //   this.router.navigate(["/home/registration/activity"]);
+  // }
 
   public navigateToTask() {
     this.router.navigate(["/home/registration/task"]);
