@@ -59,7 +59,7 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
       title: ["", [Validators.required]],
       description: ["", [Validators.required]],
       status: ["", [Validators.required]],
-      responsibleId: ["", [Validators.required]],
+      responsibleId: [""],
     });
   }
 

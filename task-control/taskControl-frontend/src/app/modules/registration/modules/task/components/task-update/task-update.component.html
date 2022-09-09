@@ -16,7 +16,7 @@
         <option [value]="statusEnum.Concluded"> Concluded </option>
       </select>
       <select class="form-select" formControlName="responsibleId">
-        <option value=""> Open this select menu </option>
+        <option value=""> Select responsible </option>
         <option *ngFor="let user of users" [value]="user.id"> {{ user.name }} </option>
       </select>
     </div>
