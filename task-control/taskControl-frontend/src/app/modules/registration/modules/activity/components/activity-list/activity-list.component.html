@@ -34,8 +34,8 @@
         </thead>
         <tbody class="table-group-divider">
           <tr *ngFor="let activity of activities">
-            <td class="col-sz-activity"> {{ activity.activity}} </td>
-            <td class="col-sz-date"> {{ activity.date}} </td>
+            <td class="col-sz-activity"> {{ activity.description}} </td>
+            <td class="col-sz-date"> {{ activity.date }} </td>
             <td class="col-sz-button">
               <button type="button" class="btn btn-primary" (click)="navigateToActivityDetails(activity.id)">
                 <i class="bi bi-journal-text"></i>
@@ -53,5 +53,5 @@
       </table>
     </div>
   </div>
-  <button type="button" class="btn btn-primary" (click)="newActivity()"> Add new </button>
+  <button type="button" class="btn btn-primary" (click)="newActivity(taskId)"> Add new </button>
 </div>

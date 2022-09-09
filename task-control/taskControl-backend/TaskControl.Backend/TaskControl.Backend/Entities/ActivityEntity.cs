@@ -8,6 +8,6 @@ namespace TaskControl.Backend.Entities
     {
         public ObjectId Id { get; set; }
         public string Description { get; set; }
-        public string TaskId { get; set; }
+        public ObjectId TaskId { get; set; }
     }
 }

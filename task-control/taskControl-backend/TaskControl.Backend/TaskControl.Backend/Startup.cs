@@ -26,6 +26,7 @@ namespace TaskControl.Backend
         public void ConfigureServices(IServiceCollection services)
         {
             // transição da interface para a classe;
+            services.AddTransient<IActivityAppService, ActivityAppService>();
             services.AddTransient<ITaskAppService, TaskAppService>();
             services.AddTransient<IUserAppService, UserAppService>();
 

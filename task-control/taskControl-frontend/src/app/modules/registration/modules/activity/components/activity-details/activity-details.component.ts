@@ -29,7 +29,7 @@ export class ActivityDetailsComponent implements OnInit, OnDestroy {
 
   public generateForm() {
     this.form = this.fb.group({
-      activity: [{ value: "", disabled: true }],
+      description: [{ value: "", disabled: true }],
     });
   }
 
@@ -37,7 +37,7 @@ export class ActivityDetailsComponent implements OnInit, OnDestroy {
     this.subscription.push(
       this.activityService.getActivityById(this.activityDetailsId).subscribe(
         (activityData) => {
-          this.form.get("activity").setValue(activityData.activity);
+          this.form.get("description").setValue(activityData.description);
         },
         (error) => {
           this.snackbar.showSnackbarError(

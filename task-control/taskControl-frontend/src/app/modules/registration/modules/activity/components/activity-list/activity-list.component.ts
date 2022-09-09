@@ -88,16 +88,20 @@ export class ActivityListComponent implements OnInit {
 
           switch (taskData.status) {
             case Status.Concluded:
-              this.status = 'Concluded <i class="bi bi-circle-fill c_concluded"></i>'
+              this.status =
+                'Concluded <i class="bi bi-circle-fill c_concluded"></i>';
               break;
             case Status.InProgress:
-              this.status = 'In Progress <i class="bi bi-circle-fill c_in-progress"></i>'
+              this.status =
+                'In Progress <i class="bi bi-circle-fill c_in-progress"></i>';
               break;
             case Status.Waiting:
-              this.status = 'Waiting <i class="bi bi-circle-fill c_waiting"></i>'
+              this.status =
+                'Waiting <i class="bi bi-circle-fill c_waiting"></i>';
               break;
             default:
-              this.status = 'Not Started <i class="bi bi-circle-fill c_not-started"></i>'
+              this.status =
+                'Not Started <i class="bi bi-circle-fill c_not-started"></i>';
               break;
           }
         },
@@ -121,8 +125,9 @@ export class ActivityListComponent implements OnInit {
 
   public showActivities() {
     this.subscription.push(
-      this.activityService.getActivities().subscribe(
+      this.activityService.getActivities(this.taskId).subscribe(
         (returnActivy) => {
+          returnActivy.map(activity => activity.date = new Date(activity.date).toLocaleString())
           this.activities = returnActivy;
           this.cdr.detectChanges();
         },
@@ -136,11 +141,14 @@ export class ActivityListComponent implements OnInit {
     );
   }
 
-  public newActivity() {
+  public newActivity(taskId) {
     let dataActivity = this.dialog.open(ActivityCreateComponent, {
       minWidth: "650px",
       disableClose: true,
     });
+
+    dataActivity.componentInstance.taskId = taskId;
+
     this.subscription.push(
       dataActivity.afterClosed().subscribe(() => this.showActivities())
     );

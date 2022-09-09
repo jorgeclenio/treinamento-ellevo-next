@@ -33,7 +33,8 @@ export class ActivityUpdateComponent implements OnInit, OnDestroy {
 
   public generateForm() {
     this.form = this.fb.group({
-      activity: [null, [Validators.required]],
+      description: [null, [Validators.required]],
+      taskId: []
     });
   }
 
@@ -41,7 +42,8 @@ export class ActivityUpdateComponent implements OnInit, OnDestroy {
     this.subscription.push(
       this.activityService.getActivityById(this.activityUpdateId).subscribe(
         (activityData) => {
-          this.form.get("activity").setValue(activityData.activity);
+          this.form.get("description").setValue(activityData.description);
+          this.form.get("taskId").setValue(activityData.taskId);
         },
         (error) => {
           this.snackbar.showSnackbarError(

@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System;
 
 namespace TaskControl.Backend.Models
 {
@@ -10,5 +11,6 @@ namespace TaskControl.Backend.Models
         public string Id { get; set; }
         public string Description { get; set; }
         public string TaskId { get; set; }
+        public DateTime Date { get; set; }
     }
 }

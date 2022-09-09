@@ -16,6 +16,7 @@ import { AddActivity } from "./../../../../models/addActivity.model";
 export class ActivityCreateComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   public subscription: Subscription[] = [];
+  public taskId: string;
 
   constructor(
     public dialogRef: MatDialogRef<ActivityCreateComponent>,
@@ -31,7 +32,8 @@ export class ActivityCreateComponent implements OnInit, OnDestroy {
 
   public generateForm() {
     this.form = this.fb.group({
-      activity: ["", [Validators.required]],
+      description: ["", [Validators.required]],
+      taskId: [this.taskId],
     });
   }
 

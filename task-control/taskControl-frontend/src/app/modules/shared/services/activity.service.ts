@@ -14,9 +14,9 @@ import {
 export class ActivityService {
   constructor(private httpClient: HttpClient) {}
 
-  public getActivities(): Observable<any> {
+  public getActivities(taskId: string): Observable<any> {
     return this.httpClient.get<Array<Activity>>(
-      "https://localhost:5001/activity",
+      `https://localhost:5001/activity/task/${taskId}`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("jwt_token")}`,
