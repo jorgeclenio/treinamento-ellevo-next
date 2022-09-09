@@ -24,7 +24,8 @@ const routes: Routes = [
     children: [
       {
         path: "",
-        redirectTo: "/home/dashboard",
+        // redirectTo: "/home/dashboard",
+        redirectTo: "/home/registration/task/list",
         pathMatch: "full",
       },
       {

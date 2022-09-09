@@ -3,6 +3,12 @@ textarea {
   max-height: 200px;
 }
 
+.row-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .scrollable-tb {
   min-height: 200px;
   max-height: 200px;
@@ -30,10 +36,4 @@ textarea {
 .col-sz-button {
   min-width: 175px;
   max-width: 175px;
-}
-
-.row-info {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }

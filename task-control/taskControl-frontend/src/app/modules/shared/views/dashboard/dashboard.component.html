@@ -9,15 +9,6 @@
   <hr>
   <div class="shadow-none p-2 bg-light border rounded">
     <div class="row">
-      <!-- <div class="card ml-10px" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title"> Registered activities </h5>
-          <p class="card-text"> List of all registered activities; </p>
-          <button type="button" class="btn btn-primary" (click)="navigateToActivity()">
-            Go to
-          </button>
-        </div>
-      </div> -->
       <div class="card ml-10px" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title"> Registered Tasks </h5>
@@ -41,29 +32,26 @@
   <hr>
   <div class="row ml-10px">
     <ul>
-      <h6> > Tasks </h6>
-      <li> descrição deverá ter campo que aceite html; </li>
-    </ul>
-    <hr>
-    <ul>
-      <h6> > Users </h6>
+      <h6> > General </h6>
       <li>
-        Para primeiro acesso deve ser disponibilizado um usuário admin, com usuário
-        <b>“admin”</b> e senha <b>“12345678”</b>. Este usuário também deve ser exibido na lista de
-        usuários cadastrados, porém não deverá ser possível editar e nem excluir o mesmo;
+        Não poderá ser possível excluir usuário admin;
       </li>
     </ul>
     <hr>
     <ul>
-      <h6> > Outros </h6>
-      <li> DropDown para responsaveis; </li>
-      <li> No Dropdown de responsaveis o valor sera o id do usuario; </li>
-      <li> Criar uma tela de visualização das task igual a lista de chamados no Next; </li>
-      <li> Na tela de visualização criar um input de atividades; </li>
-      <li> No backend e front criar uma model pata atividades contendo Id, Description, TaskId; </li>
+      <h6> > Tasks </h6>
       <li>
-        No input de atividades adicionar automaticamente o Id da task para model.TaskId assim como foi feito com o
-        generatorId na criação de task;
+        No update, retornar o usuário selecionado a criação da task, caso tenha sido selecionado algum usuário;
+      </li>
+      <li>
+        Na hora de criar uma tarefa, se for selecionado outro status diferente do setado por padrão, ocorrerá erro
+        (400);
+      </li>
+      <li>
+        Na hora de criar uma tarefa, se não for selecionado algum usuário, não será possível criar a mesma;
+      </li>
+      <li>
+        Quando criada uma tarefa, mesmo que não contenha nenhuma atividade vinculada a mesma, não e possível deleta-lá;
       </li>
     </ul>
   </div>
