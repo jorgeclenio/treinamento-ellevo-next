@@ -2,7 +2,7 @@
   <app-title [title]="title"></app-title>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <i class="bi bi-house"></i>
+      <i class="bi bi-list"></i>
       <li class="breadcrumb-item active ml-5px" aria-current="page"> Dashboard </li>
     </ol>
   </nav>
@@ -51,7 +51,10 @@
         Na hora de criar uma tarefa, se não for selecionado algum usuário, não será possível criar a mesma;
       </li>
       <li>
-        Quando criada uma tarefa, mesmo que não contenha nenhuma atividade vinculada a mesma, não e possível deleta-lá;
+        Quando criada uma tarefa, mesmo que não contenha nenhuma atividade vinculada a mesma, não é possível deleta-lá;
+      </li>
+      <li>
+        No update de usuário, quando alterada a senha, devera ser retornado no fronted a mesma criptografada;
       </li>
     </ul>
   </div>

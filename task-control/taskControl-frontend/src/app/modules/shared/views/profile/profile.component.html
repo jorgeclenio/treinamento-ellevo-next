@@ -2,16 +2,14 @@
   <app-title [title]="title"></app-title>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <i class="bi bi-person-circle"></i>
+      <i class="bi bi-list"></i>
       <li class="breadcrumb-item p_pointer ml-5px"><a (click)="navigateToDashboard()"> Dashboard </a></li>
       <li class="breadcrumb-item active" aria-current="page"> Profile </li>
     </ol>
   </nav>
   <hr>
   <div class="shadow-none p-2 bg-light border rounded">
-    <div class="text-center">
-      <h4> User data | {{ userName }} </h4>
-    </div>
+    <h4> User data | {{ userName }} </h4>
     <hr>
     <mat-dialog-content>
       <form [formGroup]="form" novalidate>
