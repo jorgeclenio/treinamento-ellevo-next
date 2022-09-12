@@ -7,6 +7,7 @@ import {
   ActivityService,
   SnackbarService,
 } from "./../../../../../shared/services";
+import { AngularEditorConfig } from "@kolkov/angular-editor";
 
 @Component({
   selector: "app-activity-update",
@@ -17,6 +18,46 @@ export class ActivityUpdateComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   public subscription: Subscription[] = [];
   public activityUpdateId: string;
+  public editorConfig: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: "auto",
+    minHeight: "300",
+    maxHeight: "auto",
+    width: "auto",
+    minWidth: "0",
+    translate: "yes",
+    enableToolbar: true,
+    showToolbar: true,
+    placeholder: "Enter text here...",
+    defaultParagraphSeparator: "",
+    defaultFontName: "",
+    defaultFontSize: "",
+    fonts: [
+      { class: "arial", name: "Arial" },
+      { class: "times-new-roman", name: "Times New Roman" },
+      { class: "calibri", name: "Calibri" },
+      { class: "comic-sans-ms", name: "Comic Sans MS" },
+    ],
+    customClasses: [
+      {
+        name: "quote",
+        class: "quote",
+      },
+      {
+        name: "redText",
+        class: "redText",
+      },
+      {
+        name: "titleText",
+        class: "titleText",
+        tag: "h1",
+      },
+    ],
+    sanitize: true,
+    toolbarPosition: "top",
+    toolbarHiddenButtons: [["bold", "italic"], ["fontSize"]],
+  };
 
   constructor(
     public dialogRef: MatDialogRef<ActivityUpdateComponent>,

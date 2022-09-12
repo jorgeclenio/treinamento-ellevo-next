@@ -4,10 +4,8 @@ import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { SharedModule } from "./../../../shared";
-
 import { ActivityComponent } from "./activity.component";
 import { ActivityRoutingModule } from "./activity-routing.module";
-
 import {
   ActivityCreateComponent,
   ActivityDeleteComponent,
@@ -15,8 +13,8 @@ import {
   ActivityListComponent,
   ActivityUpdateComponent,
 } from "./components";
-
 import { MaterialModule } from "./../../../../material.module";
+import { AngularEditorModule } from "@kolkov/angular-editor";
 
 @NgModule({
   imports: [
@@ -28,6 +26,7 @@ import { MaterialModule } from "./../../../../material.module";
     SharedModule,
     ActivityRoutingModule,
     DirectivesModule,
+    AngularEditorModule,
   ],
   declarations: [
     ActivityComponent,

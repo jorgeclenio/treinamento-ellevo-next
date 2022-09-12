@@ -2,10 +2,15 @@ import { Component, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material/dialog";
-import { TaskService, SnackbarService, UserService } from "./../../../../../shared/services";
+import {
+  TaskService,
+  SnackbarService,
+  UserService,
+} from "./../../../../../shared/services";
 import { AddTask } from "./../../../../models/addTask.model";
 import { Status } from "./../../../../../shared/enums/status.enum";
 import { User } from "./../../../../../registration/models";
+import { AngularEditorConfig } from "@kolkov/angular-editor";
 
 @Component({
   selector: "app-task-create",
@@ -17,13 +22,53 @@ export class TaskCreateComponent implements OnInit, OnDestroy {
   public subscription: Subscription[] = [];
   public statusEnum = Status;
   public users: User[] = [];
+  public editorConfig: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: "auto",
+    minHeight: "300",
+    maxHeight: "auto",
+    width: "auto",
+    minWidth: "0",
+    translate: "yes",
+    enableToolbar: true,
+    showToolbar: true,
+    placeholder: "Enter text here...",
+    defaultParagraphSeparator: "",
+    defaultFontName: "",
+    defaultFontSize: "",
+    fonts: [
+      { class: "arial", name: "Arial" },
+      { class: "times-new-roman", name: "Times New Roman" },
+      { class: "calibri", name: "Calibri" },
+      { class: "comic-sans-ms", name: "Comic Sans MS" },
+    ],
+    customClasses: [
+      {
+        name: "quote",
+        class: "quote",
+      },
+      {
+        name: "redText",
+        class: "redText",
+      },
+      {
+        name: "titleText",
+        class: "titleText",
+        tag: "h1",
+      },
+    ],
+    sanitize: true,
+    toolbarPosition: "top",
+    toolbarHiddenButtons: [["bold", "italic"], ["fontSize"]],
+  };
 
   constructor(
     public dialogRef: MatDialogRef<TaskCreateComponent>,
     public taskService: TaskService,
     private fb: FormBuilder,
     private snackbar: SnackbarService,
-    private userService: UserService,
+    private userService: UserService
   ) {}
 
   ngOnInit() {

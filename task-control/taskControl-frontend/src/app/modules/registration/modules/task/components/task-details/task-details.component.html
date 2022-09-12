@@ -2,26 +2,28 @@
 <hr>
 <div class="shadow-none p-2 bg-light border rounded">
   <form [formGroup]="form" novalidate>
-    <div class="input-group mb-3">
+    <div class="input-group mb-2">
       <input type="text" class="form-control" placeholder="Generator" formControlName="generator">
     </div>
-    <div class="input-group mb-3">
+    <div class="input-group mb-2">
       <input type="text" class="form-control" placeholder="Title" formControlName="title">
     </div>
-    <div class="input-group mb-3">
-      <textarea class="form-control" placeholder="Description" formControlName="description"></textarea>
+    <div class="input-group mb-2">
+      <angular-editor class="form-control" placeholder="Description" formControlName="description"
+        [config]="editorConfig"></angular-editor>
     </div>
-    <div class="input-group mb-3">
+    <div class="input-group mb-2">
       <select class="form-select" formControlName="status">
         <option [value]="statusEnum.NotStarted"> Not Started </option>
         <option [value]="statusEnum.InProgress"> In Progress </option>
         <option [value]="statusEnum.Waiting"> Waiting </option>
         <option [value]="statusEnum.Concluded"> Concluded </option>
       </select>
-    </div>
-    <div class="input-group">
       <input type="text" class="form-control" placeholder="Responsible" formControlName="responsible">
     </div>
+    <!-- <div class="input-group">
+      <input type="text" class="form-control" placeholder="Responsible" formControlName="responsible">
+    </div> -->
   </form>
 </div>
 <mat-dialog-actions>

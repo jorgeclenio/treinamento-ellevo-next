@@ -13,6 +13,7 @@ import {
 } from "./components";
 import { TaskComponent } from "./task.component";
 import { TaskRoutingModule } from "./task-routing.module";
+import { AngularEditorModule } from "@kolkov/angular-editor";
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { TaskRoutingModule } from "./task-routing.module";
     ReactiveFormsModule,
     SharedModule,
     TaskRoutingModule,
+    AngularEditorModule,
   ],
   declarations: [
     TaskComponent,

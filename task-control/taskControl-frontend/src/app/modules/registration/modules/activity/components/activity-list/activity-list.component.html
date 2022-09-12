@@ -10,18 +10,19 @@
   </nav>
   <hr>
   <div class="row-info">
-    <p><b> Generator: </b> {{ generator }} | <b> Responsible: </b> {{ responsible }} </p>
+    <p><b> Generator: </b> {{ generator }} - <b> Responsible: </b> {{ responsible }} </p>
     <p><b> Status: </b><span [innerHTML]="status"></span></p>
   </div>
-  <div class="shadow-none mb-2 p-2 bg-light border rounded">
-    <div class="scrollable-tb">
+  <!-- <div class="shadow-none mb-2 p-2 bg-light border rounded"> -->
+    <!-- <div class="scrollable-tb"> -->
       <form [formGroup]="form" novalidate>
         <div class="input-group">
-          <textarea class="form-control" placeholder="Description" formControlName="description"></textarea>
+          <angular-editor class="form-control" placeholder="Description" formControlName="description"
+            [config]="editorConfig"></angular-editor>
         </div>
       </form>
-    </div>
-  </div>
+    <!-- </div> -->
+  <!-- </div> -->
   <hr>
   <div class="shadow-none mb-2 p-2 bg-light border rounded">
     <div class="scrollable-bb">
@@ -38,14 +39,16 @@
             <td class="col-sz-activity"> {{ activity.description}} </td>
             <td class="col-sz-date"> {{ activity.date }} </td>
             <td class="col-sz-button">
-              <button type="button" class="btn btn-primary" (click)="navigateToActivityDetails(activity.id)">
+              <button type="button" class="btn btn-primary" matTooltip="Details"
+                (click)="navigateToActivityDetails(activity.id)">
                 <i class="bi bi-journal-text"></i>
               </button>
-              <button type="button" class="btn btn-warning text-white ml-5px"
+              <button type="button" class="btn btn-warning text-white ml-5px" matTooltip="Update"
                 (click)="navigateToActivityUpdate(activity.id)">
                 <i class="bi bi-pencil"></i>
               </button>
-              <button type="button" class="btn btn-danger ml-5px" (click)="navigateToActivityDelete(activity.id)">
+              <button type="button" class="btn btn-danger ml-5px" matTooltip="Delete"
+                (click)="navigateToActivityDelete(activity.id)">
                 <i class="bi bi-x"></i>
               </button>
             </td>
@@ -54,5 +57,5 @@
       </table>
     </div>
   </div>
-  <button type="button" class="btn btn-primary" (click)="newActivity(taskId)"> Add new </button>
+  <button type="button" class="btn btn-primary" (click)="newActivity(taskId)"> Add new activity </button>
 </div>

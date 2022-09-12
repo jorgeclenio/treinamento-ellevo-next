@@ -18,6 +18,7 @@ import {
   TaskService,
 } from "./../../../../../shared/services";
 import { Status } from "src/app/modules/shared";
+import { AngularEditorConfig } from "@kolkov/angular-editor";
 
 @Component({
   selector: "app-activity-list",
@@ -33,7 +34,46 @@ export class ActivityListComponent implements OnInit {
   public responsible: string;
   public title: string;
   public status: string;
-
+  public editorConfig: AngularEditorConfig = {
+    editable: false,
+    spellcheck: true,
+    height: "auto",
+    minHeight: "400",
+    maxHeight: "auto",
+    width: "auto",
+    minWidth: "0",
+    translate: "yes",
+    enableToolbar: true,
+    showToolbar: true,
+    placeholder: "Enter text here...",
+    defaultParagraphSeparator: "",
+    defaultFontName: "",
+    defaultFontSize: "",
+    fonts: [
+      { class: "arial", name: "Arial" },
+      { class: "times-new-roman", name: "Times New Roman" },
+      { class: "calibri", name: "Calibri" },
+      { class: "comic-sans-ms", name: "Comic Sans MS" },
+    ],
+    customClasses: [
+      {
+        name: "quote",
+        class: "quote",
+      },
+      {
+        name: "redText",
+        class: "redText",
+      },
+      {
+        name: "titleText",
+        class: "titleText",
+        tag: "h1",
+      },
+    ],
+    sanitize: true,
+    toolbarPosition: "top",
+    toolbarHiddenButtons: [["bold", "italic"], ["fontSize"]],
+  };
   private taskId;
 
   constructor(
@@ -85,7 +125,6 @@ export class ActivityListComponent implements OnInit {
           this.responsible = taskData.responsible.name;
           this.title = taskData.title;
           this.status = taskData.status;
-
           switch (taskData.status) {
             case Status.Concluded:
               this.status =
@@ -127,7 +166,10 @@ export class ActivityListComponent implements OnInit {
     this.subscription.push(
       this.activityService.getActivities(this.taskId).subscribe(
         (returnActivy) => {
-          returnActivy.map(activity => activity.date = new Date(activity.date).toLocaleString())
+          returnActivy.map(
+            (activity) =>
+              (activity.date = new Date(activity.date).toLocaleString())
+          );
           this.activities = returnActivy;
           this.cdr.detectChanges();
         },

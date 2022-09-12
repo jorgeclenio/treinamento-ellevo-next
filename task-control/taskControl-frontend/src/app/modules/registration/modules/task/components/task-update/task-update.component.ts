@@ -6,6 +6,7 @@ import { SnackbarService, TaskService, UserService } from "./../../../../../shar
 import { Status } from "./../../../../../shared/enums/status.enum";
 import { UpdateTask } from "./../../../../../registration/models/updateTask.model";
 import { User } from "./../../../../../registration/models";
+import { AngularEditorConfig } from "@kolkov/angular-editor";
 
 @Component({
   selector: "app-task-update",
@@ -20,6 +21,46 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
   public statusEnum = Status;
   private generatorId: string;
   private responsibleId: string;
+  public editorConfig: AngularEditorConfig = {
+    editable: true,
+    spellcheck: true,
+    height: "auto",
+    minHeight: "300",
+    maxHeight: "auto",
+    width: "auto",
+    minWidth: "0",
+    translate: "yes",
+    enableToolbar: true,
+    showToolbar: true,
+    placeholder: "Enter text here...",
+    defaultParagraphSeparator: "",
+    defaultFontName: "",
+    defaultFontSize: "",
+    fonts: [
+      { class: "arial", name: "Arial" },
+      { class: "times-new-roman", name: "Times New Roman" },
+      { class: "calibri", name: "Calibri" },
+      { class: "comic-sans-ms", name: "Comic Sans MS" },
+    ],
+    customClasses: [
+      {
+        name: "quote",
+        class: "quote",
+      },
+      {
+        name: "redText",
+        class: "redText",
+      },
+      {
+        name: "titleText",
+        class: "titleText",
+        tag: "h1",
+      },
+    ],
+    sanitize: true,
+    toolbarPosition: "top",
+    toolbarHiddenButtons: [["bold", "italic"], ["fontSize"]],
+  };
 
   constructor(
     public dialogRef: MatDialogRef<TaskUpdateComponent>,

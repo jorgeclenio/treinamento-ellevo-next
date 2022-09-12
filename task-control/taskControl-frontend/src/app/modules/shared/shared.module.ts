@@ -24,8 +24,8 @@ import { CamelCasePipe, CpfPipe, EmailPipe, PhoneNumberPipe } from "./pipes";
   imports: [CommonModule],
   exports: [
     DialogFormComponent,
-    FormDebugComponent,
     FooterComponent,
+    FormDebugComponent,
     HeaderComponent,
     TitleComponent,
   ],
