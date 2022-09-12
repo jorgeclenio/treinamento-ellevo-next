@@ -37,6 +37,7 @@ import { MaterialModule } from "./material.module";
     HomeComponent,
   ],
   imports: [
+    ActivityModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     BrowserModule,
@@ -45,7 +46,6 @@ import { MaterialModule } from "./material.module";
     MaterialModule,
     ReactiveFormsModule,
     SharedModule,
-    ActivityModule,
     TaskModule,
     UserModule,
   ],

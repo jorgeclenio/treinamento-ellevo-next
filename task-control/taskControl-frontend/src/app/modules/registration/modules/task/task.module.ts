@@ -1,13 +1,9 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
-
 import { SharedModule } from "./../../../shared";
-
 import { MaterialModule } from "./../../../../material.module";
-
 import {
   TaskCreateComponent,
   TaskDeleteComponent,
@@ -15,7 +11,6 @@ import {
   TaskListComponent,
   TaskUpdateComponent,
 } from "./components";
-
 import { TaskComponent } from "./task.component";
 import { TaskRoutingModule } from "./task-routing.module";
 
@@ -23,9 +18,7 @@ import { TaskRoutingModule } from "./task-routing.module";
   imports: [
     CommonModule,
     FormsModule,
-
     MaterialModule,
-
     RouterModule,
     ReactiveFormsModule,
     SharedModule,
