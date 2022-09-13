@@ -38,14 +38,13 @@ export class ActivityListComponent implements OnInit {
     editable: false,
     spellcheck: true,
     height: "auto",
-    minHeight: "400",
+    minHeight: "300",
     maxHeight: "auto",
     width: "auto",
     minWidth: "0",
     translate: "yes",
     enableToolbar: true,
     showToolbar: true,
-    placeholder: "Enter text here...",
     defaultParagraphSeparator: "",
     defaultFontName: "",
     defaultFontSize: "",
@@ -53,26 +52,10 @@ export class ActivityListComponent implements OnInit {
       { class: "arial", name: "Arial" },
       { class: "times-new-roman", name: "Times New Roman" },
       { class: "calibri", name: "Calibri" },
-      { class: "comic-sans-ms", name: "Comic Sans MS" },
-    ],
-    customClasses: [
-      {
-        name: "quote",
-        class: "quote",
-      },
-      {
-        name: "redText",
-        class: "redText",
-      },
-      {
-        name: "titleText",
-        class: "titleText",
-        tag: "h1",
-      },
     ],
     sanitize: true,
     toolbarPosition: "top",
-    toolbarHiddenButtons: [["bold", "italic"], ["fontSize"]],
+    toolbarHiddenButtons: [["heading"], ["customClasses"]],
   };
   private taskId;
 

@@ -15,7 +15,6 @@
           <tr>
             <th scope="col"> Generator </th>
             <th scope="col"> Title </th>
-            <!-- <th scope="col"> Description </th> -->
             <th scope="col"> Status </th>
             <th scope="col"> Responsible </th>
             <th scope="col"> Actions </th>
@@ -25,7 +24,6 @@
           <tr *ngFor="let task of tasks">
             <td class="col-generator"> {{ task.generator.name }} </td>
             <td class="col-title"> {{ task.title }} </td>
-            <!-- <td class="col-description"> {{ task.description }} </td> -->
             <td class="col-status"> {{ getStatusRef(task.status) }} </td>
             <td class="col-responsible"> {{ task.responsible.name }} </td>
             <td class="col-sz-action-buttons">
