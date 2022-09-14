@@ -24,7 +24,7 @@ export class AuthService {
           localStorage.setItem("userId", response.userId);
           const messageSuccess = "User logged in successfully.";
           this.snackbar.showSnackbarSuccess(messageSuccess);
-          this.router.navigate(["/home/registration/task/list"]);
+          this.router.navigate(["/home"]);
         },
         (error) => {
           const messageError = "Invalid username or password.";

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { AppUtilityService } from "./../..";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-dashboard",
@@ -9,16 +10,14 @@ import { AppUtilityService } from "./../..";
 })
 export class DashboardComponent implements OnInit {
   public title: string = "Dashboard";
+  public faBars = faBars;
+
   constructor(
     public global_utilities: AppUtilityService,
     private router: Router
   ) {}
 
   ngOnInit() {}
-
-  // public navigateToActivity() {
-  //   this.router.navigate(["/home/registration/activity"]);
-  // }
 
   public navigateToTask() {
     this.router.navigate(["/home/registration/task"]);

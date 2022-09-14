@@ -4,10 +4,9 @@ import { FormGroup } from "@angular/forms";
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from "@angular/core";
 import { FormBuilder } from "@angular/forms";
 import { Router } from "@angular/router";
-
 import { AppUtilityService } from "../../services/app-utility.service";
-
 import { UserService } from "./../../services/user.service";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-profile",
@@ -20,6 +19,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   public subscription: Subscription[] = [];
   public title: string = "Profile";
   public userName: string;
+  public faBars = faBars;
 
   constructor(
     private fb: FormBuilder,

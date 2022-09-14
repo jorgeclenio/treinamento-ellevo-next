@@ -9,6 +9,13 @@ import { TaskDetailsComponent } from "./../task-details/task-details.component";
 import { TaskUpdateComponent } from "./../task-update/task-update.component";
 import { TaskService, SnackbarService } from "./../../../../../shared/services";
 import { Status } from "./../../../../../shared/enums/status.enum";
+import {
+  faBars,
+  faTasks,
+  faMagnifyingGlass,
+  faPencil,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-task-list",
@@ -19,6 +26,11 @@ export class TaskListComponent implements OnInit {
   public title: string = "Task list";
   public subscription: Subscription[] = [];
   public tasks: Task[] = [];
+  public faBars = faBars;
+  public faTasks = faTasks;
+  public faMagnifyingGlass = faMagnifyingGlass;
+  public faPencil = faPencil;
+  public faXmark = faXmark;
 
   constructor(
     public dialog: MatDialog,

@@ -3,11 +3,15 @@
   <hr>
   <form [formGroup]="form">
     <div class="input-group mb-2">
-      <span class="input-group-text"> <i class="bi bi-person"></i> </span>
+      <span class="input-group-text">
+        <fa-icon [icon]="faUser"></fa-icon>
+      </span>
       <input type="text" class="form-control" formControlName="UserName" placeholder="Username">
     </div>
     <div class="input-group mb-2">
-      <span class="input-group-text"> <i class="bi bi-lock"></i> </span>
+      <span class="input-group-text">
+        <fa-icon [icon]="faLock"></fa-icon>
+      </span>
       <input type="password" class="form-control" formControlName="Password" placeholder="Password">
     </div>
     <hr>

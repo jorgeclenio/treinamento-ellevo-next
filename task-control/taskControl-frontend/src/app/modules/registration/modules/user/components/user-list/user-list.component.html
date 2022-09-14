@@ -2,7 +2,7 @@
   <app-title [title]="title"></app-title>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <i class="bi bi-list"></i>
+      <fa-icon [icon]="faBars"></fa-icon>
       <li class="breadcrumb-item p_pointer ml-5px"><a (click)="navigateToDashboard()"> Dashboard </a></li>
       <li class="breadcrumb-item active" aria-current="page"> User list </li>
     </ol>
@@ -29,14 +29,17 @@
             <td class="col-sz-phoneNumber"> {{ user.phoneNumber }} </td>
             <td class="col-sz-email"> {{ user.email }} </td>
             <td class="col-sz-button">
-              <button type="button" class="btn btn-primary" matTooltip="Details" (click)="navigateToUserDetails(user.id)">
-                <i class="bi bi-journal-text"></i>
+              <button type="button" class="btn btn-primary" matTooltip="Details"
+                (click)="navigateToUserDetails(user.id)">
+                <fa-icon [icon]="faMagnifyingGlass"></fa-icon>
               </button>
-              <button type="button" class="btn btn-warning text-white ml-5px" matTooltip="Update" (click)="navigateToUserUpdate(user.id)">
-                <i class="bi bi-pencil"></i>
+              <button type="button" class="btn btn-warning text-white ml-5px" matTooltip="Update"
+                (click)="navigateToUserUpdate(user.id)">
+                <fa-icon [icon]="faPencil"></fa-icon>
               </button>
-              <button type="button" class="btn btn-danger ml-5px" matTooltip="Delete" (click)="navigateToUserDelete(user.id)">
-                <i class="bi bi-x"></i>
+              <button type="button" class="btn btn-danger ml-5px" matTooltip="Delete"
+                (click)="navigateToUserDelete(user.id)">
+                <fa-icon [icon]="faXmark"></fa-icon>
               </button>
             </td>
           </tr>

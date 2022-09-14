@@ -39,10 +39,6 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(["/home/profile"]);
   }
 
-  // public navigateToActivity() {
-  //   this.router.navigate(["/home/registration/activity"]);
-  // }
-
   public navigateToTask() {
     this.router.navigate(["/home/registration/task"]);
   }

@@ -8,6 +8,12 @@ import { UserDeleteComponent } from "./../user-delete/user-delete.component";
 import { UserDetailsComponent } from "./../user-details/user-details.component";
 import { UserUpdateComponent } from "./../user-update/user-update.component";
 import { SnackbarService, UserService } from "./../../../../../shared/services";
+import {
+  faBars,
+  faMagnifyingGlass,
+  faPencil,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-user-list",
@@ -18,6 +24,10 @@ export class UserListComponent implements OnInit {
   public title: string = "User list";
   public subscription: Subscription[] = [];
   public users: User[] = [];
+  public faBars = faBars;
+  public faMagnifyingGlass = faMagnifyingGlass;
+  public faPencil = faPencil;
+  public faXmark = faXmark;
 
   constructor(
     public dialog: MatDialog,

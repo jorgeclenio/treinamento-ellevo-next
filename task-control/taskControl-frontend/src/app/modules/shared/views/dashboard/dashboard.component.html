@@ -2,7 +2,7 @@
   <app-title [title]="title"></app-title>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <i class="bi bi-list"></i>
+      <fa-icon [icon]="faBars"></fa-icon>
       <li class="breadcrumb-item active ml-5px" aria-current="page"> Dashboard </li>
     </ol>
   </nav>
@@ -55,6 +55,9 @@
       </li>
       <li>
         No update de usuário, quando alterada a senha, devera ser retornado no fronted a mesma criptografada;
+      </li>
+      <li>
+        Quando inicializada a aplicação, a mesma tenta acessar /list ao invés de ir diretamente para a tela de login;
       </li>
     </ul>
   </div>

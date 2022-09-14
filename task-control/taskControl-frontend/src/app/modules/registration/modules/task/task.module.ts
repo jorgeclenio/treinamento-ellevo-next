@@ -14,17 +14,19 @@ import {
 import { TaskComponent } from "./task.component";
 import { TaskRoutingModule } from "./task-routing.module";
 import { AngularEditorModule } from "@kolkov/angular-editor";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 @NgModule({
   imports: [
+    AngularEditorModule,
     CommonModule,
+    FontAwesomeModule,
     FormsModule,
     MaterialModule,
     RouterModule,
     ReactiveFormsModule,
     SharedModule,
     TaskRoutingModule,
-    AngularEditorModule,
   ],
   declarations: [
     TaskComponent,

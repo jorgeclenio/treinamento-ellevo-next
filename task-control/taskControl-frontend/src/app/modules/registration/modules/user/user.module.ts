@@ -4,9 +4,9 @@ import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { SharedModule } from "./../../../shared";
-
 import { UserRoutingModule } from "./user-routing.module";
 import { UserComponent } from "./user.component";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 import {
   UserCreateComponent,
@@ -22,6 +22,7 @@ import { MaterialModule } from "./../../../../material.module";
   imports: [
     CommonModule,
     FormsModule,
+    FontAwesomeModule,
     MaterialModule,
     RouterModule,
     ReactiveFormsModule,

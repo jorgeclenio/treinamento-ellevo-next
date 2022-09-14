@@ -2,7 +2,7 @@
   <app-title [title]="title"></app-title>
   <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-      <i class="bi bi-list"></i>
+      <fa-icon [icon]="faBars"></fa-icon>
       <li class="breadcrumb-item p_pointer ml-5px"><a (click)="navigateToDashboard()"> Dashboard </a></li>
       <li class="breadcrumb-item p_pointer"><a (click)="navigateToTaskList()"> Task list </a></li>
       <li class="breadcrumb-item active"> Activity list </li>
@@ -13,16 +13,12 @@
     <p><b> Generator: </b> {{ generator }} - <b> Responsible: </b> {{ responsible }} </p>
     <p><b> Status: </b><span [innerHTML]="status"></span></p>
   </div>
-  <!-- <div class="shadow-none mb-2 p-2 bg-light border rounded"> -->
-    <!-- <div class="scrollable-tb"> -->
-      <form [formGroup]="form" novalidate>
-        <div class="input-group">
-          <angular-editor class="form-control" placeholder="Description" formControlName="description"
-            [config]="editorConfig"></angular-editor>
-        </div>
-      </form>
-    <!-- </div> -->
-  <!-- </div> -->
+  <form [formGroup]="form" novalidate>
+    <div class="input-group">
+      <angular-editor class="form-control" placeholder="Description" formControlName="description"
+        [config]="editorConfig"></angular-editor>
+    </div>
+  </form>
   <hr>
   <div class="shadow-none mb-2 p-2 bg-light border rounded">
     <div class="scrollable-bb">
@@ -41,15 +37,15 @@
             <td class="col-sz-button">
               <button type="button" class="btn btn-primary" matTooltip="Details"
                 (click)="navigateToActivityDetails(activity.id)">
-                <i class="bi bi-journal-text"></i>
+                <fa-icon [icon]="faMagnifyingGlass"></fa-icon>
               </button>
               <button type="button" class="btn btn-warning text-white ml-5px" matTooltip="Update"
                 (click)="navigateToActivityUpdate(activity.id)">
-                <i class="bi bi-pencil"></i>
+                <fa-icon [icon]="faPencil"></fa-icon>
               </button>
               <button type="button" class="btn btn-danger ml-5px" matTooltip="Delete"
                 (click)="navigateToActivityDelete(activity.id)">
-                <i class="bi bi-x"></i>
+                <fa-icon [icon]="faXmark"></fa-icon>
               </button>
             </td>
           </tr>

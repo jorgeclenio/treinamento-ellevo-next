@@ -15,10 +15,12 @@ import {
 } from "./components";
 import { MaterialModule } from "./../../../../material.module";
 import { AngularEditorModule } from "@kolkov/angular-editor";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 @NgModule({
   imports: [
     CommonModule,
+    FontAwesomeModule,
     FormsModule,
     MaterialModule,
     RouterModule,

@@ -19,6 +19,12 @@ import {
 } from "./../../../../../shared/services";
 import { Status } from "src/app/modules/shared";
 import { AngularEditorConfig } from "@kolkov/angular-editor";
+import {
+  faBars,
+  faMagnifyingGlass,
+  faPencil,
+  faXmark,
+} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-activity-list",
@@ -57,7 +63,11 @@ export class ActivityListComponent implements OnInit {
     toolbarPosition: "top",
     toolbarHiddenButtons: [["heading"], ["customClasses"]],
   };
-  private taskId;
+  private taskId: string;
+  public faBars = faBars;
+  public faMagnifyingGlass = faMagnifyingGlass;
+  public faPencil = faPencil;
+  public faXmark = faXmark;
 
   constructor(
     public dialog: MatDialog,

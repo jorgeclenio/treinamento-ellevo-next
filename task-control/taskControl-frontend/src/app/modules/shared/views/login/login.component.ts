@@ -1,11 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
-
 import { AppUtilityService } from "../..";
-
 import { AuthService } from "./auth.service";
-import { SnackbarService } from "src/app/modules/shared/services/snackbar.service";
+import { SnackbarService } from "./../../../shared/services/snackbar.service";
+import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-login",
@@ -15,6 +14,8 @@ import { SnackbarService } from "src/app/modules/shared/services/snackbar.servic
 export class LoginComponent implements OnInit {
   public title: string = "Login";
   public form: FormGroup;
+  public faUser = faUser;
+  public faLock = faLock;
 
   constructor(
     private authService: AuthService,

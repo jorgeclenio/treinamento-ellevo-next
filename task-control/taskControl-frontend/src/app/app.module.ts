@@ -26,7 +26,7 @@ import {
   UserUpdateComponent,
 } from "./modules/registration/modules";
 import { MaterialModule } from "./material.module";
-// import {  } from "";
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
 
 @NgModule({
   declarations: [
@@ -49,6 +49,7 @@ import { MaterialModule } from "./material.module";
     SharedModule,
     TaskModule,
     UserModule,
+    FontAwesomeModule,
   ],
   entryComponents: [
     ActivityCreateComponent,
