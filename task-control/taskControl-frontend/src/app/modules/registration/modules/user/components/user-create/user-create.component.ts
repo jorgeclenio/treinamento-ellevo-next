@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material/dialog";
 import { SnackbarService, UserService } from "./../../../../../shared/services";
 import { AddUser } from "./../../../../models/addUser.model";
+import { faBan, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-user-create",
@@ -13,6 +14,8 @@ import { AddUser } from "./../../../../models/addUser.model";
 export class UserCreateComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   public subscription: Subscription[] = [];
+  public faBan = faBan;
+  public faPlus = faPlus;
 
   constructor(
     public dialogRef: MatDialogRef<UserCreateComponent>,

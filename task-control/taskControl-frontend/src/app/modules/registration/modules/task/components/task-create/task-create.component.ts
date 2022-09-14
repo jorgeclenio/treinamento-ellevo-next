@@ -11,6 +11,7 @@ import { AddTask } from "./../../../../models/addTask.model";
 import { Status } from "./../../../../../shared/enums/status.enum";
 import { User } from "./../../../../../registration/models";
 import { AngularEditorConfig } from "@kolkov/angular-editor";
+import { faBan, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-task-create",
@@ -45,6 +46,8 @@ export class TaskCreateComponent implements OnInit, OnDestroy {
     toolbarPosition: "top",
     toolbarHiddenButtons: [["heading"], ["customClasses"]],
   };
+  public faBan = faBan;
+  public faPlus = faPlus;
 
   constructor(
     public dialogRef: MatDialogRef<TaskCreateComponent>,
@@ -66,7 +69,7 @@ export class TaskCreateComponent implements OnInit, OnDestroy {
       title: ["", [Validators.required]],
       description: ["", [Validators.required]],
       status: [Status.NotStarted, [Validators.required]],
-      responsibleId: [""],
+      responsibleId: [undefined],
     });
   }
 
@@ -91,6 +94,7 @@ export class TaskCreateComponent implements OnInit, OnDestroy {
       return;
     }
     const task: AddTask = this.form.value;
+    task.status = parseInt(this.form.get("status").value);
     this.subscription.push(
       this.taskService.postTask(task).subscribe(
         (returnTaskCreated) => {

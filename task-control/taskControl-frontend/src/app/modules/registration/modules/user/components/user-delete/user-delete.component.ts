@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
 import { Subscriber } from "rxjs";
 import { SnackbarService, UserService } from "./../../../../../shared/services";
+import { faBan, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-user-delete",
@@ -12,6 +13,8 @@ import { SnackbarService, UserService } from "./../../../../../shared/services";
 export class UserDeleteComponent implements OnInit {
   public form: FormGroup;
   public userDeleteId: string;
+  public faBan = faBan;
+  public faCheck = faCheck;
   private subscriptions = new Subscriber();
 
   constructor(

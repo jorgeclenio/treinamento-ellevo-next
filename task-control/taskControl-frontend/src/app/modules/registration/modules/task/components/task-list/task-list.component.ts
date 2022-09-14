@@ -116,11 +116,17 @@ export class TaskListComponent implements OnInit {
     );
   }
 
-  public navigateToTaskDelete() {
+  public navigateToTaskDelete(taskDeleteId: string) {
     let dataDelete = this.dialog.open(TaskDeleteComponent, {
       minWidth: "650px",
       disableClose: true,
     });
+
+    dataDelete.componentInstance.taskDeleteId = taskDeleteId;
+
+    this.subscription.push(
+      dataDelete.afterClosed().subscribe(() => this.showTask())
+    );
   }
 
   public navigateToDashboard() {

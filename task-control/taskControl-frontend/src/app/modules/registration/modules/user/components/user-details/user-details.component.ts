@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
 import { Subscription } from "rxjs";
 import { SnackbarService, UserService } from "./../../../../../shared/services";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-user-details",
@@ -13,6 +14,7 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   public subscription: Subscription[] = [];
   public userDetailsId: string;
+  public faXmark = faXmark;
 
   constructor(
     public dialogRef: MatDialogRef<UserDetailsComponent>,

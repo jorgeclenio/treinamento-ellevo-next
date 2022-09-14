@@ -3,7 +3,11 @@ import { FormBuilder, FormGroup } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
 import { AngularEditorConfig } from "@kolkov/angular-editor";
 import { Subscription } from "rxjs";
-import { ActivityService, SnackbarService } from "./../../../../../shared/services";
+import {
+  ActivityService,
+  SnackbarService,
+} from "./../../../../../shared/services";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-activity-details",
@@ -37,6 +41,7 @@ export class ActivityDetailsComponent implements OnInit, OnDestroy {
     toolbarPosition: "top",
     toolbarHiddenButtons: [["heading"], ["customClasses"]],
   };
+  public faXmark = faXmark;
 
   constructor(
     public dialogRef: MatDialogRef<ActivityDetailsComponent>,

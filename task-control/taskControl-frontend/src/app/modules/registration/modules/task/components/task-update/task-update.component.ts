@@ -7,6 +7,7 @@ import { Status } from "./../../../../../shared/enums/status.enum";
 import { UpdateTask } from "./../../../../../registration/models/updateTask.model";
 import { User, Task } from "./../../../../../registration/models";
 import { AngularEditorConfig } from "@kolkov/angular-editor";
+import { faBan, faPencil } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-task-update",
@@ -21,7 +22,6 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
   public taskUpdateId: string;
   public statusEnum = Status;
   private generatorId: string;
-  private responsibleId: string;
   public editorConfig: AngularEditorConfig = {
     editable: true,
     spellcheck: true,
@@ -45,6 +45,8 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
     toolbarPosition: "top",
     toolbarHiddenButtons: [["heading"], ["customClasses"]],
   };
+  public faBan = faBan;
+  public faPencil = faPencil;
 
   constructor(
     public dialogRef: MatDialogRef<TaskUpdateComponent>,
@@ -84,7 +86,7 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
       title: ["", [Validators.required]],
       description: ["", [Validators.required]],
       status: ["", [Validators.required]],
-      responsibleId: [""],
+      responsible: [""],
     });
   }
 
@@ -93,12 +95,11 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
       this.taskService.getTaskById(this.taskUpdateId).subscribe(
         (taskData) => {
           this.generatorId = taskData.generator.id;
-          this.responsibleId = taskData.responsible.id;
           this.form.get("generator").setValue(taskData.generator.name);
           this.form.get("title").setValue(taskData.title);
           this.form.get("description").setValue(taskData.description);
           this.form.get("status").setValue(taskData.status);
-          this.form.get("responsibleId").setValue(taskData.responsibleId);
+          this.form.get("responsible").setValue(taskData.responsible ? taskData.responsible.id : undefined);
           this.cdr.detectChanges();
         },
         (error) => {
@@ -121,7 +122,7 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
       status: parseInt(this.form.get("status").value),
       title: this.form.get("title").value,
       generatorId: this.generatorId,
-      responsibleId: this.responsibleId,
+      responsibleId: this.form.get("responsible").value,
     };
     this.subscription.push(
       this.taskService.updateTask(this.taskUpdateId, task).subscribe(

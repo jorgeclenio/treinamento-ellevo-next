@@ -4,6 +4,7 @@ import { MatDialogRef } from "@angular/material";
 import { Subscription } from "rxjs";
 import { UpdateUser } from "./../../../../models/updateUser.model";
 import { SnackbarService, UserService } from "./../../../../../shared/services";
+import { faBan, faPencil } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-user-update",
@@ -14,6 +15,8 @@ export class UserUpdateComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   public subscription: Subscription[] = [];
   public userUpdateId: string;
+  public faBan = faBan;
+  public faPencil = faPencil;
 
   constructor(
     public dialogRef: MatDialogRef<UserUpdateComponent>,

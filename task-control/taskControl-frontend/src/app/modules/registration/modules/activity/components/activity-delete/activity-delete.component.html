@@ -11,9 +11,11 @@
 </div>
 <mat-dialog-actions>
   <button type="button" class="btn btn-danger" [disabled]="!form.value.Checkbox" (click)="deleteActivity()">
+    <fa-icon [icon]="faCheck" class="mr-5px"></fa-icon>
     Delete activity
   </button>
   <button type="button" class="btn btn-secondary ml-10px" (click)="closeDialog()">
+    <fa-icon [icon]="faBan" class="mr-5px"></fa-icon>
     Cancel
   </button>
 </mat-dialog-actions>

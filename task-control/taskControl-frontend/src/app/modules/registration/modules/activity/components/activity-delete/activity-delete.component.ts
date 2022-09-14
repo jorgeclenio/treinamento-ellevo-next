@@ -6,6 +6,7 @@ import {
   SnackbarService,
   ActivityService,
 } from "src/app/modules/shared/services";
+import { faBan, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-activity-delete",
@@ -16,6 +17,8 @@ export class ActivityDeleteComponent implements OnInit {
   public form: FormGroup;
   public activityDeleteId: string;
   private subscriptions = new Subscriber();
+  public faBan = faBan;
+  public faCheck = faCheck;
 
   constructor(
     public dialogRef: MatDialogRef<ActivityDeleteComponent>,

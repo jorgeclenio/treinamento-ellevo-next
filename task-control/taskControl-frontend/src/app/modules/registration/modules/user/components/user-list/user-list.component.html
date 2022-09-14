@@ -34,11 +34,11 @@
                 <fa-icon [icon]="faMagnifyingGlass"></fa-icon>
               </button>
               <button type="button" class="btn btn-warning text-white ml-5px" matTooltip="Update"
-                (click)="navigateToUserUpdate(user.id)">
+                [disabled]="user.userName === 'admin'" (click)="navigateToUserUpdate(user.id)">
                 <fa-icon [icon]="faPencil"></fa-icon>
               </button>
               <button type="button" class="btn btn-danger ml-5px" matTooltip="Delete"
-                (click)="navigateToUserDelete(user.id)">
+                [disabled]="user.userName === 'admin'" (click)="navigateToUserDelete(user.id)">
                 <fa-icon [icon]="faXmark"></fa-icon>
               </button>
             </td>

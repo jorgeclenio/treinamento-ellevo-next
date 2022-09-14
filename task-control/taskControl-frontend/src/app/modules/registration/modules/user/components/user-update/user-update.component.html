@@ -24,7 +24,11 @@
 </div>
 <mat-dialog-actions>
   <button type="button" class="btn btn-warning text-white" (click)="updateUser()" [disabled]="!form.valid">
+    <fa-icon [icon]="faPencil" class="mr-5px"></fa-icon>
     Update user
   </button>
-  <button type="button" class="btn btn-danger ml-10px" (click)="closeDialog()"> Cancel </button>
+  <button type="button" class="btn btn-danger ml-10px" (click)="closeDialog()">
+    <fa-icon [icon]="faBan" class="mr-5px"></fa-icon>
+    Cancel
+  </button>
 </mat-dialog-actions>

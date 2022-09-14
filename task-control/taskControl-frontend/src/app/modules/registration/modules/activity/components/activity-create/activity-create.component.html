@@ -10,7 +10,11 @@
 <!-- </div> -->
 <mat-dialog-actions>
   <button type="button" class="btn btn-primary" (click)="createActivity()" [disabled]="!form.valid">
+    <fa-icon [icon]="faPlus" class="mr-5px"></fa-icon>
     Create activity
   </button>
-  <button type="button" class="btn btn-danger ml-10px" (click)="closeDialog()"> Cancel </button>
+  <button type="button" class="btn btn-danger ml-10px" (click)="closeDialog()">
+    <fa-icon [icon]="faBan" class="mr-5px"></fa-icon>
+    Cancel
+  </button>
 </mat-dialog-actions>

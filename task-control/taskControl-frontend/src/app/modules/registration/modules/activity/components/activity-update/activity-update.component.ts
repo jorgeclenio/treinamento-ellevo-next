@@ -8,6 +8,7 @@ import {
   SnackbarService,
 } from "./../../../../../shared/services";
 import { AngularEditorConfig } from "@kolkov/angular-editor";
+import { faBan, faPencil } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-activity-update",
@@ -41,6 +42,8 @@ export class ActivityUpdateComponent implements OnInit, OnDestroy {
     toolbarPosition: "top",
     toolbarHiddenButtons: [["heading"], ["customClasses"]],
   };
+  public faBan = faBan;
+  public faPencil = faPencil;
 
   constructor(
     public dialogRef: MatDialogRef<ActivityUpdateComponent>,
@@ -58,7 +61,7 @@ export class ActivityUpdateComponent implements OnInit, OnDestroy {
   public generateForm() {
     this.form = this.fb.group({
       description: [null, [Validators.required]],
-      taskId: []
+      taskId: [],
     });
   }
 

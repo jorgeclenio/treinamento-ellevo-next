@@ -1,13 +1,14 @@
 <h2 mat-dialog-title class="text-center"> Activity details </h2>
 <hr>
-<!-- <div class="shadow-none p-2 bg-light border rounded"> -->
 <form [formGroup]="form" novalidate>
   <div class="input-group">
     <angular-editor class="form-control" placeholder="Description" formControlName="description"
       [config]="editorConfig"></angular-editor>
   </div>
 </form>
-<!-- </div> -->
 <mat-dialog-actions>
-  <button type="button" class="btn btn-danger" (click)="closeDialog()"> Close </button>
+  <button type="button" class="btn btn-danger" (click)="closeDialog()">
+    <fa-icon [icon]="faXmark" class="mr-5px"></fa-icon>
+    Close
+  </button>
 </mat-dialog-actions>

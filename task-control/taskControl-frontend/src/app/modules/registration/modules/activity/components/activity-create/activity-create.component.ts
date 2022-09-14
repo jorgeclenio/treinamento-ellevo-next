@@ -8,6 +8,7 @@ import {
 } from "./../../../../../shared/services";
 import { AddActivity } from "./../../../../models/addActivity.model";
 import { AngularEditorConfig } from "@kolkov/angular-editor";
+import { faBan, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-activity-create",
@@ -41,6 +42,8 @@ export class ActivityCreateComponent implements OnInit, OnDestroy {
     toolbarPosition: "top",
     toolbarHiddenButtons: [["heading"], ["customClasses"]],
   };
+  public faBan = faBan;
+  public faPlus = faPlus;
 
   constructor(
     public dialogRef: MatDialogRef<ActivityCreateComponent>,

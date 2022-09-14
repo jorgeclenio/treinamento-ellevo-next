@@ -1,6 +1,7 @@
 import { Subject } from "rxjs";
 import { Injectable } from "@angular/core";
 import { MatSnackBar } from "@angular/material";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 @Injectable({
   providedIn: "root",

@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
 import { Subscriber } from "rxjs";
 import { SnackbarService, TaskService } from "src/app/modules/shared/services";
+import { faBan, faCheck } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-task-delete",
@@ -13,6 +14,8 @@ export class TaskDeleteComponent implements OnInit {
   public form: FormGroup;
   public taskDeleteId: string;
   private subscriptions = new Subscriber();
+  public faBan = faBan;
+  public faCheck = faCheck;
 
   constructor(
     public dialogRef: MatDialogRef<TaskDeleteComponent>,

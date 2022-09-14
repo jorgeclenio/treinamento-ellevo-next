@@ -39,16 +39,21 @@ namespace TaskControl.Backend.Services
 
             foreach (var taskEntity in taskEntities)
             {
-                taskModelsList.Add(
-                    new TaskModel
-                    {
-                        Id = taskEntity.Id.ToString(),
-                        Description = taskEntity.Description,
-                        Status = taskEntity.Status,
-                        Title = taskEntity.Title,
-                        Responsible = _userAppService.GetUserById(taskEntity.ResponsibleId),
-                        Generator = _userAppService.GetUserById(taskEntity.GeneratorId),
-                    });
+                var newTaskModel = new TaskModel
+                {
+                    Id = taskEntity.Id.ToString(),
+                    Description = taskEntity.Description,
+                    Status = taskEntity.Status,
+                    Title = taskEntity.Title,
+                    Generator = _userAppService.GetUserById(taskEntity.GeneratorId),
+                };
+
+                if (taskEntity.ResponsibleId.HasValue)
+                {
+                    newTaskModel.Responsible = _userAppService.GetUserById(taskEntity.ResponsibleId.Value);
+                }
+
+                taskModelsList.Add(newTaskModel);
             }
             return taskModelsList;
         }
@@ -57,15 +62,21 @@ namespace TaskControl.Backend.Services
         {
             var taskEntity = _taskCollection.Find(task => task.Id == taskId).FirstOrDefault();
 
-            return new TaskModel
+            var newTaskModel = new TaskModel
             {
                 Id = taskEntity.Id.ToString(),
                 Description = taskEntity.Description,
                 Status = taskEntity.Status,
                 Title = taskEntity.Title,
-                Responsible = _userAppService.GetUserById(taskEntity.ResponsibleId),
                 Generator = _userAppService.GetUserById(taskEntity.GeneratorId),
             };
+
+            if (taskEntity.ResponsibleId.HasValue)
+            {
+                newTaskModel.Responsible = _userAppService.GetUserById(taskEntity.ResponsibleId.Value);
+            }
+
+            return newTaskModel;
         }
 
         public DeleteResult DeleteTask(ObjectId taskId)
@@ -77,6 +88,11 @@ namespace TaskControl.Backend.Services
         {
             var taskEntity = _mapper.Map<UpdateTaskModel, TaskEntity>(updateTaskModel);
             taskEntity.Id = taskId;
+
+            if (updateTaskModel.ResponsibleId == null)
+            {
+                taskEntity.ResponsibleId = null;
+            }
 
             _taskCollection.ReplaceOne(task => task.Id == taskId, taskEntity);
             return taskEntity;

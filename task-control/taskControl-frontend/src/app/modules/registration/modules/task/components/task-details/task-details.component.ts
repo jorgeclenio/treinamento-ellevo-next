@@ -6,6 +6,7 @@ import { TaskService } from "./../../../../../shared/services/task.service";
 import { SnackbarService } from "./../../../../../shared/services/snackbar.service";
 import { Status } from "./../../../../../shared/enums/status.enum";
 import { AngularEditorConfig } from "@kolkov/angular-editor";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-task-details",
@@ -40,6 +41,7 @@ export class TaskDetailsComponent implements OnInit, OnDestroy {
     toolbarPosition: "top",
     toolbarHiddenButtons: [["heading"], ["customClasses"]],
   };
+  public faXmark = faXmark;
 
   constructor(
     public dialogRef: MatDialogRef<TaskDetailsComponent>,

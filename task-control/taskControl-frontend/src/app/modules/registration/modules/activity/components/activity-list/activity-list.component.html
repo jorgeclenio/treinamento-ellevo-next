@@ -32,7 +32,7 @@
         </thead>
         <tbody class="table-group-divider">
           <tr *ngFor="let activity of activities">
-            <td class="col-sz-activity"> {{ activity.description}} </td>
+            <td class="col-sz-activity"> <span [innerHTML]="activity.description"></span> </td>
             <td class="col-sz-date"> {{ activity.date }} </td>
             <td class="col-sz-button">
               <button type="button" class="btn btn-primary" matTooltip="Details"
@@ -57,7 +57,7 @@
     <button type="button" class="btn btn-primary" (click)="newActivity(taskId)">
       <fa-icon [icon]="faFile"></fa-icon>
       <span class="ml-5px"> Add activity </span>
-     </button>
+    </button>
     <button type="button" class="btn btn-primary" (click)="navigateToTaskList()">
       <fa-icon [icon]="faArrowLeft"></fa-icon>
       <span class="ml-5px"> Back </span>

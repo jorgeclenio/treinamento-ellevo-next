@@ -12,6 +12,6 @@ namespace TaskControl.Backend.Entities
         public string Title { get; set; }
         public string Description { get; set; }
         public ETaskTypes Status { get; set; }
-        public ObjectId ResponsibleId { get; set; }
+        public ObjectId? ResponsibleId { get; set; }
     }
 }
