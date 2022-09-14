@@ -20,7 +20,9 @@ import {
 import { Status } from "src/app/modules/shared";
 import { AngularEditorConfig } from "@kolkov/angular-editor";
 import {
+  faArrowLeft,
   faBars,
+  faFile,
   faMagnifyingGlass,
   faPencil,
   faXmark,
@@ -64,7 +66,9 @@ export class ActivityListComponent implements OnInit {
     toolbarHiddenButtons: [["heading"], ["customClasses"]],
   };
   private taskId: string;
+  public faArrowLeft = faArrowLeft;
   public faBars = faBars;
+  public faFile = faFile;
   public faMagnifyingGlass = faMagnifyingGlass;
   public faPencil = faPencil;
   public faXmark = faXmark;

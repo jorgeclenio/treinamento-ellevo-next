@@ -37,3 +37,9 @@ textarea {
   min-width: 175px;
   max-width: 175px;
 }
+
+.b-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

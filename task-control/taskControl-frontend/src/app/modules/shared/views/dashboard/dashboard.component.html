@@ -39,25 +39,31 @@
     </ul>
     <hr>
     <ul>
-      <h6> > Tasks </h6>
+      <h6> > Bugs </h6>
       <li>
-        No update, retornar o usuário selecionado na criação da task, caso tenha sido selecionado algum usuário;
+        Quando acessado o endereço http://localhost:4200/ ele tenta automaticamente redirecionar para
+        http://localhost:4200/list;
       </li>
       <li>
-        Na hora de criar uma tarefa, se for selecionado outro status diferente do setado por padrão, ocorrerá erro
-        (400);
+        Na hora de criar uma nova tarefa, se o status da mesma for diferente do padrão inicializado (Not Started),
+        ocorrerá erro;
       </li>
       <li>
-        Na hora de criar uma tarefa, se não for selecionado algum usuário, não será possível criar a mesma;
+        Na hora de criar uma nova tarefa, se o responsável da mesma não for selecionado, ocorrerá erro (não é
+        obrigatório escolher responsável);
       </li>
       <li>
         Quando criada uma tarefa, mesmo que não contenha nenhuma atividade vinculada a mesma, não é possível deleta-lá;
       </li>
       <li>
-        No update de usuário, quando alterada a senha, devera ser retornado no fronted a mesma criptografada;
+        Na hora de atualizar uma task, a mesma não retorna qual responsável estava designado, consequentemente, mesmo
+        que selecione algum <br> responsável, não ocorre a atualização deste campo na tabela de tarefas;
       </li>
       <li>
-        Quando inicializada a aplicação, a mesma tenta acessar /list ao invés de ir diretamente para a tela de login;
+        Na atualização ou visualização de uma atividade vinculada à uma tarefa, a mesma não retorna o html como foi setado na criação do mesmo;
+      </li>
+      <li>
+        No update de usuário, quando alterada a senha, devera ser retornado no frontend a mesma criptografada;
       </li>
     </ul>
   </div>

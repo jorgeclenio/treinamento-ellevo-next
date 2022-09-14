@@ -12,6 +12,7 @@ import {
   faBars,
   faMagnifyingGlass,
   faPencil,
+  faPlus,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -27,6 +28,7 @@ export class UserListComponent implements OnInit {
   public faBars = faBars;
   public faMagnifyingGlass = faMagnifyingGlass;
   public faPencil = faPencil;
+  public faPlus = faPlus;
   public faXmark = faXmark;
 
   constructor(

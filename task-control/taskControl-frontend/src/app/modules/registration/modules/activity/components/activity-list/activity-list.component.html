@@ -53,5 +53,14 @@
       </table>
     </div>
   </div>
-  <button type="button" class="btn btn-primary" (click)="newActivity(taskId)"> Add new activity </button>
+  <div class="b-box">
+    <button type="button" class="btn btn-primary" (click)="newActivity(taskId)">
+      <fa-icon [icon]="faFile"></fa-icon>
+      <span class="ml-5px"> Add activity </span>
+     </button>
+    <button type="button" class="btn btn-primary" (click)="navigateToTaskList()">
+      <fa-icon [icon]="faArrowLeft"></fa-icon>
+      <span class="ml-5px"> Back </span>
+    </button>
+  </div>
 </div>

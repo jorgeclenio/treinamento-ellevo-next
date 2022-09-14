@@ -14,6 +14,7 @@ import {
   faTasks,
   faMagnifyingGlass,
   faPencil,
+  faPlus,
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 
@@ -30,6 +31,7 @@ export class TaskListComponent implements OnInit {
   public faTasks = faTasks;
   public faMagnifyingGlass = faMagnifyingGlass;
   public faPencil = faPencil;
+  public faPlus = faPlus;
   public faXmark = faXmark;
 
   constructor(

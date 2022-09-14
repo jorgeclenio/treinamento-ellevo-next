@@ -5,7 +5,7 @@ import { Subscription } from "rxjs";
 import { SnackbarService, TaskService, UserService } from "./../../../../../shared/services";
 import { Status } from "./../../../../../shared/enums/status.enum";
 import { UpdateTask } from "./../../../../../registration/models/updateTask.model";
-import { User } from "./../../../../../registration/models";
+import { User, Task } from "./../../../../../registration/models";
 import { AngularEditorConfig } from "@kolkov/angular-editor";
 
 @Component({
@@ -17,6 +17,7 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   public subscription: Subscription[] = [];
   public users: User[] = [];
+  public tasks: Task[] = [];
   public taskUpdateId: string;
   public statusEnum = Status;
   private generatorId: string;
