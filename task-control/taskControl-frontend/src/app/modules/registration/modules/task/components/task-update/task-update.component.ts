@@ -107,7 +107,7 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
       title: ["", [Validators.required]],
       description: ["", [Validators.required]],
       status: ["", [Validators.required]],
-      responsible: [undefined],
+      responsible: [""],
     });
   }
 
@@ -120,7 +120,7 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
           this.form.get("title").setValue(taskData.title);
           this.form.get("description").setValue(taskData.description);
           this.form.get("status").setValue(taskData.status);
-          this.form.get("responsible").setValue(taskData.responsible ? taskData.responsible.id : undefined);
+          this.form.get("responsible").setValue(taskData.responsible ? taskData.responsible.id : undefined || null);
           this.cdr.detectChanges();
         },
         (error) => {
