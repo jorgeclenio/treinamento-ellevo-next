@@ -39,7 +39,28 @@ export class ActivityDetailsComponent implements OnInit, OnDestroy {
     ],
     sanitize: true,
     toolbarPosition: "top",
-    toolbarHiddenButtons: [["heading"], ["customClasses"]],
+    toolbarHiddenButtons: [
+      [
+        "subscript",
+        "superscript",
+        "justifyLeft",
+        "justifyCenter",
+        "justifyRight",
+        "justifyFull",
+        "indent",
+        "outdent",
+        "heading",
+        "fontName",
+      ],
+      [
+        "fontSize",
+        "customClasses",
+        "unlink",
+        "insertVideo",
+        "insertHorizontalRule",
+        "toggleEditorMode",
+      ],
+    ],
   };
   public faXmark = faXmark;
 

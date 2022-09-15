@@ -2,16 +2,16 @@
 <hr>
 <div class="shadow-none p-2 bg-light border rounded">
   <form [formGroup]="form" novalidate>
-    <div class="input-group mb-3">
+    <div class="input-group mb-2">
       <input type="text" class="form-control" placeholder="Name" formControlName="name">
     </div>
-    <div class="input-group mb-3">
+    <div class="input-group mb-2">
       <input type="text" class="form-control" placeholder="Username" formControlName="userName">
     </div>
-    <div class="input-group mb-3">
+    <div class="input-group mb-2">
       <input type="password" class="form-control" placeholder="Password" formControlName="password">
     </div>
-    <div class="input-group mb-3">
+    <div class="input-group mb-2">
       <input appMask="cpf" type="text" class="form-control" placeholder="Ex.: 123.456.789-10" formControlName="cpf"
         maxlength="14">
       <input appMask="phone" type="text" class="form-control" placeholder="Ex.: (47) 31234-5678"

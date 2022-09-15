@@ -78,7 +78,7 @@ export class TaskListComponent implements OnInit {
 
   public newTask() {
     let dataTask = this.dialog.open(TaskCreateComponent, {
-      minWidth: "650px",
+      minWidth: "500px",
       disableClose: true,
     });
     this.subscription.push(
@@ -92,7 +92,7 @@ export class TaskListComponent implements OnInit {
 
   public navigateToTaskDetails(taskDetailsId: string) {
     let dataDetails = this.dialog.open(TaskDetailsComponent, {
-      minWidth: "650px",
+      minWidth: "500px",
       disableClose: true,
     });
 
@@ -105,7 +105,7 @@ export class TaskListComponent implements OnInit {
 
   public navigateToTaskUpdate(taskUpdateId: string) {
     let dataUpdate = this.dialog.open(TaskUpdateComponent, {
-      minWidth: "650px",
+      minWidth: "500px",
       disableClose: true,
     });
 
@@ -118,7 +118,7 @@ export class TaskListComponent implements OnInit {
 
   public navigateToTaskDelete(taskDeleteId: string) {
     let dataDelete = this.dialog.open(TaskDeleteComponent, {
-      minWidth: "650px",
+      minWidth: "500px",
       disableClose: true,
     });
 

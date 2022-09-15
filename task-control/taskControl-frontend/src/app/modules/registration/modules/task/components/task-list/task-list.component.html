@@ -3,7 +3,7 @@
   <nav>
     <ol class="breadcrumb">
       <fa-icon [icon]="faBars"></fa-icon>
-      <li class="breadcrumb-item p_pointer ml-5px"><a (click)="navigateToDashboard()"> Dashboard </a></li>
+      <li class="breadcrumb-item p-pointer ml-5px"><a (click)="navigateToDashboard()"> Dashboard </a></li>
       <li class="breadcrumb-item active"> Task list </li>
     </ol>
   </nav>
@@ -13,6 +13,7 @@
       <table class="table table-hover">
         <thead>
           <tr>
+            <th scope="col"> Activities </th>
             <th scope="col"> Generator </th>
             <th scope="col"> Title </th>
             <th scope="col"> Status </th>
@@ -22,15 +23,17 @@
         </thead>
         <tbody class="table-group-divider">
           <tr *ngFor="let task of tasks">
+            <td>
+              <button type="button" class="btn btn-success" matTooltip="Activities"
+                (click)="navigateToActivityByTask(task.id)">
+                <fa-icon [icon]="faTasks"></fa-icon>
+              </button>
+            </td>
             <td class="col-generator"> {{ task.generator.name }} </td>
             <td class="col-title"> {{ task.title }} </td>
             <td class="col-status"> {{ getStatusRef(task.status) }} </td>
             <td class="col-responsible"> {{ task.responsible?.name || "-" }} </td>
             <td class="col-sz-action-buttons">
-              <button type="button" class="btn btn-success" matTooltip="Activities"
-                (click)="navigateToActivityByTask(task.id)">
-                <fa-icon [icon]="faTasks"></fa-icon>
-              </button>
               <button type="button" class="btn btn-primary ml-5px" matTooltip="Details"
                 (click)="navigateToTaskDetails(task.id)">
                 <fa-icon [icon]="faMagnifyingGlass"></fa-icon>
@@ -49,7 +52,6 @@
       </table>
     </div>
   </div>
-
   <button type="button" class="btn btn-primary mt-10px" (click)="newTask()">
     <fa-icon [icon]="faPlus"></fa-icon>
     <span class="ml-5px"> Create task </span>

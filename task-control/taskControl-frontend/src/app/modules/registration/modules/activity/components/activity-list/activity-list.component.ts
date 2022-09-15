@@ -63,7 +63,28 @@ export class ActivityListComponent implements OnInit {
     ],
     sanitize: true,
     toolbarPosition: "top",
-    toolbarHiddenButtons: [["heading"], ["customClasses"]],
+    toolbarHiddenButtons: [
+      [
+        "subscript",
+        "superscript",
+        "justifyLeft",
+        "justifyCenter",
+        "justifyRight",
+        "justifyFull",
+        "indent",
+        "outdent",
+        "heading",
+        "fontName",
+      ],
+      [
+        "fontSize",
+        "customClasses",
+        "unlink",
+        "insertVideo",
+        "insertHorizontalRule",
+        "toggleEditorMode",
+      ],
+    ],
   };
   private taskId: string;
   public faArrowLeft = faArrowLeft;
@@ -182,7 +203,7 @@ export class ActivityListComponent implements OnInit {
 
   public newActivity(taskId) {
     let dataActivity = this.dialog.open(ActivityCreateComponent, {
-      minWidth: "650px",
+      minWidth: "500px",
       disableClose: true,
     });
 
@@ -195,7 +216,7 @@ export class ActivityListComponent implements OnInit {
 
   public navigateToActivityDetails(activityDetailsId: string) {
     let activityDetails = this.dialog.open(ActivityDetailsComponent, {
-      minWidth: "650px",
+      minWidth: "500px",
       disableClose: true,
     });
 
@@ -208,7 +229,7 @@ export class ActivityListComponent implements OnInit {
 
   public navigateToActivityUpdate(activityUpdateId: string) {
     let activityUpdate = this.dialog.open(ActivityUpdateComponent, {
-      minWidth: "650px",
+      minWidth: "500px",
       disableClose: true,
     });
 
@@ -221,7 +242,7 @@ export class ActivityListComponent implements OnInit {
 
   public navigateToActivityDelete(activityDeleteId: string) {
     let activityDelete = this.dialog.open(ActivityDeleteComponent, {
-      minWidth: "650px",
+      minWidth: "500px",
       disableClose: true,
     });
 

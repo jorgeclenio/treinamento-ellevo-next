@@ -14,6 +14,7 @@ import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
 export class LoginComponent implements OnInit {
   public title: string = "Login";
   public form: FormGroup;
+  public inputType = "password"
   public faUser = faUser;
   public faLock = faLock;
 

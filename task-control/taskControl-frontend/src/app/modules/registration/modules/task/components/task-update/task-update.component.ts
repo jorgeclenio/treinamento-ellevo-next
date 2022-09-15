@@ -43,7 +43,28 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
     ],
     sanitize: true,
     toolbarPosition: "top",
-    toolbarHiddenButtons: [["heading"], ["customClasses"]],
+    toolbarHiddenButtons: [
+      [
+        "subscript",
+        "superscript",
+        "justifyLeft",
+        "justifyCenter",
+        "justifyRight",
+        "justifyFull",
+        "indent",
+        "outdent",
+        "heading",
+        "fontName",
+      ],
+      [
+        "fontSize",
+        "customClasses",
+        "unlink",
+        "insertVideo",
+        "insertHorizontalRule",
+        "toggleEditorMode",
+      ],
+    ],
   };
   public faBan = faBan;
   public faPencil = faPencil;
@@ -86,7 +107,7 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
       title: ["", [Validators.required]],
       description: ["", [Validators.required]],
       status: ["", [Validators.required]],
-      responsible: [""],
+      responsible: [undefined],
     });
   }
 

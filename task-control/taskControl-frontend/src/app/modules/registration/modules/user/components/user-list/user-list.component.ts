@@ -62,7 +62,7 @@ export class UserListComponent implements OnInit {
 
   public newUser() {
     let dataUser = this.dialog.open(UserCreateComponent, {
-      minWidth: "650px",
+      minWidth: "500px",
       disableClose: true,
     });
     this.subscription.push(
@@ -72,7 +72,7 @@ export class UserListComponent implements OnInit {
 
   public navigateToUserDetails(userDetailsId: string) {
     let userDetails = this.dialog.open(UserDetailsComponent, {
-      minWidth: "650px",
+      minWidth: "500px",
       disableClose: true,
     });
 
@@ -85,7 +85,7 @@ export class UserListComponent implements OnInit {
 
   public navigateToUserUpdate(userUpdateId: string) {
     let userUpdate = this.dialog.open(UserUpdateComponent, {
-      minWidth: "650px",
+      minWidth: "500px",
       disableClose: true,
     });
 
@@ -98,7 +98,7 @@ export class UserListComponent implements OnInit {
 
   public navigateToUserDelete(userDeleteId: string) {
     let userDelete = this.dialog.open(UserDeleteComponent, {
-      minWidth: "650px",
+      minWidth: "500px",
       disableClose: true,
     });
 

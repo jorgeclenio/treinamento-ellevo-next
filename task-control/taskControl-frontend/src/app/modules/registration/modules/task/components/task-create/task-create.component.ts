@@ -90,7 +90,7 @@ export class TaskCreateComponent implements OnInit, OnDestroy {
       title: ["", [Validators.required]],
       description: ["", [Validators.required]],
       status: [Status.NotStarted, [Validators.required]],
-      responsibleId: [undefined],
+      responsibleId: [null],
     });
   }
 

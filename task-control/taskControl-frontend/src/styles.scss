@@ -6,75 +6,58 @@ html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
 table {
   width: 100% !important;
 }
 
-.p_pointer {
+.p-pointer {
   cursor: pointer;
 }
 
-// MARGIN LEFT SIZES ----------------------------
+.b-box {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
 .ml-5px {
   margin-left: 5px !important;
 }
+
 .ml-10px {
   margin-left: 10px !important;
 }
-.ml-15px {
-  margin-left: 15px !important;
-}
-.ml-20px {
-  margin-left: 20px !important;
-}
-// ----------------------------------------------
-// MARGIN TOP SIZES -----------------------------
+
 .mt-5px {
   margin-top: 5px !important;
 }
+
 .mt-10px {
   margin-top: 10px !important;
 }
-.mt-15px {
-  margin-top: 15px !important;
-}
-.mt-20px {
-  margin-top: 20px !important;
-}
-// ----------------------------------------------
-// MARGIN RIGHT SIZES ---------------------------
+
 .mr-5px {
   margin-right: 5px !important;
 }
+
 .mr-10px {
   margin-right: 10px !important;
 }
-.mr-15px {
-  margin-right: 15px !important;
-}
-.mr-20px {
-  margin-right: 20px !important;
-}
-// ----------------------------------------------
-// MARGIN BOTTOM SIZES --------------------------
+
 .mb-5px {
   margin-bottom: 5px !important;
 }
+
 .mb-10px {
   margin-bottom: 10px !important;
 }
-.mb-15px {
-  margin-bottom: 15px !important;
-}
-.mb-20px {
-  margin-bottom: 20px !important;
-}
-// ----------------------------------------------
-// SNACKBAR COLOR -------------------------------
+
 .snackbarSuccess.mat-snack-bar-container {
   border-radius: 0.5rem;
   background-color: #4caf50;
@@ -87,6 +70,7 @@ table {
     }
   }
 }
+
 .snackbarError.mat-snack-bar-container {
   border-radius: 0.5rem;
   background-color: #f44336;
@@ -99,18 +83,19 @@ table {
     }
   }
 }
-// ----------------------------------------------
-// STATUS COLOR ---------------------------------
+
 .c_not-started {
   color: #f44336;
 }
+
 .c_in-progress {
   color: #2196f3;
 }
+
 .c_waiting {
   color: #ffeb3b;
 }
+
 .c_concluded {
   color: #4caf50;
 }
-// ----------------------------------------------
