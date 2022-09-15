@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from "@angular/core";
-import { Subscription } from "rxjs";
+import { Subscriber, Subscription } from "rxjs";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material/dialog";
 import {
@@ -21,6 +21,7 @@ import { faBan, faPlus } from "@fortawesome/free-solid-svg-icons";
 export class TaskCreateComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   public subscription: Subscription[] = [];
+  public subscriber = new Subscriber();
   public statusEnum = Status;
   public users: User[] = [];
   public editorConfig: AngularEditorConfig = {
@@ -82,6 +83,14 @@ export class TaskCreateComponent implements OnInit, OnDestroy {
     this.generateForm();
     this.getUserData();
     this.closeDialogWithEscapeButton();
+    this.subscriber.add(
+      this.form.get("responsibleId").valueChanges.subscribe(
+        (val) => {
+        if (val === "null") {
+          this.form.get("responsibleId").reset()
+        }
+      })
+    );
   }
 
   public generateForm() {
@@ -90,7 +99,7 @@ export class TaskCreateComponent implements OnInit, OnDestroy {
       title: ["", [Validators.required]],
       description: ["", [Validators.required]],
       status: [Status.NotStarted, [Validators.required]],
-      responsibleId: [undefined || null],
+      responsibleId: [null],
     });
   }
 

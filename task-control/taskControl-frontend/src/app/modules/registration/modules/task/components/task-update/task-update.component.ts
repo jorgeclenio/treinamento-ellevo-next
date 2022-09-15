@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, OnDestroy, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
-import { Subscription } from "rxjs";
+import { Subscriber, Subscription } from "rxjs";
 import { SnackbarService, TaskService, UserService } from "./../../../../../shared/services";
 import { Status } from "./../../../../../shared/enums/status.enum";
 import { UpdateTask } from "./../../../../../registration/models/updateTask.model";
@@ -17,6 +17,7 @@ import { faBan, faPencil } from "@fortawesome/free-solid-svg-icons";
 export class TaskUpdateComponent implements OnInit, OnDestroy {
   public form: FormGroup;
   public subscription: Subscription[] = [];
+  public subscriber = new Subscriber();
   public users: User[] = [];
   public tasks: Task[] = [];
   public taskUpdateId: string;
@@ -83,6 +84,14 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
     this.showTaskData();
     this.getUserData();
     this.closeDialogWithEscapeButton();
+    this.subscriber.add(
+      this.form.get("responsible").valueChanges.subscribe(
+        (val) => {
+        if (val === "null") {
+          this.form.get("responsible").reset()
+        }
+      })
+    );
   }
 
   public getUserData() {
@@ -107,7 +116,7 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
       title: ["", [Validators.required]],
       description: ["", [Validators.required]],
       status: ["", [Validators.required]],
-      responsible: [""],
+      responsible: [null],
     });
   }
 
@@ -120,7 +129,7 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
           this.form.get("title").setValue(taskData.title);
           this.form.get("description").setValue(taskData.description);
           this.form.get("status").setValue(taskData.status);
-          this.form.get("responsible").setValue(taskData.responsible ? taskData.responsible.id : undefined || null);
+          this.form.get("responsible").setValue(taskData.responsible ? taskData.responsible.id : null);
           this.cdr.detectChanges();
         },
         (error) => {
