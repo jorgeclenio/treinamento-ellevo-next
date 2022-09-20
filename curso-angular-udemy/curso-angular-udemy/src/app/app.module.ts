@@ -7,17 +7,19 @@ import { FormsModule } from '@angular/forms';
 
 import { DataBindingComponent } from './data-binding/data-binding.component';
 import { DiretivasEstruturaisComponent } from './diretivas-estruturais/diretivas-estruturais.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     DataBindingComponent,
-    DiretivasEstruturaisComponent
+    DiretivasEstruturaisComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    SharedModule
   ],
   providers: [
   ],

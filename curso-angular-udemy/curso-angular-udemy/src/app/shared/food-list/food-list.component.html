@@ -1,0 +1,11 @@
+<div class="container">
+  <li *ngFor="let item of foodList" class="mt-2">
+    <div class="input-group input-group-lg">
+      <button class="btn btn-outline-secondary" disabled type="button"> {{ item.id }} </button>
+      <input type="text" class="form-control" [(ngModel)]="item.nome" (keyup.enter)="foodListEdit(item.nome, item.id)">
+      <button type="button" class="btn btn-outline-danger" (click)="foodListDelete(item.id)">
+        <i class="bi bi-trash3"></i>
+      </button>
+    </div>
+  </li>
+</div>
