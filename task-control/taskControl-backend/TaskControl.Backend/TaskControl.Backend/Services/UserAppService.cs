@@ -28,7 +28,7 @@ namespace TaskControl.Backend.Services
         {
             var userEntity = _mapper.Map<AddUserModel, UserEntity>(addUserModel);
 
-            _userCollection.InsertOne(userEntity);
+            await _userCollection.InsertOneAsync(userEntity);
             return userEntity;
         }
 
@@ -67,7 +67,7 @@ namespace TaskControl.Backend.Services
 
         public async Task<JwtModel> Login(LoginModel login)
         {
-            var userEntity = _userCollection.Find(user => user.UserName == login.UserName).FirstOrDefault();
+            var userEntity = await _userCollection.Find(user => user.UserName == login.UserName).FirstOrDefaultAsync();
 
             if (userEntity.Password != TaskControlCryptography.Encrypt(login.Password))
             {

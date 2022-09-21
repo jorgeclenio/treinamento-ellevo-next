@@ -14,7 +14,7 @@ export class UserService {
 
   public login(loginData: Login): Observable<any> {
     return this.httpClient.post<JwtToken>(
-      "${environment.apiUrl}/login",
+      `${environment.apiUrl()}/login`,
       loginData
     );
   }
@@ -27,7 +27,7 @@ export class UserService {
   }
 
   public tokenVerification(): Observable<any> {
-    return this.httpClient.get(`${environment.apiUrl}/token-verification`, {
+    return this.httpClient.get(`${environment.apiUrl()}/token-verification`, {
       responseType: "text",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt_token")}`,
@@ -36,7 +36,7 @@ export class UserService {
   }
 
   public getUsers(): Observable<any> {
-    return this.httpClient.get<Array<User>>(`${environment.apiUrl}/user`, {
+    return this.httpClient.get<Array<User>>(`${environment.apiUrl()}/user`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt_token")}`,
       },
@@ -44,7 +44,7 @@ export class UserService {
   }
 
   public getUserById(id: string): Observable<any> {
-    return this.httpClient.get<User>(`${environment.apiUrl}/user/${id}`, {
+    return this.httpClient.get<User>(`${environment.apiUrl()}/user/${id}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt_token")}`,
       },
@@ -52,7 +52,7 @@ export class UserService {
   }
 
   public postUser(userData: AddUser): Observable<any> {
-    return this.httpClient.post(`${environment.apiUrl}/user`, userData, {
+    return this.httpClient.post(`${environment.apiUrl()}/user`, userData, {
       responseType: "text",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt_token")}`,
@@ -61,7 +61,7 @@ export class UserService {
   }
 
   public updateUser(id: string, userData: UpdateUser): Observable<any> {
-    return this.httpClient.put(`${environment.apiUrl}/user/${id}`, userData, {
+    return this.httpClient.put(`${environment.apiUrl()}/user/${id}`, userData, {
       responseType: "text",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt_token")}`,
@@ -70,7 +70,7 @@ export class UserService {
   }
 
   public deleteUser(id: string): Observable<any> {
-    return this.httpClient.delete(`${environment.apiUrl}/user/${id}`, {
+    return this.httpClient.delete(`${environment.apiUrl()}/user/${id}`, {
       responseType: "text",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt_token")}`,

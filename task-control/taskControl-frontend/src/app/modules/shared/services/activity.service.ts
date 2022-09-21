@@ -17,7 +17,7 @@ export class ActivityService {
 
   public getActivities(taskId: string): Observable<any> {
     return this.httpClient.get<Array<Activity>>(
-      `${environment.apiUrl}/activity/task/${taskId}`,
+      `${environment.apiUrl()}/activity/task/${taskId}`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("jwt_token")}`,
@@ -28,7 +28,7 @@ export class ActivityService {
 
   public getActivityById(id: string): Observable<any> {
     return this.httpClient.get<Activity>(
-      `${environment.apiUrl}/activity/${id}`,
+      `${environment.apiUrl()}/activity/${id}`,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("jwt_token")}`,
@@ -39,7 +39,7 @@ export class ActivityService {
 
   public postActivity(activityData: AddActivity): Observable<any> {
     return this.httpClient.post(
-      "${environment.apiUrl}/activity",
+      "${environment.apiUrl()}/activity",
       activityData,
       {
         responseType: "text",
@@ -55,7 +55,7 @@ export class ActivityService {
     activityData: UpdateActivity
   ): Observable<any> {
     return this.httpClient.put(
-      `${environment.apiUrl}/activity/${id}`,
+      `${environment.apiUrl()}/activity/${id}`,
       activityData,
       {
         responseType: "text",
@@ -67,7 +67,7 @@ export class ActivityService {
   }
 
   public deleteActivity(id: string): Observable<any> {
-    return this.httpClient.delete(`${environment.apiUrl}/activity/${id}`, {
+    return this.httpClient.delete(`${environment.apiUrl()}/activity/${id}`, {
       responseType: "text",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("jwt_token")}`,

@@ -25,21 +25,18 @@ namespace TaskControl.Backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // transição da interface para a classe;
             services.AddTransient<IActivityAppService, ActivityAppService>();
             services.AddTransient<ITaskAppService, TaskAppService>();
             services.AddTransient<IUserAppService, UserAppService>();
 
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-            // database;
             services.Configure<TaskControlDbDatabaseSettings>(
                 Configuration.GetSection(nameof(TaskControlDbDatabaseSettings)));
 
             services.AddSingleton<ITaskControlDbDatabaseSettings>(sp =>
                 sp.GetRequiredService<IOptions<TaskControlDbDatabaseSettings>>().Value);
 
-            // controllers;
             services.AddControllers();
 
             var key = Encoding.ASCII.GetBytes(Settings.Secret);
@@ -61,13 +58,11 @@ namespace TaskControl.Backend
                 };
             });
 
-            // swagger;
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "TaskControl.Backend", Version = "v1" });
             });
 
-            // cors calling frontend;
             services.AddCors(options =>
             {
                 options.AddDefaultPolicy(policy =>
@@ -80,7 +75,6 @@ namespace TaskControl.Backend
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            // swagger;
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
@@ -96,7 +90,6 @@ namespace TaskControl.Backend
 
             app.UseRouting();
 
-            // cors;
             app.UseCors(x => x
                 .AllowAnyOrigin()
                 .AllowAnyMethod()

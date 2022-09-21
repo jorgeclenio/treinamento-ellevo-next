@@ -26,7 +26,7 @@ namespace TaskControl.Backend.Services
         {
             var activityEntity = _mapper.Map<AddActivityModel, ActivityEntity>(addActivityModel);
 
-            _activityCollection.InsertOne(activityEntity);
+            await _activityCollection.InsertOneAsync(activityEntity);
             return activityEntity;
         }
 
