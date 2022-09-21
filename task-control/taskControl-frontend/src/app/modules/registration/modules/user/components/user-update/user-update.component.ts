@@ -78,7 +78,7 @@ export class UserUpdateComponent implements OnInit, OnDestroy {
     const user: UpdateUser = this.form.value;
     this.subscription.push(
       this.userService.updateUser(this.userUpdateId, user).subscribe(
-        (returnUserUpdated) => {
+        () => {
           this.snackbar.showSnackbarSuccess("User updated successfully.");
           this.dialogRef.close();
         },

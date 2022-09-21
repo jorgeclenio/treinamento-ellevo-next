@@ -48,7 +48,7 @@ export class UserDeleteComponent implements OnInit {
   public deleteUser() {
     this.subscriptions.add(
       this.userService.deleteUser(this.userDeleteId).subscribe(
-        (returnUserDeleted) => {
+        () => {
           this.snackbar.showSnackbarSuccess("User deleted successfully.");
           this.dialogRef.close();
         },

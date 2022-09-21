@@ -48,7 +48,7 @@ export class TaskDeleteComponent implements OnInit {
   public deleteTask() {
     this.subscriptions.add(
       this.taskService.deleteTask(this.taskDeleteId).subscribe(
-        (returnTaskDeleted) => {
+        () => {
           this.snackbar.showSnackbarSuccess("Task deleted successfully.");
           this.dialogRef.close();
         },

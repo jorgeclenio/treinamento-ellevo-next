@@ -84,10 +84,9 @@ export class TaskCreateComponent implements OnInit, OnDestroy {
     this.getUserData();
     this.closeDialogWithEscapeButton();
     this.subscriber.add(
-      this.form.get("responsibleId").valueChanges.subscribe(
-        (val) => {
+      this.form.get("responsibleId").valueChanges.subscribe((val) => {
         if (val === "null") {
-          this.form.get("responsibleId").reset()
+          this.form.get("responsibleId").reset();
         }
       })
     );
@@ -99,7 +98,7 @@ export class TaskCreateComponent implements OnInit, OnDestroy {
       title: ["", [Validators.required]],
       description: ["", [Validators.required]],
       status: [Status.NotStarted, [Validators.required]],
-      responsibleId: [null],
+      responsibleId: [undefined],
     });
   }
 
@@ -127,7 +126,7 @@ export class TaskCreateComponent implements OnInit, OnDestroy {
     task.status = parseInt(this.form.get("status").value);
     this.subscription.push(
       this.taskService.postTask(task).subscribe(
-        (returnTaskCreated) => {
+        () => {
           this.snackbar.showSnackbarSuccess("Task created successfully.");
           this.dialogRef.close();
         },

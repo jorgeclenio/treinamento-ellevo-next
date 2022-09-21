@@ -7,7 +7,6 @@ import {
   HeaderComponent,
   TitleComponent,
 } from "./../shared/components";
-import { CamelCasePipe, CpfPipe, EmailPipe, PhoneNumberPipe } from "./pipes";
 
 @NgModule({
   declarations: [
@@ -16,10 +15,6 @@ import { CamelCasePipe, CpfPipe, EmailPipe, PhoneNumberPipe } from "./pipes";
     FormDebugComponent,
     HeaderComponent,
     TitleComponent,
-    CamelCasePipe,
-    CpfPipe,
-    EmailPipe,
-    PhoneNumberPipe,
   ],
   imports: [CommonModule],
   exports: [

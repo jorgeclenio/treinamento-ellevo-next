@@ -51,7 +51,7 @@ export class ActivityDeleteComponent implements OnInit {
   public deleteActivity() {
     this.subscriptions.add(
       this.activityService.deleteActivity(this.activityDeleteId).subscribe(
-        (returnActivityDeleted) => {
+        () => {
           this.snackbar.showSnackbarSuccess("Activity deleted successfully.");
           this.dialogRef.close();
         },

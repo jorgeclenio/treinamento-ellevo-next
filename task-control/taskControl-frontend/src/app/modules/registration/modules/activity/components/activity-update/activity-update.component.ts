@@ -81,7 +81,7 @@ export class ActivityUpdateComponent implements OnInit, OnDestroy {
 
   public generateForm() {
     this.form = this.fb.group({
-      description: [null, [Validators.required]],
+      description: [undefined, [Validators.required]],
       taskId: [],
     });
   }
@@ -113,7 +113,7 @@ export class ActivityUpdateComponent implements OnInit, OnDestroy {
       this.activityService
         .updateActivity(this.activityUpdateId, activity)
         .subscribe(
-          (returnActivityUpdated) => {
+          () => {
             this.snackbar.showSnackbarSuccess("Activity updated successfully.");
             this.dialogRef.close();
           },

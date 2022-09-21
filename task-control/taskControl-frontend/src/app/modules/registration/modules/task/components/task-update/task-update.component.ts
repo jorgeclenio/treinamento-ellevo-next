@@ -2,7 +2,11 @@ import { ChangeDetectorRef, Component, OnDestroy, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef } from "@angular/material";
 import { Subscriber, Subscription } from "rxjs";
-import { SnackbarService, TaskService, UserService } from "./../../../../../shared/services";
+import {
+  SnackbarService,
+  TaskService,
+  UserService,
+} from "./../../../../../shared/services";
 import { Status } from "./../../../../../shared/enums/status.enum";
 import { UpdateTask } from "./../../../../../registration/models/updateTask.model";
 import { User, Task } from "./../../../../../registration/models";
@@ -76,7 +80,7 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
     private fb: FormBuilder,
     private snackbar: SnackbarService,
     private cdr: ChangeDetectorRef,
-    private userService: UserService,
+    private userService: UserService
   ) {}
 
   ngOnInit() {
@@ -85,10 +89,9 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
     this.getUserData();
     this.closeDialogWithEscapeButton();
     this.subscriber.add(
-      this.form.get("responsible").valueChanges.subscribe(
-        (val) => {
+      this.form.get("responsible").valueChanges.subscribe((val) => {
         if (val === "null") {
-          this.form.get("responsible").reset()
+          this.form.get("responsible").reset();
         }
       })
     );
@@ -116,7 +119,7 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
       title: ["", [Validators.required]],
       description: ["", [Validators.required]],
       status: ["", [Validators.required]],
-      responsible: [null],
+      responsible: [undefined],
     });
   }
 
@@ -129,7 +132,11 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
           this.form.get("title").setValue(taskData.title);
           this.form.get("description").setValue(taskData.description);
           this.form.get("status").setValue(taskData.status);
-          this.form.get("responsible").setValue(taskData.responsible ? taskData.responsible.id : null);
+          this.form
+            .get("responsible")
+            .setValue(
+              taskData.responsible ? taskData.responsible.id : undefined
+            );
           this.cdr.detectChanges();
         },
         (error) => {
@@ -156,7 +163,7 @@ export class TaskUpdateComponent implements OnInit, OnDestroy {
     };
     this.subscription.push(
       this.taskService.updateTask(this.taskUpdateId, task).subscribe(
-        (returnTaskUpdate) => {
+        () => {
           this.snackbar.showSnackbarSuccess("Task updated successfully.");
           this.dialogRef.close();
         },

@@ -41,7 +41,7 @@ export class MaskDirective implements OnInit, OnDestroy {
 
   private buildCleave(options: Object = {}): void {
     const hostEl = this.hostElRef.nativeElement;
-    const cleaveOptions = this.getCleaveOptions(hostEl.value);
+    const cleaveOptions = this.getCleaveOptions();
     this.cleave = new Cleave(hostEl, {
       ...cleaveOptions,
       ...options,
@@ -69,7 +69,7 @@ export class MaskDirective implements OnInit, OnDestroy {
     }
   }
 
-  private getCleaveOptions(currentValue: string): Object {
+  private getCleaveOptions(): Object {
     switch (this.appMask) {
       case "cpf":
         return {

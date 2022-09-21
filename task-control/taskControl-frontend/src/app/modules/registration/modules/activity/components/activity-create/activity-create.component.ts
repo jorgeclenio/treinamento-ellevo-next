@@ -92,7 +92,7 @@ export class ActivityCreateComponent implements OnInit, OnDestroy {
     const activity: AddActivity = this.form.value;
     this.subscription.push(
       this.activityService.postActivity(activity).subscribe(
-        (returnActivityCreated) => {
+        () => {
           this.snackbar.showSnackbarSuccess("Activity created successfully.");
           this.dialogRef.close();
         },
