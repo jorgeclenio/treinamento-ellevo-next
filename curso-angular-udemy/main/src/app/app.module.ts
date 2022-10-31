@@ -1,28 +1,25 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
+import { MaterialModule } from "./material.module";
+
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
 import { HomeComponent } from "./home/home.component";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
-import { NavbarComponent } from "./shared/components/navbar/navbar.component";
-import { FooterComponent } from "./shared/components/footer/footer.component";
-import { AboutComponent } from "./shared/pages/about/about.component";
-import { NotFoundComponent } from "./shared/pages/not-found/not-found.component";
-import { ProjectsComponent } from "./modules/projects/projects.component";
+import { SharedModule } from "./modules/shared";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    NavbarComponent,
-    FooterComponent,
-    AboutComponent,
-    NotFoundComponent,
-    ProjectsComponent,
+  declarations: [AppComponent, HomeComponent],
+  imports: [
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    MaterialModule,
+    SharedModule,
   ],
-  imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })

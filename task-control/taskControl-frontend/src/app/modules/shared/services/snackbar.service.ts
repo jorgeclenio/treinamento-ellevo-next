@@ -14,7 +14,7 @@ export class SnackbarService {
 
   error_messages = {
     service_failure:
-      "Sorry about this, the system is having some issues t. Please refresh the page or try again.",
+      "Sorry about this, the system is having some issues. Please refresh the page or try again.",
   };
 
   constructor(private snackbar: MatSnackBar) {}
