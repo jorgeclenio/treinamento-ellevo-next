@@ -14,5 +14,11 @@ import { TodoListComponent } from "./todo/components/todo-list/todo-list.compone
     TodoListComponent,
   ],
   imports: [CommonModule],
+  exports: [
+    HeaderComponent,
+    TodoButtomDeleteAllComponent,
+    TodoInputAddItemsComponent,
+    TodoListComponent,
+  ],
 })
 export class HomeModule {}

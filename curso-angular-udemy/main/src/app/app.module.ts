@@ -10,9 +10,7 @@ import { NavbarComponent } from "./shared/components/navbar/navbar.component";
 import { FooterComponent } from "./shared/components/footer/footer.component";
 import { AboutComponent } from "./shared/pages/about/about.component";
 import { NotFoundComponent } from "./shared/pages/not-found/not-found.component";
-import { ProjectsComponent } from './modules/projects/projects.component';
-
-
+import { ProjectsComponent } from "./modules/projects/projects.component";
 
 @NgModule({
   declarations: [
