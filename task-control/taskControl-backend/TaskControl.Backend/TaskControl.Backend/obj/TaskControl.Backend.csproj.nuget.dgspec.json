@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\repositories\\treinamento-ellevo-next\\task-control\\taskControl-backend\\TaskControl.Backend\\TaskControl.Backend\\TaskControl.Backend.csproj": {}
+    "E:\\001.Estudos\\001.GitHub\\treinamento-ellevo-next\\task-control\\taskControl-backend\\TaskControl.Backend\\TaskControl.Backend\\TaskControl.Backend.csproj": {}
   },
   "projects": {
-    "C:\\repositories\\treinamento-ellevo-next\\task-control\\taskControl-backend\\TaskControl.Backend\\TaskControl.Backend\\TaskControl.Backend.csproj": {
+    "E:\\001.Estudos\\001.GitHub\\treinamento-ellevo-next\\task-control\\taskControl-backend\\TaskControl.Backend\\TaskControl.Backend\\TaskControl.Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\repositories\\treinamento-ellevo-next\\task-control\\taskControl-backend\\TaskControl.Backend\\TaskControl.Backend\\TaskControl.Backend.csproj",
+        "projectUniqueName": "E:\\001.Estudos\\001.GitHub\\treinamento-ellevo-next\\task-control\\taskControl-backend\\TaskControl.Backend\\TaskControl.Backend\\TaskControl.Backend.csproj",
         "projectName": "TaskControl.Backend",
-        "projectPath": "C:\\repositories\\treinamento-ellevo-next\\task-control\\taskControl-backend\\TaskControl.Backend\\TaskControl.Backend\\TaskControl.Backend.csproj",
-        "packagesPath": "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\.nuget\\packages\\",
-        "outputPath": "C:\\repositories\\treinamento-ellevo-next\\task-control\\taskControl-backend\\TaskControl.Backend\\TaskControl.Backend\\obj\\",
+        "projectPath": "E:\\001.Estudos\\001.GitHub\\treinamento-ellevo-next\\task-control\\taskControl-backend\\TaskControl.Backend\\TaskControl.Backend\\TaskControl.Backend.csproj",
+        "packagesPath": "C:\\Users\\jorge\\.nuget\\packages\\",
+        "outputPath": "E:\\001.Estudos\\001.GitHub\\treinamento-ellevo-next\\task-control\\taskControl-backend\\TaskControl.Backend\\TaskControl.Backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Jorge Clênio.DESKTOP-T1ILL4C\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -71,7 +71,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -83,7 +84,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.413\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
